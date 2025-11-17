@@ -1291,18 +1291,8 @@ onScroll();
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-  /* PARALLAX SCROLL REVEAL */
-const parallaxSections = document.querySelectorAll(".parallax-section");
+  
 
-const parallaxObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-    }
-  });
-},{threshold: 0.2});
-
-parallaxSections.forEach(sec => parallaxObserver.observe(sec));
 /* PARALLAX SCROLL REVEAL + MOVEMENT */
 const parallaxSections = document.querySelectorAll(".parallax-section");
 
@@ -1325,10 +1315,7 @@ function updateParallax() {
     const scrollY = window.scrollY || window.pageYOffset;
     const sectionTop = rect.top + scrollY;
 
-    // how far we've scrolled past the top of the section
     const distance = scrollY - sectionTop;
-
-    // adjust speed here (0.25 = smooth)
     const offset = distance * 0.25;
 
     bg.style.transform = `translateY(${offset}px) scale(1.1)`;
