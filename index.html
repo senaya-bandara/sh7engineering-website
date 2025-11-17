@@ -578,31 +578,32 @@
     }
 
     /* FLOATING CONTACT BUTTON */
-    #contact-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle at 20% 0, #ffe5e5, var(--primary));
-      border-radius: 999px;
-      display: flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-size:22px;
-      cursor:pointer;
-      box-shadow: 0 16px 40px rgba(15,23,42,0.35);
-      z-index:100;
-      border: 1px solid rgba(248,250,252,0.7);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-    }
+   #contact-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366; /* WhatsApp green */
+  border-radius: 999px;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  z-index:100;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    #contact-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 55px rgba(15,23,42,0.4);
-      filter: brightness(1.04);
-    }
+#contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.35);
+}
+
+.wa-icon {
+  width: 32px;
+  height: 32px;
+}
 
     /* BACK TO TOP BUTTON */
     #back-to-top {
@@ -1040,7 +1041,10 @@
 
 
 <!-- FLOATING CONTACT BUTTON -->
-<div id="contact-btn">✉️</div>
+<div id="contact-btn">
+  <img src="whatsapp.png" alt="WhatsApp" class="wa-icon" />
+</div>
+
 
 <!-- BACK TO TOP BUTTON -->
 <div id="back-to-top">↑</div>
@@ -1103,8 +1107,9 @@ type();
 const btn = document.getElementById('contact-btn');
 const form = document.getElementById('contact-form');
 btn.onclick = () => {
-  form.style.display = form.style.display === 'block' ? 'none' : 'block';
+  window.open("https://wa.me/94769737089", "_blank");
 };
+
 
 /* SEND BUTTON → mailto fallback */
 document.getElementById("sendBtn").onclick = () => {
