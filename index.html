@@ -915,6 +915,51 @@
       transform: translateY(0);
     }
 
+    .stats-strip {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 40px 10px;
+}
+
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+  background: #0f172a;
+  border-radius: 18px;
+  padding: 14px 22px;
+  box-shadow: 0 20px 50px rgba(15,23,42,0.45);
+  color: #e5e7eb;
+}
+
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #9ca3af;
+}
+
+.stat-number {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f9fafb;
+  margin-top: 4px;
+}
+
+.stat-footnote {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+@media (max-width: 800px) {
+  .stats-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       * {
@@ -1023,6 +1068,27 @@
     </div>
   </div>
 </section>
+
+  <section class="stats-strip fade-in">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-label">Product Lines</span>
+      <span class="stat-number counter" data-target="120">0</span>
+      <span class="stat-footnote">Pneumatics, sensors & more</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Industries Served</span>
+      <span class="stat-number counter" data-target="15">0</span>
+      <span class="stat-footnote">From FMCG to packaging</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Response Time</span>
+      <span class="stat-number">≤ 24h</span>
+      <span class="stat-footnote">Average on working days</span>
+    </div>
+  </div>
+</section>
+
 
 <section id="about" class="parallax-section">
   <div class="parallax-bg"></div>
@@ -1355,6 +1421,38 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 fadeEls.forEach(el => observer.observe(el));
+// STATS COUNTER
+const counters = document.querySelectorAll(".counter");
+let countersStarted = false;
+
+function runCounters() {
+  if (countersStarted) return;
+  countersStarted = true;
+
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target, 10) || 0;
+    let current = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      current = Math.floor(progress * target);
+      counter.textContent = current.toLocaleString();
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) runCounters();
+  });
+}, { threshold: 0.3 });
+
+const statsStrip = document.querySelector(".stats-strip");
+if (statsStrip) statsObserver.observe(statsStrip);
 
 function onScroll() {
 
