@@ -26,6 +26,40 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+    /* PARALLAX BACKGROUND SECTION */
+.parallax-section {
+  position: relative;
+  padding: 120px 40px;
+  color: var(--black);
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("images/factory-bg.jpg"); /* your image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0;
+  transform: scale(1.2);
+  transition: opacity 1s ease-out, transform 1.2s ease-out;
+  z-index: -1;
+  filter: brightness(0.45);  /* makes text readable */
+}
+
+.parallax-section.visible .parallax-bg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Parallax text styling */
+.parallax-content {
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+}
+
 
     body {
       margin: 0;
@@ -930,23 +964,24 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="fade-in">
-  <div class="section-header">
-    <div>
-      <div class="section-pill">About</div>
-      <h2 class="section-title">About SH7 Engineering Solutions</h2>
-    </div>
+<section id="about" class="parallax-section">
+  <div class="parallax-bg"></div>
+
+  <div class="parallax-content fade-in">
+    <div class="section-pill">About</div>
+    <h2 class="section-title">About SH7 Engineering Solutions</h2>
     <p class="section-subtitle">
-      We partner with factories, engineering teams, and project owners to source reliable parts and deliver practical technical support across Sri Lanka.
+      Trusted partner in sourcing industrial components, engineering support, and smart automation solutions.
+    </p>
+
+    <p style="font-size:14px; color:var(--white); line-height:1.8;">
+      SH7 Engineering Solutions provides industrial pneumatics, automation components, motion control systems,
+      and technical support across Sri Lanka. We help factories minimize downtime by supplying reliable parts,
+      giving quick recommendations, and ensuring your machines stay running.
     </p>
   </div>
-  <p style="font-size:14px; color:var(--text-muted); max-width:760px; line-height:1.7;">
-    SH7 Engineering Solutions focuses on industrial pneumatics, automation, motion control, and sensing solutions.
-    From a single replacement sensor to small-scale panel upgrades, we respond quickly, recommend what works
-    in the field, and support you until your machine is back in operation.
-  </p>
 </section>
+
 
 <!-- PRODUCTS -->
 <section id="products" class="fade-in">
@@ -1246,6 +1281,19 @@ onScroll();
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+  /* PARALLAX SCROLL REVEAL */
+const parallaxSections = document.querySelectorAll(".parallax-section");
+
+const parallaxObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+},{threshold: 0.2});
+
+parallaxSections.forEach(sec => parallaxObserver.observe(sec));
+
 
 /* SIMPLE TILT EFFECT */
 const tiltElements = document.querySelectorAll(".tilt");
