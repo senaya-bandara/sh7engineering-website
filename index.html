@@ -47,11 +47,11 @@
   margin: 0 auto;
   padding: 120px 40px;
   z-index: 2;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
-  border-radius: 26px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
 }
+
 
 
 /* darken background image a bit more */
@@ -88,14 +88,7 @@
 }
 
 
-/* inner content still aligns with other sections */
-.parallax-inner {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 120px 40px;         /* same horizontal padding as others */
-  z-index: 2;
-}
+
 
 .parallax-bg {
   position: absolute;
