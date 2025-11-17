@@ -4,72 +4,199 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SH7 Engineering Solutions</title>
+
   <style>
     :root {
       --red: #e00000;
-      --black: #000000;
-      --white: #ffffff;
-      --accent1: #5227FF;
-      --accent2: #FF9FFC;
-      --accent3: #B19EEF;
+      --black: #000;
+      --white: #fff;
     }
-    html,body { height:100%; margin:0; font-family:Inter, Arial, sans-serif; background:var(--white); color:var(--black); }
-    /* Header */
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* HEADER */
     header {
-      position:fixed; top:0; left:0; right:0;
-      height:72px; display:flex; align-items:center; justify-content:space-between;
-      padding:12px 28px; background:rgba(0,0,0,0.88); color:var(--white);
-      z-index:50; box-shadow:0 6px 18px rgba(0,0,0,0.25);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 72px;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 100;
     }
-    .logo { font-weight:700; color:var(--red); font-size:20px; letter-spacing:0.3px; }
-    nav a { color:var(--white); text-decoration:none; margin-left:22px; transition:color .18s; font-weight:600; }
-    nav a:hover { color:var(--red); }
+
+    .logo {
+      font-size: 22px;
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
 
     /* HERO */
-    .hero-wrap { margin-top:72px; position:relative; height:75vh; min-height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
-    /* Canvas covers the hero area */
-    #liquid-canvas { position:absolute; inset:0; width:100%; height:100%; z-index:1; display:block; }
-    /* a subtle overlay so text is readable */
-    .hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.55)); z-index:2; pointer-events:none; }
-    .hero-content { position:relative; z-index:3; text-align:center; padding:24px; color:var(--white); max-width:1100px; }
-    .hero-content h1 { margin:0; font-size: clamp(26px, 3.6vw, 48px); line-height:1.05; text-shadow:0 10px 30px rgba(0,0,0,0.6); }
+    .hero {
+      margin-top: 72px;
+      height: 75vh;
+      min-height: 420px;
+      background: url("https://images.unsplash.com/photo-1581091012184-5c1d48ff0a5b") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
 
-    /* Sections */
-    section { padding:70px 40px; max-width:1100px; margin:0 auto; }
-    h2 { margin-top:0; color:var(--black); }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.6);
+    }
 
-    /* Tiles */
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:22px; }
-    .tile { background:#fff; border-radius:12px; padding:22px; box-shadow:0 8px 24px rgba(0,0,0,0.08); border-top:6px solid var(--red); transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s; }
-    .tile:hover { transform:translateY(-10px); box-shadow:0 18px 40px rgba(0,0,0,0.12); }
+    .hero-content {
+      position:relative;
+      z-index:2;
+      padding: 20px;
+    }
 
-    /* Floating contact button + popup */
+    /* TYPING EFFECT */
+    .typing-container {
+      font-size: 48px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+      display: inline-block;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      background: white;
+      margin-left: 5px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    /* TILES */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 25px;
+    }
+
+    .tile {
+      background: #fff;
+      padding: 22px;
+      border-radius: 10px;
+      border-top: 6px solid var(--red);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .tile:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    /* FLOATING CONTACT BUTTON */
     #contact-btn {
-      position:fixed; right:22px; bottom:22px; z-index:60;
-      width:64px; height:64px; border-radius:50%; background:var(--red); color:white; display:flex; align-items:center; justify-content:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.25); cursor:pointer; font-size:28px;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:28px;
+      cursor:pointer;
+      box-shadow:0 8px 25px rgba(0,0,0,0.3);
+      z-index:100;
     }
-    #contact-form {
-      position:fixed; right:22px; bottom:102px; z-index:60; width:360px; max-width:calc(100% - 48px);
-      background:#fff; color:#111; padding:18px; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.18);
-      display:none;
-    }
-    #contact-form h3 { margin:0 0 8px 0; }
-    #contact-form input, #contact-form textarea {
-      width:100%; padding:10px 12px; margin-top:8px; border-radius:8px; border:1px solid #ddd; font-size:14px;
-    }
-    #contact-form button { margin-top:12px; width:100%; padding:12px; border-radius:8px; border:0; background:var(--red); color:white; font-weight:700; cursor:pointer; }
 
-    /* small screens */
-    @media (max-width:640px) {
-      header { padding:10px 16px; }
-      nav a { display:none; }
-      #contact-form { right:14px; left:14px; }
+    /* CONTACT FORM */
+    #contact-form {
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      width: 320px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: none;
+      z-index: 100;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    #contact-form button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: var(--red);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
+
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="logo">SH7 Engineering</div>
   <nav>
@@ -81,253 +208,132 @@
   </nav>
 </header>
 
-<!-- HERO with a canvas liquid background -->
-<div class="hero-wrap" id="home">
-  <canvas id="liquid-canvas"></canvas>
-
-  <!-- overlay + heading -->
-  <div class="hero-overlay"></div>
+<!-- HERO -->
+<div class="hero" id="home">
   <div class="hero-content">
-    <h1>Innovative Engineering Solutions, Designed for Precision and Performance</h1>
+    <h1 class="typing-container">
+      <span id="typing"></span>
+      <span class="typing-cursor"></span>
+    </h1>
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>About Us</h2>
-  <p>SH7 Engineering Solutions specializes in delivering high-quality engineering products and services with a focus on innovation, precision, and global-standard reliability.</p>
+  <p>
+    SH7 Engineering Solutions specializes in delivering high-quality engineering products and services
+    built on global-standard precision, innovation, and reliability.
+  </p>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products">
-  <h2>Products</h2>
+  <h2>Our Products</h2>
   <div class="grid">
-    <div class="tile">Pneumatic Spare Parts (Airtac, SMC, Festo, ...)</div>
-    <div class="tile">Industrial Sensors & Switches (Autonics, Omron, Keyence, ...)</div>
-    <div class="tile">PLC & HMI Systems (Mitsubishi, Siemens, Schneider, ...)</div>
+    <div class="tile">Pneumatic Spare Parts</div>
+    <div class="tile">Industrial Sensors & Switches</div>
+    <div class="tile">PLC & HMI Systems</div>
     <div class="tile">Servo Motors & Drivers</div>
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
-  <h2>Services</h2>
+  <h2>Our Services</h2>
   <div class="grid">
-    <div class="tile">Technical Support & Troubleshooting</div>
-    <div class="tile">Machine Programming & Debugging</div>
-    <div class="tile">3D Modeling, Printing & Scanning</div>
-    <div class="tile">Machine Designing</div>
+    <div class="tile">Technical Support</div>
+    <div class="tile">Machine Programming</div>
+    <div class="tile">Troubleshooting</div>
+    <div class="tile">3D Modeling & Printing</div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: sh7engineering@gmail.com<br>Phone: +94 77 9323 391<br>Office: Temples Road, Mount Lavinia</p>
+  <h2>Contact Us</h2>
+  <p>
+    Email: sh7engineering@gmail.com<br>
+    Phone: +94 77 932 3391<br>
+    Address: Temples Road, Mount Lavinia
+  </p>
 </section>
 
-<!-- Floating phone icon + popup form -->
-<div id="contact-btn" title="Request a solution">📞</div>
-<div id="contact-form" aria-hidden="true">
+<!-- FLOATING CONTACT BUTTON -->
+<div id="contact-btn">📞</div>
+
+<!-- CONTACT FORM -->
+<div id="contact-form">
   <h3>Request a Solution</h3>
-  <input id="cname" placeholder="Your name" />
-  <input id="cemail" placeholder="Your email" />
+  <input id="cname" placeholder="Your Name" />
+  <input id="cemail" placeholder="Your Email" />
   <textarea id="cdesc" rows="4" placeholder="Describe your requirement"></textarea>
   <button id="sendBtn">Send Request</button>
-  <p style="font-size:12px;color:#666;margin-top:8px;">We'll email you back at the address you provide.</p>
 </div>
 
+
+<!-- JS: Typing + Contact Form -->
 <script>
-/* ------------- Liquid / Metaballs background (vanilla JS) -------------
-   - Properly sizes canvas to the hero element (accounts for DPR)
-   - Uses radial gradients + additive blending to get colorful goo
-   - Uses a very lightweight metaball style for good performance
---------------------------------------------------------------------- */
+/* TYPING EFFECT */
+const text = [
+  "Innovative Engineering Solutions, Designed for Precision and Performance"
+];
 
-(function () {
-  const canvas = document.getElementById('liquid-canvas');
-  const ctx = canvas.getContext('2d', { alpha: true });
-  const container = document.querySelector('.hero-wrap');
+let i = 0;
+let j = 0;
+let isDeleting = false;
+const speed = 60;
+const delSpeed = 30;
+const pause = 1800;
 
-  // blobs configuration
-  const colors = ['#5227FF', '#FF9FFC', '#B19EEF'];
-  const blobs = [];
-  const BLOB_COUNT = 4;
+function type() {
+  const typingEl = document.getElementById("typing");
+  const current = text[i];
 
-  // handle device pixel ratio
-  function resizeCanvas() {
-    const rect = container.getBoundingClientRect();
-    const dpr = Math.max(window.devicePixelRatio || 1, 1);
-    canvas.width = Math.round(rect.width * dpr);
-    canvas.height = Math.round(rect.height * dpr);
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function initBlobs() {
-    blobs.length = 0;
-    const rect = container.getBoundingClientRect();
-    for (let i = 0; i < BLOB_COUNT; i++) {
-      const r = 80 + Math.random() * 140;
-      blobs.push({
-        x: Math.random() * rect.width,
-        y: Math.random() * rect.height,
-        vx: (Math.random() - 0.5) * 1.1,
-        vy: (Math.random() - 0.5) * 0.8,
-        r,
-        color: colors[i % colors.length]
-      });
+  if (!isDeleting) {
+    typingEl.textContent = current.substring(0, j + 1);
+    j++;
+    if (j === current.length) {
+      setTimeout(() => (isDeleting = true), pause);
+    }
+  } else {
+    typingEl.textContent = current.substring(0, j - 1);
+    j--;
+    if (j === 0) {
+      isDeleting = false;
     }
   }
 
-  function draw() {
-    const rect = container.getBoundingClientRect();
-    ctx.clearRect(0, 0, rect.width, rect.height);
+  setTimeout(type, isDeleting ? delSpeed : speed);
+}
 
-    // draw the blobs as radial gradients with globalCompositeOperation 'lighter'
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = 'rgba(0,0,0,0)';
-    ctx.fillRect(0,0,rect.width,rect.height);
-    ctx.globalCompositeOperation = 'lighter';
+type();
 
-    for (const b of blobs) {
-      const g = ctx.createRadialGradient(b.x, b.y, b.r * 0.15, b.x, b.y, b.r);
-      // bright center -> transparent edges
-      g.addColorStop(0, hexToRgba(b.color, 0.95));
-      g.addColorStop(0.3, hexToRgba(b.color, 0.55));
-      g.addColorStop(1, hexToRgba(b.color, 0.06));
-      ctx.beginPath();
-      ctx.fillStyle = g;
-      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
+/* CONTACT BUTTON POPUP */
+const btn = document.getElementById('contact-btn');
+const form = document.getElementById('contact-form');
+btn.onclick = () => {
+  form.style.display = form.style.display === 'block' ? 'none' : 'block';
+};
 
-    // subtle blur effect using canvas filter (supported in modern browsers)
-    // we draw to an offscreen canvas if needed, but for simplicity use ctx.filter
-    // NOTE: ctx.filter affects subsequent draws — we'll not rely on it heavily.
+/* SEND BUTTON → mailto fallback */
+document.getElementById("sendBtn").onclick = () => {
+  const name = document.getElementById("cname").value;
+  const email = document.getElementById("cemail").value;
+  const desc = document.getElementById("cdesc").value;
+
+  if (!email || !desc) {
+    alert("Please enter your email and requirement.");
+    return;
   }
 
-  function update() {
-    const rect = container.getBoundingClientRect();
-    for (const b of blobs) {
-      b.x += b.vx;
-      b.y += b.vy;
+  const subject = encodeURIComponent("Engineering Solution Request");
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nRequirement:\n${desc}`
+  );
 
-      // simple attraction pairs to create organic motion
-      for (const o of blobs) {
-        if (o === b) continue;
-        const dx = o.x - b.x, dy = o.y - b.y;
-        const dist = Math.sqrt(dx*dx + dy*dy) + 0.0001;
-        const force = Math.min(0.08, (b.r + o.r) / (dist * 1200));
-        b.vx += (dx / dist) * force * 0.02;
-        b.vy += (dy / dist) * force * 0.02;
-      }
-
-      // bounds bounce
-      if (b.x - b.r < 0) { b.x = b.r; b.vx *= -1; }
-      if (b.y - b.r < 0) { b.y = b.r; b.vy *= -1; }
-      if (b.x + b.r > rect.width) { b.x = rect.width - b.r; b.vx *= -1; }
-      if (b.y + b.r > rect.height) { b.y = rect.height - b.r; b.vy *= -1; }
-
-      // small damping
-      b.vx *= 0.995;
-      b.vy *= 0.995;
-    }
-  }
-
-  let raf = null;
-  function loop() {
-    update();
-    draw();
-    raf = requestAnimationFrame(loop);
-  }
-
-  // utility: hex to rgba
-  function hexToRgba(hex, alpha = 1) {
-    const c = hex.replace('#','');
-    const bigint = parseInt(c, 16);
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
-    return `rgba(${r},${g},${b},${alpha})`;
-  }
-
-  // interaction - mouse follower that nudges nearby blobs
-  const pointer = { x: -9999, y: -9999, active: false };
-  function onMove(e) {
-    const rect = container.getBoundingClientRect();
-    pointer.x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    pointer.y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-    pointer.active = true;
-  }
-  function onLeave() { pointer.active = false; pointer.x = -9999; pointer.y = -9999; }
-
-  function applyPointer() {
-    if (!pointer.active) return;
-    for (const b of blobs) {
-      const dx = pointer.x - b.x, dy = pointer.y - b.y;
-      const dist2 = dx*dx + dy*dy;
-      if (dist2 < (b.r*3)*(b.r*3)) {
-        const dist = Math.sqrt(dist2) + 0.0001;
-        const f = 0.6 * (1 - (dist / (b.r*3)));
-        b.vx += (dx / dist) * f * 0.6;
-        b.vy += (dy / dist) * f * 0.6;
-      }
-    }
-  }
-
-  // start
-  function start() {
-    resizeCanvas();
-    initBlobs();
-    if (raf) cancelAnimationFrame(raf);
-    function frame() {
-      applyPointer();
-      update();
-      draw();
-      raf = requestAnimationFrame(frame);
-    }
-    frame();
-  }
-
-  // listeners
-  window.addEventListener('resize', () => { resizeCanvas(); initBlobs(); });
-  container.addEventListener('mousemove', onMove);
-  container.addEventListener('touchmove', onMove, {passive:true});
-  container.addEventListener('mouseleave', onLeave);
-  container.addEventListener('touchend', onLeave);
-
-  // initial run
-  start();
-
-  // expose for debugging (optional)
-  window._sh7Liquid = { start, blobs };
-
-})();
-
-/* ---------------------- Contact button functionality ---------------------- */
-(function () {
-  const btn = document.getElementById('contact-btn');
-  const form = document.getElementById('contact-form');
-  const send = document.getElementById('sendBtn');
-
-  btn.addEventListener('click', () => {
-    form.style.display = (form.style.display === 'block') ? 'none' : 'block';
-    form.setAttribute('aria-hidden', form.style.display === 'none' ? 'true' : 'false');
-  });
-
-  // Basic form send -> open mailto as fallback
-  send.addEventListener('click', () => {
-    const name = document.getElementById('cname').value.trim();
-    const email = document.getElementById('cemail').value.trim();
-    const desc = document.getElementById('cdesc').value.trim();
-    if (!email || !desc) {
-      alert('Please add your email and a short description of the solution you need.');
-      return;
-    }
-    const subject = encodeURIComponent('SH7 - Solution Request from ' + (name || 'Website'));
-    const body = encodeURIComponent('Name: ' + (name || '') + '\nEmail: ' + email + '\n\nRequirement:\n' + desc);
-    // fallback to mailto for immediate demo
-    window.location.href = `mailto:sh7engineering@gmail.com?subject=${subject}&body=${body}`;
-  });
-})();
+  window.location.href = `mailto:sh7engineering@gmail.com?subject=${subject}&body=${body}`;
+};
 </script>
 
 </body>
