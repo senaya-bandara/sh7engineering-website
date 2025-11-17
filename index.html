@@ -10,8 +10,8 @@
 
   <style>
     :root {
-      --primary: #e11d48;       /* main red */
-      --primary-soft: #fb7185;  /* softer red */
+      --primary: #e11d48;
+      --primary-soft: #fb7185;
       --black: #111827;
       --black-soft: #1f2933;
       --white: #ffffff;
@@ -56,28 +56,24 @@
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       color: var(--black);
     }
 
-    .logo-mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 10px;
-      background: radial-gradient(circle at 20% 0, #fee2e2, var(--primary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: 800;
-      color: #fff;
-      box-shadow: 0 8px 18px rgba(248,113,113,0.5);
+    .logo-img {
+      height: 32px;          /* adjust if needed */
+      width: auto;
+      display: block;
+    }
+
+    .logo-text-main {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     nav {
@@ -668,8 +664,9 @@
 <!-- HEADER -->
 <header>
   <div class="logo">
-    <div class="logo-mark">S</div>
-    <span>SH7 Engineering</span>
+    <!-- replace logo.png with your actual logo file path -->
+    <img src="logo.png" alt="SH Engineering Solutions" class="logo-img" />
+    <span class="logo-text-main">ENGINEERING SOLUTIONS</span>
   </div>
   <nav>
     <a href="#home">Home</a>
