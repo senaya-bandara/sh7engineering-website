@@ -28,6 +28,37 @@
     }
 /* FULL-WIDTH PARALLAX SECTION */
 /* FULL-WIDTH PARALLAX SECTION */
+    /* ABOUT parallax text styling */
+.parallax-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  z-index: 2;
+  background: radial-gradient(circle at top, rgba(0,0,0,0.55), rgba(0,0,0,0.78));
+  border-radius: 26px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+}
+
+/* darken background image a bit more */
+.parallax-bg {
+  filter: brightness(0.3) saturate(1.1);
+}
+
+/* white text for ABOUT section */
+.parallax-section .section-title {
+  color: #ffffff;
+}
+
+.parallax-section .section-title::after {
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), transparent);
+}
+
+.parallax-section .section-subtitle {
+  color: rgba(255,255,255,0.85);
+}
+
 .parallax-section {
   position: relative;
   width: 100vw;                /* full screen width */
@@ -1330,36 +1361,6 @@ function updateParallax() {
 
 window.addEventListener("scroll", updateParallax);
 window.addEventListener("load", updateParallax);
-/* ABOUT parallax text styling */
-.parallax-inner {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 120px 40px;
-  z-index: 2;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.55), rgba(0,0,0,0.78));
-  border-radius: 26px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
-}
-
-/* darken background image a bit more */
-.parallax-bg {
-  filter: brightness(0.3) saturate(1.1);
-}
-
-/* white text for ABOUT section */
-.parallax-section .section-title {
-  color: #ffffff;
-}
-
-.parallax-section .section-title::after {
-  background: linear-gradient(90deg, rgba(255,255,255,0.9), transparent);
-}
-
-.parallax-section .section-subtitle {
-  color: rgba(255,255,255,0.85);
-}
 
 
 /* SIMPLE TILT EFFECT */
