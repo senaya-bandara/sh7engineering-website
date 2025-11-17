@@ -10,9 +10,9 @@
 
   <style>
     :root {
-      --primary: #D00607;       /* main red */
-      --primary-soft: #D00607;  /* soft red - same tone for strong brand */
-      --black: #111827;
+      --primary: #D00607;
+      --primary-soft: #D00607;
+      --black: #0b1120;
       --white: #ffffff;
       --bg-page: #f4f5f7;
       --text-main: #111827;
@@ -30,9 +30,11 @@
     body {
       margin: 0;
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #fff2f2 0, var(--bg-page) 35%, #f9fafb 100%);
       color: var(--text-main);
+      background:
+        radial-gradient(circle at top, #fff2f2 0, var(--bg-page) 40%, #f9fafb 100%),
+        linear-gradient(135deg, rgba(17,24,39,0.02) 0, rgba(17,24,39,0.06) 100%);
+      background-attachment: fixed;
     }
 
     a {
@@ -49,11 +51,21 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 40px;
-      z-index: 100;
-      background: rgba(255,255,255,0.96);
+      z-index: 200;
+      background: radial-gradient(circle at top left, rgba(255,242,242,0.75), rgba(255,255,255,0.96));
       border-bottom: 1px solid rgba(148,163,184,0.35);
       backdrop-filter: blur(12px);
       transition: box-shadow 0.25s ease, background 0.25s ease, transform 0.2s ease;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: auto 40px 0 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(208,6,7,0.5), transparent);
+      opacity: 0.6;
+      pointer-events: none;
     }
 
     header.scrolled {
@@ -70,7 +82,7 @@
     }
 
     .logo-img {
-      height: 34px;  /* adjust to your PNG */
+      height: 34px;
       width: auto;
       display: block;
     }
@@ -126,13 +138,14 @@
     /* HERO */
     .hero {
       margin-top: 72px;
-      min-height: 80vh;
+      min-height: 82vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 40px 80px;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
 
     .hero::before {
@@ -140,9 +153,22 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at 10% 0%, rgba(208,6,7,0.16) 0, transparent 50%),
-        radial-gradient(circle at 90% 30%, rgba(0,0,0,0.06) 0, transparent 60%);
+        radial-gradient(circle at 10% 0%, rgba(208,6,7,0.18) 0, transparent 50%),
+        radial-gradient(circle at 90% 20%, rgba(15,23,42,0.14) 0, transparent 60%);
       opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 10% 8%;
+      background-image:
+        linear-gradient(rgba(148,163,184,0.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,0.16) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.25;
+      mask-image: radial-gradient(circle at top, black, transparent 70%);
       pointer-events: none;
     }
 
@@ -174,15 +200,17 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.96);
       border: 1px solid rgba(148,163,184,0.7);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--primary);
       margin-bottom: 12px;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+      animation: float-soft 4s ease-in-out infinite;
     }
 
     .hero-tagline-dot {
@@ -197,7 +225,7 @@
       margin-top: 6px;
       font-size: 14px;
       color: var(--text-muted);
-      max-width: 480px;
+      max-width: 500px;
     }
 
     .hero-cta {
@@ -294,14 +322,15 @@
 
     /* HERO SIDE PANEL */
     .hero-panel {
-      background: #ffffff;
-      border-radius: 22px;
+      background: radial-gradient(circle at top, #fef2f2, #ffffff);
+      border-radius: 24px;
       padding: 20px 20px 22px;
       border: 1px solid rgba(17,24,39,0.08);
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
       transform-style: preserve-3d;
+      animation: float-soft 6s ease-in-out infinite;
     }
 
     .hero-panel::before {
@@ -309,12 +338,12 @@
       position: absolute;
       inset: -1px;
       background: conic-gradient(
-        from 180deg,
-        rgba(208,6,7,0.6),
+        from 200deg,
+        rgba(208,6,7,0.7),
         transparent,
-        rgba(17,24,39,0.17),
+        rgba(17,24,39,0.18),
         transparent,
-        rgba(208,6,7,0.6)
+        rgba(208,6,7,0.7)
       );
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -322,15 +351,16 @@
     }
 
     .hero-panel:hover::before {
-      opacity: 0.9;
+      opacity: 0.85;
     }
 
     .hero-panel-inner {
       position: relative;
       z-index: 1;
-      background: #ffffff;
+      background: rgba(255,255,255,0.96);
       border-radius: 18px;
-      padding: 6px 4px 2px;
+      padding: 10px 10px 8px;
+      box-shadow: 0 10px 26px rgba(15,23,42,0.12);
     }
 
     .panel-title {
@@ -421,11 +451,32 @@
       color: var(--black);
     }
 
+    @keyframes float-soft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
     /* SECTIONS */
     section {
       padding: 70px 40px;
       max-width: 1100px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0 40px auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(148,163,184,0.4), transparent);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    section:first-of-type::before {
+      display: none;
     }
 
     @media (max-width: 700px) {
@@ -435,27 +486,42 @@
       section {
         padding: 60px 20px;
       }
+      section::before {
+        inset: 0 20px auto;
+      }
     }
 
     .section-header {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
       margin-bottom: 24px;
-      flex-wrap: wrap;
     }
 
     .section-title {
       font-size: 24px;
       margin: 0;
       color: var(--black);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 56px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      opacity: 0.9;
     }
 
     .section-subtitle {
       font-size: 13px;
       color: var(--text-muted);
-      max-width: 360px;
+      max-width: 700px;
     }
 
     .section-pill {
@@ -463,103 +529,108 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--primary);
+    }
+
+    /* GRID / TILES */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 24px;
+    }
+
+    .tile {
+      background: rgba(255,255,255,0.98);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(17,24,39,0.06);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease, background 0.25s ease;
+    }
+
+    .tile:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(15,23,42,0.18);
+      border-color: rgba(208,6,7,0.65);
+      background: #ffffff;
+    }
+
+    .tile-image-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tile-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.25), transparent 60%);
+      opacity: 0.2;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .tile:hover .tile-image-wrap::after {
+      opacity: 0.4;
+    }
+
+    .tile-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 0.4s ease;
+    }
+
+    .tile:hover .tile-image-wrap img {
+      transform: scale(1.08);
+    }
+
+    .tile-body {
+      padding: 18px 20px 20px;
+    }
+
+    .tile-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 6px;
     }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 24px;
-  }
+    .tile-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+      line-height: 1.4;
+    }
 
-  .tile {
-    background: #ffffff;
-    border-radius: 22px;
-    overflow: hidden;
-    border: 1px solid rgba(17,24,39,0.06);
-    box-shadow: 0 18px 40px rgba(15,23,42,0.08);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
-  }
+    .tile-arrow {
+      font-size: 18px;
+      color: #D00607;
+      flex-shrink: 0;
+    }
 
-  .tile:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 26px 60px rgba(15,23,42,0.18);
-    border-color: rgba(208,6,7,0.65);
-  }
+    .tile-text {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
 
-  .tile-image-wrap {
-    width: 100%;
-    aspect-ratio: 4 / 3;          /* change to 3/4 if you want taller portrait */
-    overflow: hidden;
-  }
+    .tile-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: #6b7280;
+    }
 
-  .tile-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.03);
-    transition: transform 0.4s ease;
-  }
-
-  .tile:hover .tile-image-wrap img {
-    transform: scale(1.08);
-  }
-
-  .tile-body {
-    padding: 18px 20px 20px;
-  }
-
-  .tile-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-
-  .tile-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #111827;
-    line-height: 1.4;
-  }
-
-  .tile-arrow {
-    font-size: 18px;
-    color: #D00607;
-    flex-shrink: 0;
-  }
-
-  .tile-text {
-    font-size: 13px;
-    color: #6b7280;
-    line-height: 1.6;
-    margin-bottom: 8px;
-  }
-
-  .tile-list {
-    margin: 0;
-    padding-left: 18px;
-    font-size: 13px;
-    color: #6b7280;
-  }
-
-  .tile-list li {
-    margin-bottom: 3px;
-  }
-
-#about .section-header {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-#about .section-subtitle {
-  max-width: 760px;   /* optional, to match main paragraph width */
-}
-
+    .tile-list li {
+      margin-bottom: 3px;
+    }
 
     /* CONTACT SECTION TEXT */
     .contact-details p {
@@ -577,47 +648,35 @@
       margin-bottom: 2px;
     }
 
-    /* FLOATING CONTACT BUTTON */
-#contact-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  background: #25D366; /* WhatsApp green */
-  border-radius: 999px;
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
-  z-index:100;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+    /* FLOATING WHATSAPP BUTTON */
+    #contact-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 999px;
+      display: flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      z-index:150;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-#contact-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 55px rgba(0,0,0,0.35);
-}
+    #contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.35);
+    }
 
-.wa-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;     /* makes the image round */
-  object-fit: cover;       /* crops it neatly */
-}
-
-
-
-#contact-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 55px rgba(0,0,0,0.35);
-}
-
-.wa-icon {
-  width: 32px;
-  height: 32px;
-}
+    .wa-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
     /* BACK TO TOP BUTTON */
     #back-to-top {
@@ -648,28 +707,7 @@
       transform: translateY(0);
     }
 
-    #products .section-header {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-#products .section-subtitle {
-  max-width: 700px;
-}
-
-    #services .section-header {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-#services .section-subtitle {
-  max-width: 700px;
-}
-
-
-    /* CONTACT FORM */
+    /* CONTACT FORM (still available but hidden trigger – keep for future use if needed) */
     #contact-form {
       position: fixed;
       bottom: 100px;
@@ -785,7 +823,7 @@
       transform: translateY(0);
     }
 
-    /* Reduce motion for users that prefer it */
+    /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       * {
         scroll-behavior: auto;
@@ -797,6 +835,10 @@
         opacity: 1 !important;
         transform: none !important;
       }
+      .hero-panel,
+      .hero-tagline {
+        animation: none !important;
+      }
     }
   </style>
 </head>
@@ -806,8 +848,7 @@
 <!-- HEADER -->
 <header>
   <div class="logo">
-    <!-- replace logo.png with your PNG file -->
-    <img src="Untitled design (2).png" alt="SH7 Engineering Solutions" class="logo-img" />
+    <img src="logo.png" alt="SH7 Engineering Solutions" class="logo-img" />
   </div>
   <nav>
     <a href="#home" class="nav-link">Home</a>
@@ -907,8 +948,7 @@
   </p>
 </section>
 
-<!-- 2) PRODUCTS – example tiles like your screenshot -->
-
+<!-- PRODUCTS -->
 <section id="products" class="fade-in">
   <div class="section-header">
     <div>
@@ -922,9 +962,9 @@
 
   <div class="grid">
     <!-- Card 1 -->
-    <div class="tile">
+    <div class="tile tilt">
       <div class="tile-image-wrap">
-        <img src="image1.webp" alt="Pneumatic spare parts" />
+        <img src="images/pneumatics.jpg" alt="Pneumatic spare parts" />
       </div>
       <div class="tile-body">
         <div class="tile-title-row">
@@ -945,9 +985,9 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="tile">
+    <div class="tile tilt">
       <div class="tile-image-wrap">
-        <img src="image2.jpg" alt="Industrial sensors and switches" />
+        <img src="images/sensors.jpg" alt="Industrial sensors and switches" />
       </div>
       <div class="tile-body">
         <div class="tile-title-row">
@@ -968,49 +1008,9 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="tile">
+    <div class="tile tilt">
       <div class="tile-image-wrap">
-        <img src="image4.jpg" alt="PLC And HMI" />
-      </div>
-      <div class="tile-body">
-        <div class="tile-title-row">
-          <h3 class="tile-title">PLC & HMI Supply</h3>
-          <span class="tile-arrow">›</span>
-        </div>
-        <p class="tile-text">
-          We supply a comprehensive range of PLC & HMI from globally recognized brands, ensuring seamless automation, reliable performance, and ease of integration in industrial systems.
-        </p>
-        <ul class="tile-list">
-          <li>Autonics</li>
-          <li>SICK</li>
-          <li>Pepperl+Fuchs</li>
-          <li>Omron</li>
-          <li>Keyence</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<!-- 3) SERVICES – same structure, with different images/text -->
-
-<section id="services" class="fade-in">
-  <div class="section-header">
-    <div>
-      <div class="section-pill">Services</div>
-      <h2 class="section-title">What We Can Help You With</h2>
-    </div>
-    <p class="section-subtitle">
-      Practical engineering support focused on solving real problems quickly with the right parts and solutions.
-    </p>
-  </div>
-
-  <div class="grid">
-    
-    <div class="tile">
-      <div class="tile-image-wrap">
-        <img src="image3.webp" alt="3D services" />
+        <img src="images/3d-services.jpg" alt="3D services" />
       </div>
       <div class="tile-body">
         <div class="tile-title-row">
@@ -1028,10 +1028,25 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
 
-      <div class="tile">
+<!-- SERVICES -->
+<section id="services" class="fade-in">
+  <div class="section-header">
+    <div>
+      <div class="section-pill">Services</div>
+      <h2 class="section-title">What We Can Help You With</h2>
+    </div>
+    <p class="section-subtitle">
+      Practical engineering support focused on solving real problems quickly with the right parts and solutions.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="tile tilt">
       <div class="tile-image-wrap">
-        <img src="image5.jpg" alt="Technical support" />
+        <img src="images/technical-support.jpg" alt="Technical support" />
       </div>
       <div class="tile-body">
         <div class="tile-title-row">
@@ -1049,21 +1064,52 @@
       </div>
     </div>
 
-    <!-- duplicate for other services with different images/text -->
+    <!-- Add more service tiles here with different images/text if needed -->
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <div class="section-header">
+    <div>
+      <div class="section-pill">Contact</div>
+      <h2 class="section-title">Contact Us</h2>
+    </div>
+    <p class="section-subtitle">
+      Share your part numbers, photos, or a brief description of your requirement. We’ll respond with options and guidance.
+    </p>
+  </div>
 
-<!-- FLOATING CONTACT BUTTON -->
+  <div class="grid">
+    <div class="contact-details">
+      <p>
+        <span class="label">Email</span>
+        sh7engineering@gmail.com
+      </p>
+      <p>
+        <span class="label">Phone / WhatsApp</span>
+        +94 77 932 3391
+      </p>
+      <p>
+        <span class="label">Address</span>
+        Temples Road, Mount Lavinia, Sri Lanka
+      </p>
+      <p style="margin-top:14px; font-size:13px; color:var(--text-muted);">
+        Send your machine photos, nameplates, or part lists – we’ll help you match the right component or solution.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP BUTTON -->
 <div id="contact-btn">
-  <img src="whatsapp.jpg.avif" alt="WhatsApp" class="wa-icon" />
+  <img src="whatsapp.png" alt="WhatsApp" class="wa-icon" />
 </div>
-
 
 <!-- BACK TO TOP BUTTON -->
 <div id="back-to-top">↑</div>
 
-<!-- CONTACT FORM -->
+<!-- CONTACT FORM (kept for future use if needed) -->
 <div id="contact-form">
   <h3>Request a Solution</h3>
   <p>Tell us what you need and we’ll get back with options and pricing.</p>
@@ -1083,7 +1129,7 @@
 <script>
 /* TYPING EFFECT */
 const text = [
-  "Your Trusted Partner in Industrial Automation"
+  "Your Trusted Partner in Industrial Automation & Components"
 ];
 
 let i = 0;
@@ -1117,15 +1163,15 @@ function type() {
 }
 type();
 
-/* CONTACT BUTTON POPUP */
+/* FLOATING WHATSAPP BUTTON → open WhatsApp chat */
 const btn = document.getElementById('contact-btn');
 const form = document.getElementById('contact-form');
+
 btn.onclick = () => {
-  window.open("https://wa.me/94769737089", "_blank");
+  window.open("https://wa.me/94779323391", "_blank");
 };
 
-
-/* SEND BUTTON → mailto fallback */
+/* SEND BUTTON → mailto fallback (if you ever show contact form) */
 document.getElementById("sendBtn").onclick = () => {
   const name = document.getElementById("cname").value.trim();
   const email = document.getElementById("cemail").value.trim();
@@ -1150,7 +1196,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 /* SIMPLE SCROLL FADE-IN + ACTIVE NAV + HEADER / BACK-TO-TOP */
 const fadeEls = document.querySelectorAll(".fade-in");
 const navLinks = document.querySelectorAll(".nav-link");
-const header = document.querySelector("header");
+const headerEl = document.querySelector("header");
 const backToTop = document.getElementById("back-to-top");
 
 const sectionIds = ["home","about","products","services","contact"];
@@ -1169,26 +1215,23 @@ fadeEls.forEach(el => observer.observe(el));
 function onScroll() {
   const scrollY = window.scrollY || window.pageYOffset;
 
-  // Header style
   if (scrollY > 10) {
-    header.classList.add("scrolled");
+    headerEl.classList.add("scrolled");
   } else {
-    header.classList.remove("scrolled");
+    headerEl.classList.remove("scrolled");
   }
 
-  // Back to top visibility
   if (scrollY > 300) {
     backToTop.classList.add("visible");
   } else {
     backToTop.classList.remove("visible");
   }
 
-  // Active nav link
   let currentId = "home";
   for (const section of sections) {
     const rect = section.getBoundingClientRect();
-    const offsetTop = rect.top + scrollY - 80;
-    if (scrollY >= offsetTop - 1) {
+    const offsetTop = rect.top + scrollY - 120;
+    if (scrollY >= offsetTop) {
       currentId = section.id;
     }
   }
@@ -1207,7 +1250,7 @@ backToTop.addEventListener("click", () => {
 /* SIMPLE TILT EFFECT */
 const tiltElements = document.querySelectorAll(".tilt");
 tiltElements.forEach(el => {
-  const strength = 10; // degrees
+  const strength = 10;
   el.addEventListener("mousemove", (e) => {
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left;
