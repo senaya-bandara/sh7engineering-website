@@ -21,6 +21,18 @@
       --shadow-soft: 0 18px 40px rgba(15,23,42,0.08);
       --shadow-strong: 0 26px 60px rgba(15,23,42,0.18);
     }
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #d00607, #ff7a7a);
+  z-index: 999;
+  pointer-events: none;
+}
 
     * {
       box-sizing: border-box;
@@ -924,6 +936,8 @@
 </head>
 
 <body>
+  <div id="scroll-bar"></div>
+
 
 <!-- HEADER -->
 <header>
@@ -1343,6 +1357,11 @@ const observer = new IntersectionObserver((entries) => {
 fadeEls.forEach(el => observer.observe(el));
 
 function onScroll() {
+
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+const progress = docHeight > 0 ? (scrollY / docHeight) : 0;
+document.getElementById("scroll-bar").style.transform = `scaleX(${progress})`;
+
   const scrollY = window.scrollY || window.pageYOffset;
 
   if (scrollY > 10) {
