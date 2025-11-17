@@ -466,82 +466,91 @@
       margin-bottom: 6px;
     }
 
-    /* GRID / TILES */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-      gap: 22px;
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 24px;
+  }
 
-    .tile {
-      position: relative;
-      background: #ffffff;
-      padding: 22px 20px 20px;
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border 0.25s ease,
-        background 0.25s ease;
-      font-weight: 500;
-      font-size: 14px;
-      overflow: hidden;
-      transform-style: preserve-3d;
-    }
+  .tile {
+    background: #ffffff;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(17,24,39,0.06);
+    box-shadow: 0 18px 40px rgba(15,23,42,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+  }
 
-    .tile::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(208,6,7,0.18), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
+  .tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 60px rgba(15,23,42,0.18);
+    border-color: rgba(208,6,7,0.65);
+  }
 
-    .tile:hover {
-      transform: translateY(-6px) translateZ(0);
-      box-shadow: var(--shadow-strong);
-      border-color: rgba(208,6,7,0.7);
-      background: #ffffff;
-    }
+  .tile-image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;          /* change to 3/4 if you want taller portrait */
+    overflow: hidden;
+  }
 
-    .tile:hover::before {
-      opacity: 1;
-    }
+  .tile-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.03);
+    transition: transform 0.4s ease;
+  }
 
-    .tile-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.17em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
+  .tile:hover .tile-image-wrap img {
+    transform: scale(1.08);
+  }
 
-    .tile-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-    }
+  .tile-body {
+    padding: 18px 20px 20px;
+  }
 
-    .tile-main span.name {
-      font-size: 15px;
-      color: var(--black);
-    }
+  .tile-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
 
-    .tile-main span.icon {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+  .tile-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.4;
+  }
 
-    .tile-foot {
-      margin-top: 8px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
+  .tile-arrow {
+    font-size: 18px;
+    color: #D00607;
+    flex-shrink: 0;
+  }
+
+  .tile-text {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .tile-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .tile-list li {
+    margin-bottom: 3px;
+  }
+</style>
+
 
     /* CONTACT SECTION TEXT */
     .contact-details p {
@@ -853,7 +862,8 @@
   </p>
 </section>
 
-<!-- PRODUCTS -->
+<!-- 2) PRODUCTS – example tiles like your screenshot -->
+
 <section id="products" class="fade-in">
   <div class="section-header">
     <div>
@@ -866,53 +876,79 @@
   </div>
 
   <div class="grid">
-    <div class="tile tilt">
-      <div class="tile-label">Pneumatics</div>
-      <div class="tile-main">
-        <span class="name">Pneumatic Spare Parts</span>
-        <span class="icon">🛠️</span>
+    <!-- Card 1 -->
+    <div class="tile">
+      <div class="tile-image-wrap">
+        <img src="images/pneumatics.jpg" alt="Pneumatic spare parts" />
       </div>
-      <div class="tile-foot">
-        Cylinders, fittings, valves, tubing, and accessories for new installations and maintenance.
-      </div>
-    </div>
-
-    <div class="tile tilt">
-      <div class="tile-label">Sensing & Safety</div>
-      <div class="tile-main">
-        <span class="name">Industrial Sensors & Switches</span>
-        <span class="icon">📡</span>
-      </div>
-      <div class="tile-foot">
-        Proximity, photoelectric, limit switches, encoders, and more for precise detection and feedback.
-      </div>
-    </div>
-
-    <div class="tile tilt">
-      <div class="tile-label">Automation</div>
-      <div class="tile-main">
-        <span class="name">PLC & HMI Systems</span>
-        <span class="icon">💻</span>
-      </div>
-      <div class="tile-foot">
-        Compact PLCs, HMIs, and accessories for control panels, machine retrofits, and new projects.
+      <div class="tile-body">
+        <div class="tile-title-row">
+          <h3 class="tile-title">Pneumatic spare parts supply</h3>
+          <span class="tile-arrow">›</span>
+        </div>
+        <p class="tile-text">
+          We supply high-quality pneumatic spare parts, sensors, actuators, cylinders, and fittings from globally trusted brands, including:
+        </p>
+        <ul class="tile-list">
+          <li>Airtac</li>
+          <li>SMC</li>
+          <li>Festo</li>
+          <li>STNC</li>
+          <li>Chelic</li>
+        </ul>
       </div>
     </div>
 
-    <div class="tile tilt">
-      <div class="tile-label">Motion</div>
-      <div class="tile-main">
-        <span class="name">Servo Motors & Drivers</span>
-        <span class="icon">⚡</span>
+    <!-- Card 2 -->
+    <div class="tile">
+      <div class="tile-image-wrap">
+        <img src="images/sensors.jpg" alt="Industrial sensors and switches" />
       </div>
-      <div class="tile-foot">
-        Servo systems and drivers for precise positioning, indexing, and custom machine applications.
+      <div class="tile-body">
+        <div class="tile-title-row">
+          <h3 class="tile-title">Industrial sensors, switches & instruments</h3>
+          <span class="tile-arrow">›</span>
+        </div>
+        <p class="tile-text">
+          Wide range of sensors and electrical instruments from leading brands, ensuring reliability and precision.
+        </p>
+        <ul class="tile-list">
+          <li>Autonics</li>
+          <li>SICK</li>
+          <li>Pepperl+Fuchs</li>
+          <li>Omron</li>
+          <li>Keyence</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="tile">
+      <div class="tile-image-wrap">
+        <img src="images/3d-services.jpg" alt="3D services" />
+      </div>
+      <div class="tile-body">
+        <div class="tile-title-row">
+          <h3 class="tile-title">3D Services</h3>
+          <span class="tile-arrow">›</span>
+        </div>
+        <p class="tile-text">
+          From digital models to physical prototypes, we support your engineering and product development needs.
+        </p>
+        <ul class="tile-list">
+          <li>3D modelling (SolidWorks, AutoCAD, Fusion 360)</li>
+          <li>3D printing & rapid prototyping</li>
+          <li>3D scanning for reverse engineering</li>
+          <li>2D drawings & technical documentation</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
+<!-- 3) SERVICES – same structure, with different images/text -->
+
 <section id="services" class="fade-in">
   <div class="section-header">
     <div>
@@ -920,89 +956,35 @@
       <h2 class="section-title">What We Can Help You With</h2>
     </div>
     <p class="section-subtitle">
-      Practical engineering support – focused on solving real problems quickly with the right parts and solutions.
+      Practical engineering support focused on solving real problems quickly with the right parts and solutions.
     </p>
   </div>
 
   <div class="grid">
-    <div class="tile tilt">
-      <div class="tile-label">Support</div>
-      <div class="tile-main">
-        <span class="name">Technical Support</span>
-        <span class="icon">🧰</span>
+    <div class="tile">
+      <div class="tile-image-wrap">
+        <img src="images/technical-support.jpg" alt="Technical support" />
       </div>
-      <div class="tile-foot">
-        Component selection, wiring guidance, and application advice for panel builders and maintenance teams.
-      </div>
-    </div>
-
-    <div class="tile tilt">
-      <div class="tile-label">Automation</div>
-      <div class="tile-main">
-        <span class="name">Machine Programming</span>
-        <span class="icon">📟</span>
-      </div>
-      <div class="tile-foot">
-        PLC & HMI programming for small machines, retrofits, and productivity improvements.
+      <div class="tile-body">
+        <div class="tile-title-row">
+          <h3 class="tile-title">Technical support</h3>
+          <span class="tile-arrow">›</span>
+        </div>
+        <p class="tile-text">
+          Help with part selection, wiring, and integration for your machines and panels.
+        </p>
+        <ul class="tile-list">
+          <li>WhatsApp / email support</li>
+          <li>Equivalent part suggestions</li>
+          <li>Basic wiring guidance</li>
+        </ul>
       </div>
     </div>
 
-    <div class="tile tilt">
-      <div class="tile-label">Field</div>
-      <div class="tile-main">
-        <span class="name">Troubleshooting</span>
-        <span class="icon">🚨</span>
-      </div>
-      <div class="tile-foot">
-        Remote and on-site troubleshooting support to get your machines running again with minimal downtime.
-      </div>
-    </div>
-
-    <div class="tile tilt">
-      <div class="tile-label">Design</div>
-      <div class="tile-main">
-        <span class="name">3D Modeling & Printing</span>
-        <span class="icon">🧱</span>
-      </div>
-      <div class="tile-foot">
-        Custom brackets, sensor mounts, covers, and small fixtures designed and 3D printed to fit your application.
-      </div>
-    </div>
+    <!-- duplicate for other services with different images/text -->
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="fade-in">
-  <div class="section-header">
-    <div>
-      <div class="section-pill">Contact</div>
-      <h2 class="section-title">Contact Us</h2>
-    </div>
-    <p class="section-subtitle">
-      Share your part numbers, photos, or a brief description of your requirement. We’ll respond with options and guidance.
-    </p>
-  </div>
-
-  <div class="grid">
-    <div class="contact-details">
-      <p>
-        <span class="label">Email</span>
-        sh7engineering@gmail.com
-      </p>
-      <p>
-        <span class="label">Phone / WhatsApp</span>
-        +94 77 932 3391
-      </p>
-      <p>
-        <span class="label">Address</span>
-        Temples Road, Mount Lavinia, Sri Lanka
-      </p>
-      <p style="margin-top:14px; font-size:13px; color:var(--text-muted);">
-        Send your machine photos, nameplates, or part lists – we’ll help you match the right component or solution.
-      </p>
-    </div>
-  </div>
-</section>
 
 <!-- FLOATING CONTACT BUTTON -->
 <div id="contact-btn">✉️</div>
