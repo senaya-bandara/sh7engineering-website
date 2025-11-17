@@ -26,39 +26,48 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-    /* PARALLAX BACKGROUND SECTION */
+/* FULL-WIDTH PARALLAX SECTION */
 .parallax-section {
   position: relative;
-  padding: 120px 40px;
-  color: var(--black);
+  width: 100vw;                /* full screen width */
+  margin: 0;
+  margin-left: 50%;            /* center trick */
+  transform: translateX(-50%); /* center trick */
+  padding: 0;                  /* no side padding here */
+  color: var(--white);
   overflow: hidden;
 }
 
-.parallax-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("image6.jpg"); /* your image */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  opacity: 0;
-  transform: scale(1.2);
-  transition: opacity 1s ease-out, transform 1.2s ease-out;
-  z-index: -1;
-  filter: brightness(0.45);  /* makes text readable */
-}
-
-.parallax-section.visible .parallax-bg {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Parallax text styling */
-.parallax-content {
-  max-width: 760px;
+/* inner content still aligns with other sections */
+.parallax-inner {
   position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 40px;         /* same horizontal padding as others */
   z-index: 2;
 }
+
+/* background image that will move on scroll */
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;                /* a bit taller so it can move */
+  background-image: url("images/factory-bg.jpg"); /* your image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: translateY(40px) scale(1.1);
+  transition: opacity 0.8s ease-out;
+  filter: brightness(0.45);    /* makes text readable */
+}
+
+/* when section becomes visible (IntersectionObserver) */
+.parallax-section.visible .parallax-bg {
+  opacity: 1;
+}
+
 
 
     body {
@@ -967,20 +976,21 @@
 <section id="about" class="parallax-section">
   <div class="parallax-bg"></div>
 
-  <div class="parallax-content fade-in">
+  <div class="parallax-inner fade-in">
     <div class="section-pill">About</div>
     <h2 class="section-title">About SH7 Engineering Solutions</h2>
     <p class="section-subtitle">
       Trusted partner in sourcing industrial components, engineering support, and smart automation solutions.
     </p>
 
-    <p style="font-size:14px; color:var(--white); line-height:1.8;">
+    <p style="font-size:14px; color:var(--white); line-height:1.8; max-width:760px;">
       SH7 Engineering Solutions provides industrial pneumatics, automation components, motion control systems,
-      and technical support across Sri Lanka. We help factories minimize downtime by supplying reliable parts,
+      and technical support across Sri Lanka. We help factories minimise downtime by supplying reliable parts,
       giving quick recommendations, and ensuring your machines stay running.
     </p>
   </div>
 </section>
+
 
 
 <!-- PRODUCTS -->
@@ -1293,6 +1303,40 @@ const parallaxObserver = new IntersectionObserver((entries)=>{
 },{threshold: 0.2});
 
 parallaxSections.forEach(sec => parallaxObserver.observe(sec));
+/* PARALLAX SCROLL REVEAL + MOVEMENT */
+const parallaxSections = document.querySelectorAll(".parallax-section");
+
+const parallaxObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.15 });
+
+parallaxSections.forEach(sec => parallaxObserver.observe(sec));
+
+function updateParallax() {
+  parallaxSections.forEach(sec => {
+    const bg = sec.querySelector(".parallax-bg");
+    if (!bg) return;
+
+    const rect = sec.getBoundingClientRect();
+    const scrollY = window.scrollY || window.pageYOffset;
+    const sectionTop = rect.top + scrollY;
+
+    // how far we've scrolled past the top of the section
+    const distance = scrollY - sectionTop;
+
+    // adjust speed here (0.25 = smooth)
+    const offset = distance * 0.25;
+
+    bg.style.transform = `translateY(${offset}px) scale(1.1)`;
+  });
+}
+
+window.addEventListener("scroll", updateParallax);
+window.addEventListener("load", updateParallax);
 
 
 /* SIMPLE TILT EFFECT */
