@@ -1457,12 +1457,11 @@ const statsStrip = document.querySelector(".stats-strip");
 if (statsStrip) statsObserver.observe(statsStrip);
 
 function onScroll() {
+  const scrollY = window.scrollY || window.pageYOffset;
 
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-const progress = docHeight > 0 ? (scrollY / docHeight) : 0;
-document.getElementById("scroll-bar").style.transform = `scaleX(${progress})`;
-
-  const scrollY = window.scrollY || window.pageYOffset;
+  const progress = docHeight > 0 ? (scrollY / docHeight) : 0;
+  document.getElementById("scroll-bar").style.transform = `scaleX(${progress})`;
 
   if (scrollY > 10) {
     headerEl.classList.add("scrolled");
@@ -1487,6 +1486,8 @@ document.getElementById("scroll-bar").style.transform = `scaleX(${progress})`;
   navLinks.forEach(link => {
     link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
   });
+}
+
 }
 window.addEventListener("scroll", onScroll);
 onScroll();
