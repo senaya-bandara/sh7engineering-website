@@ -47,11 +47,12 @@
   margin: 0 auto;
   padding: 120px 40px;
   z-index: 2;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.55), rgba(0,0,0,0.78));
+  background: radial-gradient(circle at top, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
   border-radius: 26px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
   box-shadow: 0 24px 60px rgba(0,0,0,0.45);
 }
+
 
 /* darken background image a bit more */
 .parallax-bg {
@@ -96,21 +97,29 @@
   z-index: 2;
 }
 
-/* background image that will move on scroll */
 .parallax-bg {
   position: absolute;
   top: -20%;
   left: 0;
   width: 100%;
-  height: 140%;                /* a bit taller so it can move */
-  background-image: url("image6.jpg"); /* your image */
+  height: 140%;
+  background-image: url("image6.jpg"); /* or images/image6.jpg */
   background-size: cover;
   background-position: center;
   opacity: 0;
   transform: translateY(40px) scale(1.1);
   transition: opacity 0.8s ease-out;
-  filter: brightness(0.45);    /* makes text readable */
+  filter: brightness(0.75) saturate(1.1);
 }
+
+    .parallax-section.visible .parallax-bg {
+  opacity: 1;
+}
+
+.parallax-section.visible .parallax-bg {
+  opacity: 1;
+}
+
 
 /* when section becomes visible (IntersectionObserver) */
 .parallax-section.visible .parallax-bg {
