@@ -229,9 +229,8 @@
       width: 100%;
     }
 
-    /* HERO */
-    .hero {
-  margin-top: 20px;      /* small gap under the stats section */
+.hero {
+  margin-top: 10px;
   min-height: 82vh;
   display: flex;
   align-items: center;
@@ -240,6 +239,12 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
+    background: linear-gradient(
+    135deg,
+    rgba(208, 6, 7, 0.06) 0%,   /* very soft red */
+    rgba(255, 255, 255, 0.9) 40%,
+    #ffffff 100%
+  );
 }
 
     .hero::before {
