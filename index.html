@@ -233,18 +233,14 @@
   margin-top: 10px;
   min-height: 82vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 40px 80px;
+align-items: flex-start;   /* push content to top */
+justify-content: center;
+padding-top: 40px;
+  padding: 10px 40px 40px;
   position: relative;
   overflow: hidden;
   isolation: isolate;
-    background: linear-gradient(
-    135deg,
-    rgba(208, 6, 7, 0.06) 0%,   /* very soft red */
-    rgba(255, 255, 255, 0.9) 40%,
-    #ffffff 100%
-  );
+
 }
 
     .hero::before {
