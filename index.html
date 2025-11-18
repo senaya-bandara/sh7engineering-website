@@ -1455,6 +1455,7 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 const statsStrip = document.querySelector(".stats-strip");
 if (statsStrip) statsObserver.observe(statsStrip);
+  
 function onScroll() {
   const scrollY = window.scrollY || window.pageYOffset;
 
@@ -1489,6 +1490,7 @@ function onScroll() {
 
 window.addEventListener("scroll", onScroll);
 onScroll();
+
 
 
 /* BACK TO TOP CLICK */
