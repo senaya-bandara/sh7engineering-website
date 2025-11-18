@@ -1455,7 +1455,6 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 const statsStrip = document.querySelector(".stats-strip");
 if (statsStrip) statsObserver.observe(statsStrip);
-
 function onScroll() {
   const scrollY = window.scrollY || window.pageYOffset;
 
@@ -1486,11 +1485,11 @@ function onScroll() {
   navLinks.forEach(link => {
     link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
   });
-
-
 }
+
 window.addEventListener("scroll", onScroll);
 onScroll();
+
 
 /* BACK TO TOP CLICK */
 backToTop.addEventListener("click", () => {
