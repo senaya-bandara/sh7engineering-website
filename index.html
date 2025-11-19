@@ -1670,13 +1670,9 @@ window.addEventListener("load", updateParallax);
 
 
 /* --- ABOUT SECTION SLIDESHOW --- */
+/* --- ABOUT SECTION SLIDESHOW (Smooth Version) --- */
 
-const slideshowImages = [
-  "2.png",
-  "4.png",
-  "5.png",
-  "6.png"
-];
+const slideshowImages = ["2.png", "4.png", "5.png", "6.png"];
 
 let slideIndex = 0;
 const aboutBG = document.querySelector("#about .parallax-bg");
@@ -1684,30 +1680,38 @@ const aboutBG = document.querySelector("#about .parallax-bg");
 function changeAboutImage() {
   if (!aboutBG) return;
 
-  // fade down but don't disappear (avoid white flash)
-  aboutBG.style.opacity = 0.25;
+  // Fade slightly (not too fast)
+  aboutBG.style.transition = "opacity 1.2s ease-in-out";
+  aboutBG.style.opacity = 0.55; // not too low to avoid bright flash
 
   const nextIndex = (slideIndex + 1) % slideshowImages.length;
   const nextSrc = slideshowImages[nextIndex];
 
-  // preload next image before swapping
+  // Preload image
   const img = new Image();
   img.src = nextSrc;
+
   img.onload = () => {
     slideIndex = nextIndex;
-    aboutBG.style.backgroundImage = `url("${nextSrc}")`;
-    aboutBG.style.opacity = 1; // fade back up
+
+    // Delay switch until fade reaches mid-point
+    setTimeout(() => {
+      aboutBG.style.backgroundImage = `url("${nextSrc}")`;
+
+      // fade back up slowly
+      aboutBG.style.opacity = 1;
+    }, 600); // half of 1.2s
   };
 }
 
 if (aboutBG) {
-  // initial image
   aboutBG.style.backgroundImage = `url("${slideshowImages[0]}")`;
   aboutBG.style.opacity = 1;
 
-  // change image every 6 seconds
-  setInterval(changeAboutImage, 6000);
+  // slower interval — 7 seconds per image
+  setInterval(changeAboutImage, 7000);
 }
+
 
 
 
