@@ -64,9 +64,10 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0;
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
   transform: translateY(40px) scale(1.1);
-  transition: opacity 0.8s ease-out;
+
   filter: brightness(0.75) saturate(1.1);
 }
 
@@ -1684,19 +1685,20 @@ let slideIndex = 0;
 const aboutBG = document.querySelector("#about .parallax-bg");
 
 if (aboutBG) {
-  // Set first image
   aboutBG.style.backgroundImage = `url("${slideshowImages[0]}")`;
   aboutBG.style.opacity = 1;
 
-  function changeAboutImage() {
-    slideIndex = (slideIndex + 1) % slideshowImages.length;
-    aboutBG.style.opacity = 0;
+  setInterval(changeAboutImage, 6000);
+}
 
-    setTimeout(() => {
-      aboutBG.style.backgroundImage = `url("${slideshowImages[slideIndex]}")`;
-      aboutBG.style.opacity = 1;
-    }, 800);
-  }
+
+ function changeAboutImage() {
+  slideIndex = (slideIndex + 1) % slideshowImages.length;
+  aboutBG.style.opacity = 0.4; // slight dim
+  aboutBG.style.backgroundImage = `url("${slideshowImages[slideIndex]}")`;
+  aboutBG.style.opacity = 1;
+}
+
 
   // Change image every 6 seconds
   setInterval(changeAboutImage, 6000);
