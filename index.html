@@ -1669,7 +1669,7 @@ window.addEventListener("scroll", updateParallax);
 window.addEventListener("load", updateParallax);
 
 
-
+/* --- ABOUT SECTION SLIDESHOW --- */
 
 const slideshowImages = [
   "2.png",
@@ -1681,30 +1681,34 @@ const slideshowImages = [
 let slideIndex = 0;
 const aboutBG = document.querySelector("#about .parallax-bg");
 
-// Make sure CSS has: .parallax-bg { transition: opacity 0.6s ease-in-out; }
-
 function changeAboutImage() {
   if (!aboutBG) return;
 
-  // fade out
-  aboutBG.style.opacity = 0;
+  // fade down but don't disappear (avoid white flash)
+  aboutBG.style.opacity = 0.25;
 
-  // after fade-out, change image and fade back in
-  setTimeout(() => {
-    slideIndex = (slideIndex + 1) % slideshowImages.length;
-    aboutBG.style.backgroundImage = `url("${slideshowImages[slideIndex]}")`;
-    aboutBG.style.opacity = 1;
-  }, 400); // 0.4s matches your CSS transition
+  const nextIndex = (slideIndex + 1) % slideshowImages.length;
+  const nextSrc = slideshowImages[nextIndex];
+
+  // preload next image before swapping
+  const img = new Image();
+  img.src = nextSrc;
+  img.onload = () => {
+    slideIndex = nextIndex;
+    aboutBG.style.backgroundImage = `url("${nextSrc}")`;
+    aboutBG.style.opacity = 1; // fade back up
+  };
 }
 
 if (aboutBG) {
-  // first image
+  // initial image
   aboutBG.style.backgroundImage = `url("${slideshowImages[0]}")`;
   aboutBG.style.opacity = 1;
 
   // change image every 6 seconds
   setInterval(changeAboutImage, 6000);
 }
+
 
 
 
