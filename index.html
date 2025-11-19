@@ -56,8 +56,12 @@
 
 /* darken background image a bit more */
 .parallax-bg {
-  filter: brightness(0.3) saturate(1.1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1s ease-in-out;
 }
+
 
 /* white text for ABOUT section */
 .parallax-section .section-title {
@@ -1656,6 +1660,35 @@ function updateParallax() {
 window.addEventListener("scroll", updateParallax);
 window.addEventListener("load", updateParallax);
 
+
+
+  /* --- ABOUT SECTION SLIDESHOW --- */
+
+const slideshowImages = [
+  "bg1.jpg",
+  "bg2.jpg",
+  "bg3.jpg",
+  "bg4.jpg"
+];
+
+let slideIndex = 0;
+const aboutBG = document.querySelector("#about .parallax-bg");
+
+function changeAboutImage() {
+  slideIndex = (slideIndex + 1) % slideshowImages.length;
+  aboutBG.style.opacity = 0;
+
+  setTimeout(() => {
+    aboutBG.style.backgroundImage = `url("${slideshowImages[slideIndex]}")`;
+    aboutBG.style.opacity = 1;
+  }, 800);
+}
+
+// Change image every 6 seconds
+setInterval(changeAboutImage, 6000);
+
+// Set first image
+aboutBG.style.backgroundImage = `url("${slideshowImages[0]}")`;
 
 /* SIMPLE TILT EFFECT */
 const tiltElements = document.querySelectorAll(".tilt");
