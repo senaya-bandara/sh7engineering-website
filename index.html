@@ -1672,7 +1672,7 @@ window.addEventListener("load", updateParallax);
 
 
 
-/* --- ABOUT SECTION SLIDESHOW --- */
+
 
 const slideshowImages = [
   "2.png",
@@ -1684,25 +1684,21 @@ const slideshowImages = [
 let slideIndex = 0;
 const aboutBG = document.querySelector("#about .parallax-bg");
 
-if (aboutBG) {
-  aboutBG.style.backgroundImage = `url("${slideshowImages[0]}")`;
-  aboutBG.style.opacity = 1;
-
-  setInterval(changeAboutImage, 6000);
-}
-
-
- function changeAboutImage() {
+function changeAboutImage() {
   slideIndex = (slideIndex + 1) % slideshowImages.length;
   aboutBG.style.opacity = 0.4; // slight dim
   aboutBG.style.backgroundImage = `url("${slideshowImages[slideIndex]}")`;
   aboutBG.style.opacity = 1;
 }
 
+if (aboutBG) {
+  aboutBG.style.backgroundImage = `url("${slideshowImages[0]}")`;
+  aboutBG.style.opacity = 1;
 
   // Change image every 6 seconds
   setInterval(changeAboutImage, 6000);
 }
+
 
 
 /* SIMPLE TILT EFFECT */
