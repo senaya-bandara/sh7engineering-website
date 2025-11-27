@@ -1,20 +1,244 @@
+
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Product Details</title>
-  <link rel="stylesheet" href="styles.css" /> <!-- Optional -->
+  <link rel="stylesheet" href="styles.css" /> 
 </head>
 
 <body>
   <header> 
-    <a href="index.html">← Back to Home</a>
+    <a href="index.html"> Back to Home</a>
   </header>
 
+  <section id="products" class="fade-in">
+  <div class="section-header">
+    <div>
+      <div class="section-pill"></div>
+      <h2 class="section-title">Sensors</h2>
+    </div>
+    <p class="section-subtitle">
+      We offer a comprehensive selection of industrial sensors designed to deliver accurate, reliable detection in complex environments. Our range includes:
+    </p>
+  </div>
+    
   <section style="padding:40px;">
-    <h1>Product Name Here</h1>
-    <p>Full details about this product category...</p>
+       <a href="product1.html" class="tile-link">
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Proximity Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+   
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Photoelectric Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+
+    
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Inductive Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+         
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Pneumatic spare parts supply</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+         
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Through-Beam Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+
+         
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Reflective Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+
+           
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Fiber Optic Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+
+            
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Background Suppression Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+
+            
+  <div class="tile tilt">
+    <div class="tile-image-wrap">
+      <img src="image1.webp" alt="Pneumatic spare parts">
+    </div>
+    <div class="tile-body">
+      <div class="tile-title-row">
+        <h3 class="tile-title">Color Sensors</h3>
+        <span class="tile-arrow">›</span>
+      </div>
+    
+    </div>
+  </div>
+</a>
+
+    <style>
+      
+    body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+}
+
+header {
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tile-link {
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.tile {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tile-image-wrap img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tile-body {
+  padding: 15px;
+}
+
+.tile-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tile-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tile-arrow {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+</style>
+    
   </section>
 </body>
 </html>
