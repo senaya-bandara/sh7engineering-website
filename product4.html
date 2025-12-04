@@ -60,7 +60,7 @@
       color: inherit;
     }
 
-    /* HEADER (same as home) */
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -174,7 +174,7 @@
       margin-bottom: 30px;
     }
 
-    /* PRODUCT LAYOUT (image left, text + specs box right) */
+    /* PRODUCT TILE LAYOUT */
     .product-block {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -221,31 +221,6 @@
       margin-bottom: 18px;
     }
 
-    .product-specs {
-      background: #f9fafb;
-      border-radius: 18px;
-      padding: 18px 18px 14px;
-      border: 1px solid rgba(148,163,184,0.4);
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 10px 18px;
-      font-size: 13px;
-    }
-
-    .spec-item-label {
-      display: block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-
-    .spec-item-value {
-      font-weight: 600;
-      color: #111827;
-    }
-
     .product-actions {
       margin-top: 18px;
       display: flex;
@@ -280,42 +255,44 @@
       cursor: pointer;
     }
 
+    /* BRAND LOGO STRIP – FIXED: single “tile” look with pill logos */
     .brands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 12px;
-  align-items: center;
-}
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
 
-.brand-card {
-  width: 100%;
-  height: 60px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #d1d5db;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(15,23,42,0.08);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
+    .brand-card {
+      flex: 0 0 auto;
+      min-width: 90px;
+      padding: 4px 10px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 999px; /* pill */
+      border: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: none; /* remove inner tile shadow */
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
 
-.brand-card:hover {
-  box-shadow: 0 10px 20px rgba(15,23,42,0.12);
-  transform: translateY(-2px);
-}
+    .brand-card:hover {
+      border-color: rgba(208,6,7,0.6);
+      box-shadow: 0 6px 16px rgba(15,23,42,0.12);
+      transform: translateY(-1px);
+    }
 
-.brand-logo {
-  max-height: 32px;
-  max-width: 80px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-    
+    .brand-logo {
+      max-height: 26px;
+      max-width: 80px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
 
     @media (max-width: 900px) {
       main {
@@ -326,125 +303,99 @@
         padding: 22px 18px;
       }
     }
-/* PRODUCT HERO LAYOUT LIKE UNIVERSAL ROBOTS */
-.product-hero {
-  width: 100%;
-  background: #ffffff;
-  padding: 60px 5vw;
-}
 
-.product-hero-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; /* image + text side by side */
-  gap: 40px;
-  align-items: center;
-}
+    /* PRODUCT HERO LAYOUT (Photoelectric sensors block) */
+    .product-hero {
+      width: 100%;
+      background: transparent;
+      padding: 0;
+      margin-bottom: 32px;
+    }
 
-.product-hero-image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
+    .product-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      padding: 32px 32px;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.12);
+      border: 1px solid rgba(148,163,184,0.25);
+    }
 
-/* RIGHT SIDE TEXT */
-.product-hero-title {
-  font-size: 54px;
-  font-weight: 700;
-  color: #143044;
-  margin: 0 0 10px;
-}
+    .product-hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 18px 40px rgba(15,23,42,0.3));
+    }
 
-.product-hero-subtitle {
-  font-size: 22px;
-  font-weight: 500;
-  color: #456b85;
-  margin-bottom: 12px;
-}
+    .product-hero-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #143044;
+      margin: 0 0 8px;
+    }
 
-.product-hero-description {
-  font-size: 15px;
-  color: #4a5568;
-  line-height: 1.7;
-  margin-bottom: 26px;
-  max-width: 520px;
-}
+    .product-hero-subtitle {
+      font-size: 16px;
+      font-weight: 500;
+      color: #456b85;
+      margin-bottom: 10px;
+    }
 
-/* BUTTONS */
-.product-buttons {
-  display: flex;
-  gap: 14px;
-}
+    .product-hero-description {
+      font-size: 14px;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      max-width: 520px;
+    }
 
-/* keep buttons blue style */
-.btn-primary {
-  background: #1a73e8;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 30px;
-  font-size: 14px;
-  border: none;
-  font-weight: 500;
-  cursor: pointer;
-}
+    .product-hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
 
-.btn-outline {
-  background: white;
-  border: 1px solid #cbd5e0;
-  color: #1f2937;
-  padding: 12px 22px;
-  border-radius: 30px;
-  font-size: 14px;
-  cursor: pointer;
-}
+    .product-brand-box {
+      margin: 6px 0 4px;
+      width: 100%;
+    }
 
-    /* 1. Keep content and buttons separated (no overlap) */
-.product-hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
+    .product-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-.product-brand-box {
-  margin: 10px 0 4px;
-}
+    .product-hero .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+      box-shadow: 0 12px 30px rgba(208,6,7,0.35);
+      padding: 10px 18px;
+      font-size: 13px;
+    }
 
-.product-buttons {
-  margin-top: 10px;
-}
+    .product-hero .btn-outline {
+      padding: 10px 18px;
+      font-size: 13px;
+    }
 
-/* 2. Make the main button red to match theme */
-.product-hero .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-soft));
-  box-shadow: 0 12px 30px rgba(208,6,7,0.35);
-}
+    @media (max-width: 700px) {
+      .product-hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .product-hero-title {
+        font-size: 26px;
+      }
+    }
 
-/* 3. Give the whole sensor block curved edges like a tile */
-.product-hero-inner {
-  background: rgba(255,255,255,0.96);
-  border-radius: 24px;
-  padding: 32px 32px;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.12);
-  border: 1px solid rgba(148,163,184,0.25);
-}
-
-
-/* RESPONSIVE – stack only on small screens */
-@media (max-width: 700px) {
-  .product-hero-inner {
-    grid-template-columns: 1fr;
-    text-align: left;
-  }
-
-  .product-hero-title {
-    font-size: 38px;
-  }
-}
-
-    /* FOOTER (same as home) */
+    /* FOOTER */
     footer {
       max-width: 1200px;
       margin: 0 auto;
@@ -486,34 +437,82 @@
     </nav>
   </header>
 
-  <!-- CONTENT: multiple products with image left + spec box right -->
+  <!-- CONTENT -->
   <main>
     <h1 class="page-title">Sensors</h1>
-    <p class="page-subtitle">Selected cobot models available through SH7 Engineering Solutions. Details and models can be customized based on your application.</p>
+    <p class="page-subtitle">
+      Selected sensor types available through SH7 Engineering Solutions. Details and models can be customized based on your application.
+    </p>
 
+    <!-- PRODUCT HERO: Photoelectric Sensors -->
+    <section class="product-hero">
+      <div class="product-hero-inner">
+        <!-- LEFT: IMAGE -->
+        <div class="product-hero-image">
+          <img src="photoelectric sensors.webp" alt="Photoelectric Sensors" class="product-image">
+        </div>
 
-    <!-- PRODUCT 2 (duplicate and change data as needed) -->
-   <section class="product-hero">
-  <div class="product-hero-inner">
+        <!-- RIGHT: INFO -->
+        <div class="product-hero-content">
+          <h1 class="product-hero-title">Photoelectric Sensors</h1>
+          <p class="product-hero-subtitle">Reliable object detection over longer ranges</p>
+          <p class="product-hero-description">
+            Ideal for conveyor systems, packaging lines, and presence detection where
+            non-contact, fast response, and stable sensing are critical. Available in diffuse,
+            through-beam, and retro-reflective types.
+          </p>
 
-    <!-- LEFT: IMAGE -->
-    <div class="product-hero-image">
-      <img src="photoelectric sensors.webp" alt="Photoelectric Sensors" class="product-image">
-    </div>
+          <div class="product-brand-box">
+            <div class="brands-grid">
+              <div class="brand-card">
+                <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+              </div>
+              <div class="brand-card">
+                <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+              </div>
+              <div class="brand-card">
+                <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+              </div>
+              <div class="brand-card">
+                <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+              </div>
+              <div class="brand-card">
+                <img src="logo10.png" class="brand-logo" alt="Brand 10">
+              </div>
+              <div class="brand-card">
+                <img src="logo11.png" class="brand-logo" alt="Brand 11">
+              </div>
+              <div class="brand-card">
+                <img src="logo14.png" class="brand-logo" alt="Brand 14">
+              </div>
+              <div class="brand-card">
+                <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+              </div>
+            </div>
+          </div>
 
-    <!-- RIGHT: INFO (same content as you gave) -->
-    <div class="product-hero-content">
-      <h1 class="product-hero-title">Photoelectric Sensors</h1>
+          <div class="product-buttons">
+            <button class="btn-primary">Request a quote</button>
+            <button class="btn-outline">Share your layout</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p class="product-hero-subtitle">High reach for larger workspaces</p>
+    <!-- Inductive Sensors -->
+    <section class="product-block">
+      <div class="product-image-wrap">
+        <img src="Inductive sensors .webp" alt="Inductive Sensors" class="product-image">
+      </div>
+      <div class="product-content">
+        <h2>Inductive Sensors</h2>
+        <div class="product-tagline">Non-contact metal detection for harsh environments</div>
+        <p class="product-text">
+          Rugged sensors for position and presence detection of metal targets in
+          automation, packaging, and assembly lines. Available in various sizes,
+          sensing distances, and output types.
+        </p>
 
-      <p class="product-hero-description">
-        Medium-to-heavy payload cobot suited for palletizing, packaging, and material handling
-        where extended reach and stability are critical.
-      </p>
-
-      <!-- BRANDS BOX -->
-      <div class="product-brand-box">
         <div class="brands-grid">
           <div class="brand-card">
             <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
@@ -540,61 +539,7 @@
             <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
           </div>
         </div>
-      </div>
 
-      <!-- BUTTONS -->
-      <div class="product-buttons">
-        <button class="btn-primary">Request a quote</button>
-        <button class="btn-outline">Share your layout</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-     <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Inductive sensors .webp" alt="UR5e Cobot" class="product-image">
-      </div>
-      <div class="product-content">
-        <h2>Inductive Sensors</h2>
-        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
-        <p class="product-text">
-          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
-          Designed for precise, repetitive tasks with quick deployment and simple programming.
-        </p>
-               <div class="brands-grid">
- <div class="brand-card">
-    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-  </div>
-  <div class="brand-card">
-    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo10.png" class="brand-logo" alt="Brand 10">
-  </div>
-  <div class="brand-card">
-    <img src="logo11.png" class="brand-logo" alt="Brand 11">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo14.png" class="brand-logo" alt="Brand 14">
-  </div>
-  <div class="brand-card">
-    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-  </div>
-</div>
         <div class="product-actions">
           <button class="btn-primary">Request a quote</button>
           <button class="btn-outline">Ask for application study</button>
@@ -602,49 +547,47 @@
       </div>
     </section>
 
-
-
-
-     <section class="product-block">
+    <!-- Through-Beam Sensors -->
+    <section class="product-block">
       <div class="product-image-wrap">
-        <img src="Through been sensors.jpg" alt="UR5e Cobot" class="product-image">
+        <img src="Through been sensors.jpg" alt="Through-Beam Sensors" class="product-image">
       </div>
       <div class="product-content">
         <h2>Through-Beam Sensors</h2>
-        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
+        <div class="product-tagline">High reliability for long-distance detection</div>
         <p class="product-text">
-          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
-          Designed for precise, repetitive tasks with quick deployment and simple programming.
+          Separate emitter and receiver design for robust object detection in dusty,
+          humid, or high-speed conveyor applications. Ideal for counting, presence
+          detection, and safety-related triggering.
         </p>
-               <div class="brands-grid">
-   <div class="brand-card">
-    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-  </div>
 
-  <div class="brand-card">
-    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-  </div>
-  <div class="brand-card">
-    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-  </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          </div>
+          <div class="brand-card">
+            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          </div>
+          <div class="brand-card">
+            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+          </div>
+          <div class="brand-card">
+            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+          </div>
+          <div class="brand-card">
+            <img src="logo10.png" class="brand-logo" alt="Brand 10">
+          </div>
+          <div class="brand-card">
+            <img src="logo11.png" class="brand-logo" alt="Brand 11">
+          </div>
+          <div class="brand-card">
+            <img src="logo14.png" class="brand-logo" alt="Brand 14">
+          </div>
+          <div class="brand-card">
+            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+          </div>
+        </div>
 
-  <div class="brand-card">
-    <img src="logo10.png" class="brand-logo" alt="Brand 10">
-  </div>
-  <div class="brand-card">
-    <img src="logo11.png" class="brand-logo" alt="Brand 11">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo14.png" class="brand-logo" alt="Brand 14">
-  </div>
-  <div class="brand-card">
-    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-  </div>
-</div>
         <div class="product-actions">
           <button class="btn-primary">Request a quote</button>
           <button class="btn-outline">Ask for application study</button>
@@ -652,50 +595,47 @@
       </div>
     </section>
 
-
-     <section class="product-block">
+    <!-- Reflective Sensors -->
+    <section class="product-block">
       <div class="product-image-wrap">
-        <img src="Reflective sensors .jpg" alt="UR5e Cobot" class="product-image">
+        <img src="Reflective sensors .jpg" alt="Reflective Sensors" class="product-image">
       </div>
       <div class="product-content">
         <h2>Reflective Sensors</h2>
-        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
+        <div class="product-tagline">Compact detection with reflector-based setup</div>
         <p class="product-text">
-          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
-          Designed for precise, repetitive tasks with quick deployment and simple programming.
+          Retro-reflective sensors with mirror/reflector for easy installation and
+          alignment. Suitable for object detection on conveyors, packaging,
+          and warehouse automation.
         </p>
 
+        <div class="brands-grid">
+          <div class="brand-card">
+            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          </div>
+          <div class="brand-card">
+            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          </div>
+          <div class="brand-card">
+            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+          </div>
+          <div class="brand-card">
+            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+          </div>
+          <div class="brand-card">
+            <img src="logo10.png" class="brand-logo" alt="Brand 10">
+          </div>
+          <div class="brand-card">
+            <img src="logo11.png" class="brand-logo" alt="Brand 11">
+          </div>
+          <div class="brand-card">
+            <img src="logo14.png" class="brand-logo" alt="Brand 14">
+          </div>
+          <div class="brand-card">
+            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+          </div>
+        </div>
 
-        
-               <div class="brands-grid">
-   <div class="brand-card">
-    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-  </div>
-  <div class="brand-card">
-    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo10.png" class="brand-logo" alt="Brand 10">
-  </div>
-  <div class="brand-card">
-    <img src="logo11.png" class="brand-logo" alt="Brand 11">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo14.png" class="brand-logo" alt="Brand 14">
-  </div>
-  <div class="brand-card">
-    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-  </div>
-</div>
         <div class="product-actions">
           <button class="btn-primary">Request a quote</button>
           <button class="btn-outline">Ask for application study</button>
@@ -703,47 +643,47 @@
       </div>
     </section>
 
-
-     <section class="product-block">
+    <!-- Fiber Optic Sensors -->
+    <section class="product-block">
       <div class="product-image-wrap">
-        <img src="Fiber optic sensors .jpg" alt="UR5e Cobot" class="product-image">
+        <img src="Fiber optic sensors .jpg" alt="Fiber Optic Sensors" class="product-image">
       </div>
       <div class="product-content">
         <h2>Fiber Optic Sensors</h2>
-        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
+        <div class="product-tagline">Flexible sensing for tight and high-temperature spaces</div>
         <p class="product-text">
-          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
-          Designed for precise, repetitive tasks with quick deployment and simple programming.
+          Fiber-based sensing heads for miniature detection points, curved paths,
+          and high-temperature zones. Ideal for electronics, packaging, and
+          small-part detection tasks.
         </p>
-       <div class="brands-grid">
-   <div class="brand-card">
-    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-  </div>
 
-  <div class="brand-card">
-    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-  </div>
-  <div class="brand-card">
-    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-  </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          </div>
+          <div class="brand-card">
+            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          </div>
+          <div class="brand-card">
+            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+          </div>
+          <div class="brand-card">
+            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+          </div>
+          <div class="brand-card">
+            <img src="logo10.png" class="brand-logo" alt="Brand 10">
+          </div>
+          <div class="brand-card">
+            <img src="logo11.png" class="brand-logo" alt="Brand 11">
+          </div>
+          <div class="brand-card">
+            <img src="logo14.png" class="brand-logo" alt="Brand 14">
+          </div>
+          <div class="brand-card">
+            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+          </div>
+        </div>
 
-  <div class="brand-card">
-    <img src="logo10.png" class="brand-logo" alt="Brand 10">
-  </div>
-  <div class="brand-card">
-    <img src="logo11.png" class="brand-logo" alt="Brand 11">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo14.png" class="brand-logo" alt="Brand 14">
-  </div>
-  <div class="brand-card">
-    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-  </div>
-</div>
         <div class="product-actions">
           <button class="btn-primary">Request a quote</button>
           <button class="btn-outline">Ask for application study</button>
@@ -751,47 +691,46 @@
       </div>
     </section>
 
-
-     <section class="product-block">
+    <!-- Background Suppression Sensors -->
+    <section class="product-block">
       <div class="product-image-wrap">
-        <img src="Background suppression sensors .webp" alt="UR5e Cobot" class="product-image">
+        <img src="Background suppression sensors .webp" alt="Background Suppression Sensors" class="product-image">
       </div>
       <div class="product-content">
         <h2>Background Suppression Sensors</h2>
-        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
+        <div class="product-tagline">Stable detection independent of background</div>
         <p class="product-text">
-          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
-          Designed for precise, repetitive tasks with quick deployment and simple programming.
+          Sensors designed to detect the object while ignoring background surfaces,
+          ideal for presence detection on variable or shiny conveyors and fixtures.
         </p>
-            <div class="brands-grid">
-   <div class="brand-card">
-    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-  </div>
 
-  <div class="brand-card">
-    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-  </div>
-  <div class="brand-card">
-    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-  </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          </div>
+          <div class="brand-card">
+            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          </div>
+          <div class="brand-card">
+            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+          </div>
+          <div class="brand-card">
+            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+          </div>
+          <div class="brand-card">
+            <img src="logo10.png" class="brand-logo" alt="Brand 10">
+          </div>
+          <div class="brand-card">
+            <img src="logo11.png" class="brand-logo" alt="Brand 11">
+          </div>
+          <div class="brand-card">
+            <img src="logo14.png" class="brand-logo" alt="Brand 14">
+          </div>
+          <div class="brand-card">
+            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+          </div>
+        </div>
 
-  <div class="brand-card">
-    <img src="logo10.png" class="brand-logo" alt="Brand 10">
-  </div>
-  <div class="brand-card">
-    <img src="logo11.png" class="brand-logo" alt="Brand 11">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo14.png" class="brand-logo" alt="Brand 14">
-  </div>
-  <div class="brand-card">
-    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-  </div>
-</div>
         <div class="product-actions">
           <button class="btn-primary">Request a quote</button>
           <button class="btn-outline">Ask for application study</button>
@@ -799,46 +738,46 @@
       </div>
     </section>
 
-     <section class="product-block">
+    <!-- Color Sensors -->
+    <section class="product-block">
       <div class="product-image-wrap">
-        <img src="Color sensors .png" alt="UR5e Cobot" class="product-image">
+        <img src="Color sensors .png" alt="Color Sensors" class="product-image">
       </div>
       <div class="product-content">
         <h2>Color Sensors</h2>
-        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
+        <div class="product-tagline">Color-based detection and sorting</div>
         <p class="product-text">
-          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
-          Designed for precise, repetitive tasks with quick deployment and simple programming.
+          Sensors that detect color differences for label checking, print mark
+          detection, product sorting, and quality control applications.
         </p>
-          <div class="brands-grid">
-   <div class="brand-card">
-    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-  </div>
 
-  <div class="brand-card">
-    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-  </div>
-  <div class="brand-card">
-    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-  </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          </div>
+          <div class="brand-card">
+            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          </div>
+          <div class="brand-card">
+            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+          </div>
+          <div class="brand-card">
+            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+          </div>
+          <div class="brand-card">
+            <img src="logo10.png" class="brand-logo" alt="Brand 10">
+          </div>
+          <div class="brand-card">
+            <img src="logo11.png" class="brand-logo" alt="Brand 11">
+          </div>
+          <div class="brand-card">
+            <img src="logo14.png" class="brand-logo" alt="Brand 14">
+          </div>
+          <div class="brand-card">
+            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+          </div>
+        </div>
 
-  <div class="brand-card">
-    <img src="logo10.png" class="brand-logo" alt="Brand 10">
-  </div>
-  <div class="brand-card">
-    <img src="logo11.png" class="brand-logo" alt="Brand 11">
-  </div>
-
-  <div class="brand-card">
-    <img src="logo14.png" class="brand-logo" alt="Brand 14">
-  </div>
-  <div class="brand-card">
-    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-  </div>
-</div>
         <div class="product-actions">
           <button class="btn-primary">Request a quote</button>
           <button class="btn-outline">Ask for application study</button>
@@ -846,7 +785,6 @@
       </div>
     </section>
 
-    <!-- add more <section class="product-block">…</section> for more products -->
   </main>
 
   <!-- FOOTER -->
