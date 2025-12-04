@@ -174,7 +174,7 @@
       margin-bottom: 30px;
     }
 
-    /* PRODUCT TILE LAYOUT */
+    /* GENERIC PRODUCT TILE (for sections below hero) */
     .product-block {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -255,43 +255,22 @@
       cursor: pointer;
     }
 
-    /* BRAND LOGO STRIP – FIXED: single “tile” look with pill logos */
-    .brands-grid {
+    /* BRAND STRIP – HORIZONTAL LOGOS, NO INNER CARDS */
+    .brands-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 16px;
+      gap: 10px 18px;
       align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .brand-card {
-      flex: 0 0 auto;
-      min-width: 90px;
-      padding: 4px 10px;
-      height: 40px;
-      background: #ffffff;
-      border-radius: 999px; /* pill */
-      border: 1px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: none; /* remove inner tile shadow */
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    }
-
-    .brand-card:hover {
-      border-color: rgba(208,6,7,0.6);
-      box-shadow: 0 6px 16px rgba(15,23,42,0.12);
-      transform: translateY(-1px);
+      margin-bottom: 8px;
     }
 
     .brand-logo {
-      max-height: 26px;
-      max-width: 80px;
+      max-height: 28px;
+      max-width: 90px;
       width: auto;
       height: auto;
       object-fit: contain;
+      display: block;
     }
 
     @media (max-width: 900px) {
@@ -304,24 +283,19 @@
       }
     }
 
-    /* PRODUCT HERO LAYOUT (Photoelectric sensors block) */
+    /* PHOTOELECTRIC SENSOR HERO – SINGLE TILE LIKE UR PAGE */
     .product-hero {
-      width: 100%;
-      background: transparent;
-      padding: 0;
       margin-bottom: 32px;
     }
 
     .product-hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
       gap: 40px;
       align-items: center;
-      background: rgba(255,255,255,0.96);
+      padding: 36px 32px;
       border-radius: 24px;
-      padding: 32px 32px;
+      background: #ffffff;
       box-shadow: 0 18px 40px rgba(15,23,42,0.12);
       border: 1px solid rgba(148,163,184,0.25);
     }
@@ -352,7 +326,7 @@
       font-size: 14px;
       color: #4a5568;
       line-height: 1.7;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       max-width: 520px;
     }
 
@@ -360,12 +334,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
-    }
-
-    .product-brand-box {
-      margin: 6px 0 4px;
-      width: 100%;
+      gap: 6px;
     }
 
     .product-buttons {
@@ -375,8 +344,6 @@
     }
 
     .product-hero .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
-      box-shadow: 0 12px 30px rgba(208,6,7,0.35);
       padding: 10px 18px;
       font-size: 13px;
     }
@@ -444,15 +411,16 @@
       Selected sensor types available through SH7 Engineering Solutions. Details and models can be customized based on your application.
     </p>
 
-    <!-- PRODUCT HERO: Photoelectric Sensors -->
+    <!-- HERO: PHOTOELECTRIC SENSORS (ONE TILE, HORIZONTAL BRANDS) -->
     <section class="product-hero">
       <div class="product-hero-inner">
+
         <!-- LEFT: IMAGE -->
         <div class="product-hero-image">
           <img src="photoelectric sensors.webp" alt="Photoelectric Sensors" class="product-image">
         </div>
 
-        <!-- RIGHT: INFO -->
+        <!-- RIGHT: TEXT + BRANDS + BUTTONS -->
         <div class="product-hero-content">
           <h1 class="product-hero-title">Photoelectric Sensors</h1>
           <p class="product-hero-subtitle">Reliable object detection over longer ranges</p>
@@ -462,33 +430,16 @@
             through-beam, and retro-reflective types.
           </p>
 
-          <div class="product-brand-box">
-            <div class="brands-grid">
-              <div class="brand-card">
-                <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-              </div>
-              <div class="brand-card">
-                <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-              </div>
-              <div class="brand-card">
-                <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-              </div>
-              <div class="brand-card">
-                <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-              </div>
-              <div class="brand-card">
-                <img src="logo10.png" class="brand-logo" alt="Brand 10">
-              </div>
-              <div class="brand-card">
-                <img src="logo11.png" class="brand-logo" alt="Brand 11">
-              </div>
-              <div class="brand-card">
-                <img src="logo14.png" class="brand-logo" alt="Brand 14">
-              </div>
-              <div class="brand-card">
-                <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-              </div>
-            </div>
+          <!-- HORIZONTAL BRAND LOGOS -->
+          <div class="brands-row">
+            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+            <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+            <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+            <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+            <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+            <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
           </div>
 
           <div class="product-buttons">
@@ -496,6 +447,7 @@
             <button class="btn-outline">Share your layout</button>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -513,31 +465,15 @@
           sensing distances, and output types.
         </p>
 
-        <div class="brands-grid">
-          <div class="brand-card">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          </div>
-          <div class="brand-card">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          </div>
-          <div class="brand-card">
-            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-          </div>
-          <div class="brand-card">
-            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-          </div>
-          <div class="brand-card">
-            <img src="logo10.png" class="brand-logo" alt="Brand 10">
-          </div>
-          <div class="brand-card">
-            <img src="logo11.png" class="brand-logo" alt="Brand 11">
-          </div>
-          <div class="brand-card">
-            <img src="logo14.png" class="brand-logo" alt="Brand 14">
-          </div>
-          <div class="brand-card">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
+        <div class="brands-row">
+          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
         </div>
 
         <div class="product-actions">
@@ -561,31 +497,15 @@
           detection, and safety-related triggering.
         </p>
 
-        <div class="brands-grid">
-          <div class="brand-card">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          </div>
-          <div class="brand-card">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          </div>
-          <div class="brand-card">
-            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-          </div>
-          <div class="brand-card">
-            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-          </div>
-          <div class="brand-card">
-            <img src="logo10.png" class="brand-logo" alt="Brand 10">
-          </div>
-          <div class="brand-card">
-            <img src="logo11.png" class="brand-logo" alt="Brand 11">
-          </div>
-          <div class="brand-card">
-            <img src="logo14.png" class="brand-logo" alt="Brand 14">
-          </div>
-          <div class="brand-card">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
+        <div class="brands-row">
+          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
         </div>
 
         <div class="product-actions">
@@ -609,31 +529,15 @@
           and warehouse automation.
         </p>
 
-        <div class="brands-grid">
-          <div class="brand-card">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          </div>
-          <div class="brand-card">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          </div>
-          <div class="brand-card">
-            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-          </div>
-          <div class="brand-card">
-            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-          </div>
-          <div class="brand-card">
-            <img src="logo10.png" class="brand-logo" alt="Brand 10">
-          </div>
-          <div class="brand-card">
-            <img src="logo11.png" class="brand-logo" alt="Brand 11">
-          </div>
-          <div class="brand-card">
-            <img src="logo14.png" class="brand-logo" alt="Brand 14">
-          </div>
-          <div class="brand-card">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
+        <div class="brands-row">
+          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
         </div>
 
         <div class="product-actions">
@@ -657,31 +561,15 @@
           small-part detection tasks.
         </p>
 
-        <div class="brands-grid">
-          <div class="brand-card">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          </div>
-          <div class="brand-card">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          </div>
-          <div class="brand-card">
-            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-          </div>
-          <div class="brand-card">
-            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-          </div>
-          <div class="brand-card">
-            <img src="logo10.png" class="brand-logo" alt="Brand 10">
-          </div>
-          <div class="brand-card">
-            <img src="logo11.png" class="brand-logo" alt="Brand 11">
-          </div>
-          <div class="brand-card">
-            <img src="logo14.png" class="brand-logo" alt="Brand 14">
-          </div>
-          <div class="brand-card">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
+        <div class="brands-row">
+          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
         </div>
 
         <div class="product-actions">
@@ -704,31 +592,15 @@
           ideal for presence detection on variable or shiny conveyors and fixtures.
         </p>
 
-        <div class="brands-grid">
-          <div class="brand-card">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          </div>
-          <div class="brand-card">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          </div>
-          <div class="brand-card">
-            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-          </div>
-          <div class="brand-card">
-            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-          </div>
-          <div class="brand-card">
-            <img src="logo10.png" class="brand-logo" alt="Brand 10">
-          </div>
-          <div class="brand-card">
-            <img src="logo11.png" class="brand-logo" alt="Brand 11">
-          </div>
-          <div class="brand-card">
-            <img src="logo14.png" class="brand-logo" alt="Brand 14">
-          </div>
-          <div class="brand-card">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
+        <div class="brands-row">
+          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
         </div>
 
         <div class="product-actions">
@@ -751,31 +623,15 @@
           detection, product sorting, and quality control applications.
         </p>
 
-        <div class="brands-grid">
-          <div class="brand-card">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          </div>
-          <div class="brand-card">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          </div>
-          <div class="brand-card">
-            <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
-          </div>
-          <div class="brand-card">
-            <img src="logo8.svg" class="brand-logo" alt="Brand 8">
-          </div>
-          <div class="brand-card">
-            <img src="logo10.png" class="brand-logo" alt="Brand 10">
-          </div>
-          <div class="brand-card">
-            <img src="logo11.png" class="brand-logo" alt="Brand 11">
-          </div>
-          <div class="brand-card">
-            <img src="logo14.png" class="brand-logo" alt="Brand 14">
-          </div>
-          <div class="brand-card">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
+        <div class="brands-row">
+          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
+          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
+          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
+          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
+          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
+          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
         </div>
 
         <div class="product-actions">
@@ -819,4 +675,3 @@
   </script>
 </body>
 </html>
-
