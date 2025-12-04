@@ -280,6 +280,42 @@
       cursor: pointer;
     }
 
+    .brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-card {
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.brand-card:hover {
+  box-shadow: 0 10px 20px rgba(15,23,42,0.12);
+  transform: translateY(-2px);
+}
+
+.brand-logo {
+  max-height: 32px;
+  max-width: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+
     @media (max-width: 900px) {
       main {
         padding: 90px 20px 30px;
@@ -349,29 +385,54 @@
           Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
           Designed for precise, repetitive tasks with quick deployment and simple programming.
         </p>
-        <div class="product-specs">
-          <div>
-            <span class="spec-item-label">Reach</span>
-            <span class="spec-item-value">850 mm · 33.5 in</span>
-          </div>
-          <div>
-            <span class="spec-item-label">Payload</span>
-            <span class="spec-item-value">5 kg · 11 lb</span>
-          </div>
-          <div>
-            <span class="spec-item-label">Footprint</span>
-            <span class="spec-item-value">Ø149 mm</span>
-          </div>
-          <div>
-            <span class="spec-item-label">Weight</span>
-            <span class="spec-item-value">20.6 kg · 45.4 lb</span>
-          </div>
-        </div>
-        <div class="product-actions">
-          <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
-        </div>
-      </div>
+        <div class="brands-grid">
+  <div class="brand-card">
+    <img src="logo1.png" class="brand-logo" alt="Brand 1">
+  </div>
+  <div class="brand-card">
+    <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
+  </div>
+  <div class="brand-card">
+    <img src="logo3.png" class="brand-logo" alt="Brand 3">
+  </div>
+  <div class="brand-card">
+    <img src="logo4.png" class="brand-logo" alt="Brand 4">
+  </div>
+  <div class="brand-card">
+    <img src="logo5.png" class="brand-logo" alt="Brand 5">
+  </div>
+  <div class="brand-card">
+    <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
+  </div>
+  <div class="brand-card">
+    <img src="logo7.jpg" class="brand-logo" alt="Brand 7">
+  </div>
+  <div class="brand-card">
+    <img src="logo8.svg" class="brand-logo" alt="Brand 8">
+  </div>
+  <div class="brand-card">
+    <img src="logo9.avif" class="brand-logo" alt="Brand 9">
+  </div>
+  <div class="brand-card">
+    <img src="logo10.png" class="brand-logo" alt="Brand 10">
+  </div>
+  <div class="brand-card">
+    <img src="logo11.png" class="brand-logo" alt="Brand 11">
+  </div>
+  <div class="brand-card">
+    <img src="logo12.svg.png" class="brand-logo" alt="Brand 12">
+  </div>
+  <div class="brand-card">
+    <img src="logo13.png" class="brand-logo" alt="Brand 13">
+  </div>
+  <div class="brand-card">
+    <img src="logo14.png" class="brand-logo" alt="Brand 14">
+  </div>
+  <div class="brand-card">
+    <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+  </div>
+</div>
+
     </section>
 
     <!-- PRODUCT 2 (duplicate and change data as needed) -->
