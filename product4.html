@@ -5,23 +5,38 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/jpeg" href="sh7-logo.jpg" />
 
-  <title>SH7 Engineering Solutions – Products</title>
+  <title>Sensors – SH7 Engineering Solutions</title>
 
   <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --primary: #D00607;
-      --primary-soft: #D00607;
+      --primary-soft: #D33838;
       --black: #0b1120;
       --white: #ffffff;
-      --bg-page: #f4f5f7;
+      --bg-page: #f5f7fb;
       --text-main: #111827;
       --text-muted: #6b7280;
-      --border-soft: rgba(17,24,39,0.06);
-      --shadow-soft: 0 18px 40px rgba(15,23,42,0.08);
-      --shadow-strong: 0 26px 60px rgba(15,23,42,0.18);
+      --border-soft: rgba(148,163,184,0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: var(--bg-page);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     #scroll-bar {
@@ -37,29 +52,6 @@
       pointer-events: none;
     }
 
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background: linear-gradient(
-        to bottom,
-        #ffffff 0%,
-        #fff5f5 25%,
-        #ffeaea 60%,
-        #ffffff 100%
-      );
-      background-attachment: fixed;
-    }
-
-    a {
-      color: inherit;
-    }
-
     /* HEADER */
     header {
       position: fixed;
@@ -71,7 +63,7 @@
       align-items: center;
       padding: 10px 5vw;
       z-index: 200;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(148,163,184,0.35);
       transition: box-shadow 0.25s ease, background 0.25s ease, transform 0.2s ease;
@@ -80,7 +72,7 @@
     header::after {
       content: "";
       position: absolute;
-      inset: auto 40px 0 40px;
+      inset: auto 5vw 0 5vw;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(208,6,7,0.5), transparent);
       opacity: 0.6;
@@ -119,7 +111,6 @@
       font-size: 13px;
       font-weight: 500;
       color: var(--text-muted);
-      text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       transition: color 0.25s ease;
@@ -145,221 +136,215 @@
       width: 100%;
     }
 
-    nav a.active {
-      color: var(--black);
-      font-weight: 600;
+    /* HERO – UNIVERSAL ROBOTS STYLE */
+    .sensor-hero {
+      padding: 110px 5vw 70px;
+      background: radial-gradient(circle at top left, #ffffff 0, #f5f7fb 55%, #edf2f7 100%);
     }
 
-    nav a.active::after {
+    .sensor-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .sensor-hero-image img {
       width: 100%;
+      max-width: 540px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 26px 60px rgba(15,23,42,0.28));
     }
 
-    /* MAIN */
+    .sensor-hero-content h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 8px;
+      color: #143044;
+      font-weight: 700;
+    }
+
+    .sensor-hero-subtitle {
+      font-size: 20px;
+      font-weight: 500;
+      color: #456b85;
+      margin-bottom: 16px;
+    }
+
+    .sensor-hero-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4a5568;
+      max-width: 520px;
+      margin-bottom: 26px;
+    }
+
+    .sensor-features-card {
+      background: #f8fafc;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 16px 32px;
+      margin-bottom: 22px;
+    }
+
+    .feature-item-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .feature-item-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .sensor-brands-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .brand-pill {
+      height: 40px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-pill img {
+      max-height: 24px;
+      max-width: 90px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: none;
+      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(208,6,7,0.4);
+    }
+
+    .btn-secondary {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      font-weight: 500;
+      background: #ffffff;
+      color: #1f2937;
+      cursor: pointer;
+    }
+
+    /* GENERIC PRODUCT BLOCKS BELOW HERO */
     main {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 110px 5vw 40px; /* space for header */
+      padding: 0 5vw 40px;
     }
 
-    .page-title {
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--black);
+    .page-intro {
+      margin: 40px 0 24px;
     }
 
-    .page-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 30px;
-    }
-
-    /* GENERIC PRODUCT TILE (for sections below hero) */
-    .product-block {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: center;
-      padding: 32px 26px;
-      margin-bottom: 32px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.96);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.12);
-      border: 1px solid rgba(148,163,184,0.25);
-    }
-
-    .product-image-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .product-image {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 18px 40px rgba(15,23,42,0.3));
-    }
-
-    .product-content h2 {
+    .page-intro h2 {
       font-size: 24px;
       margin: 0 0 6px;
       color: var(--black);
     }
 
-    .product-tagline {
+    .page-intro p {
+      margin: 0;
       font-size: 14px;
-      font-weight: 500;
       color: var(--text-muted);
-      margin-bottom: 12px;
     }
 
-    .product-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .product-actions {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn-primary {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: none;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(208,6,7,0.35);
-    }
-
-    .btn-outline {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.8);
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: #ffffff;
-      color: #111827;
-      cursor: pointer;
-    }
-
-    /* BRAND STRIP – HORIZONTAL LOGOS, NO INNER CARDS */
-    .brands-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .brand-logo {
-      max-height: 28px;
-      max-width: 90px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      main {
-        padding: 90px 20px 30px;
-      }
-      .product-block {
-        grid-template-columns: minmax(0,1fr);
-        padding: 22px 18px;
-      }
-    }
-
-    /* PHOTOELECTRIC SENSOR HERO – SINGLE TILE LIKE UR PAGE */
-    .product-hero {
-      margin-bottom: 32px;
-    }
-
-    .product-hero-inner {
+    .sensor-block {
       display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
       gap: 40px;
       align-items: center;
-      padding: 36px 32px;
+      padding: 28px 26px;
+      margin-bottom: 26px;
       border-radius: 24px;
       background: #ffffff;
-      box-shadow: 0 18px 40px rgba(15,23,42,0.12);
-      border: 1px solid rgba(148,163,184,0.25);
+      border: 1px solid rgba(148,163,184,0.28);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.06);
     }
 
-    .product-hero-image img {
+    .sensor-block img {
       width: 100%;
+      max-width: 460px;
       height: auto;
-      object-fit: contain;
       display: block;
-      filter: drop-shadow(0 18px 40px rgba(15,23,42,0.3));
+      margin: 0 auto;
+      filter: drop-shadow(0 18px 40px rgba(15,23,42,0.25));
     }
 
-    .product-hero-title {
-      font-size: 32px;
-      font-weight: 700;
-      color: #143044;
-      margin: 0 0 8px;
+    .sensor-block h3 {
+      font-size: 22px;
+      margin: 0 0 4px;
+      color: var(--black);
     }
 
-    .product-hero-subtitle {
-      font-size: 16px;
-      font-weight: 500;
-      color: #456b85;
+    .sensor-block-tagline {
+      font-size: 14px;
+      color: #64748b;
       margin-bottom: 10px;
     }
 
-    .product-hero-description {
-      font-size: 14px;
-      color: #4a5568;
+    .sensor-block-text {
+      font-size: 13px;
+      color: var(--text-muted);
       line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .sensor-block-brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-bottom: 16px;
-      max-width: 520px;
     }
 
-    .product-hero-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
+    .sensor-block-brands .brand-pill {
+      height: 36px;
+      padding: 4px 14px;
     }
 
-    .product-buttons {
+    .sensor-block-buttons {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 10px;
-    }
-
-    .product-hero .btn-primary {
-      padding: 10px 18px;
-      font-size: 13px;
-    }
-
-    .product-hero .btn-outline {
-      padding: 10px 18px;
-      font-size: 13px;
-    }
-
-    @media (max-width: 700px) {
-      .product-hero-inner {
-        grid-template-columns: 1fr;
-      }
-      .product-hero-title {
-        font-size: 26px;
-      }
     }
 
     /* FOOTER */
@@ -375,14 +360,28 @@
       border-top: 1px solid rgba(148,163,184,0.45);
     }
 
-    @media (max-width: 700px) {
-      header {
-        padding: 10px 20px;
+    @media (max-width: 900px) {
+      .sensor-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .sensor-hero {
+        padding: 96px 20px 56px;
+      }
+      main {
+        padding: 0 20px 40px;
+      }
+      .sensor-block {
+        grid-template-columns: 1fr;
+        padding: 22px 18px;
       }
       footer {
         padding: 16px 20px 34px;
         flex-direction: column;
         align-items: flex-start;
+      }
+      .sensor-hero-content h1 {
+        font-size: 38px;
       }
     }
   </style>
@@ -390,270 +389,263 @@
 <body>
   <div id="scroll-bar"></div>
 
-  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="Untitled design (2).png" alt="SH7 Engineering Solutions" class="logo-img" />
     </div>
     <nav>
-      <a href="index.html#home" class="nav-link">Home</a>
-      <a href="index.html#about" class="nav-link">About</a>
-      <a href="index.html#products" class="nav-link">Products</a>
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="index.html#contact" class="nav-link">Contact</a>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- CONTENT -->
-  <main>
-    <h1 class="page-title">Sensors</h1>
-    <p class="page-subtitle">
-      Selected sensor types available through SH7 Engineering Solutions. Details and models can be customized based on your application.
-    </p>
-
-    <!-- HERO: PHOTOELECTRIC SENSORS (ONE TILE, HORIZONTAL BRANDS) -->
-    <section class="product-hero">
-      <div class="product-hero-inner">
-
-        <!-- LEFT: IMAGE -->
-        <div class="product-hero-image">
-          <img src="photoelectric sensors.webp" alt="Photoelectric Sensors" class="product-image">
-        </div>
-
-        <!-- RIGHT: TEXT + BRANDS + BUTTONS -->
-        <div class="product-hero-content">
-          <h1 class="product-hero-title">Photoelectric Sensors</h1>
-          <p class="product-hero-subtitle">Reliable object detection over longer ranges</p>
-          <p class="product-hero-description">
-            Ideal for conveyor systems, packaging lines, and presence detection where
-            non-contact, fast response, and stable sensing are critical. Available in diffuse,
-            through-beam, and retro-reflective types.
-          </p>
-
-          <!-- HORIZONTAL BRAND LOGOS -->
-          <div class="brands-row">
-            <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-            <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-            <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-            <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-            <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-            <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-            <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-            <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
-          </div>
-
-          <div class="product-buttons">
-            <button class="btn-primary">Request a quote</button>
-            <button class="btn-outline">Share your layout</button>
-          </div>
-        </div>
-
+  <!-- HERO: PHOTOELECTRIC SENSORS -->
+  <section class="sensor-hero">
+    <div class="sensor-hero-inner">
+      <div class="sensor-hero-image">
+        <img src="photoelectric sensors.webp" alt="Photoelectric Sensors">
       </div>
-    </section>
+      <div class="sensor-hero-content">
+        <h1>Photoelectric Sensors</h1>
+        <div class="sensor-hero-subtitle">Lightweight, versatile detection for any line</div>
+        <p class="sensor-hero-text">
+          Compact, reliable sensing for conveyors, packaging, and material handling. From clear-object
+          detection to long-range presence control, our photoelectric range helps keep your machines
+          running with precise, consistent feedback.
+        </p>
+
+        <div class="sensor-features-card">
+          <div>
+            <div class="feature-item-label">Typical Range</div>
+            <div class="feature-item-value">Up to 20 m (through-beam)</div>
+          </div>
+          <div>
+            <div class="feature-item-label">Sensing Modes</div>
+            <div class="feature-item-value">Diffuse · Retro-reflective · Through-beam</div>
+          </div>
+          <div>
+            <div class="feature-item-label">Outputs</div>
+            <div class="feature-item-value">PNP / NPN · NO / NC</div>
+          </div>
+          <div>
+            <div class="feature-item-label">Protection</div>
+            <div class="feature-item-value">IP65 / IP67 options</div>
+          </div>
+        </div>
+
+        <div class="sensor-brands-row">
+          <span style="font-size:13px;font-weight:500;color:#4b5563;margin-right:4px;">Brands:</span>
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
+        </div>
+
+        <div class="hero-buttons">
+          <button class="btn-primary">Request a quote</button>
+          <button class="btn-secondary">Share your layout</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER SENSOR TYPES -->
+  <main>
+    <div class="page-intro">
+      <h2>Other Sensor Types</h2>
+      <p>We support multiple sensing principles for different applications and environments.</p>
+    </div>
 
     <!-- Inductive Sensors -->
-    <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Inductive sensors .webp" alt="Inductive Sensors" class="product-image">
+    <section class="sensor-block">
+      <div>
+        <img src="Inductive sensors .webp" alt="Inductive Sensors">
       </div>
-      <div class="product-content">
-        <h2>Inductive Sensors</h2>
-        <div class="product-tagline">Non-contact metal detection for harsh environments</div>
-        <p class="product-text">
-          Rugged sensors for position and presence detection of metal targets in
-          automation, packaging, and assembly lines. Available in various sizes,
-          sensing distances, and output types.
+      <div>
+        <h3>Inductive Sensors</h3>
+        <div class="sensor-block-tagline">Non-contact metal detection for harsh environments</div>
+        <p class="sensor-block-text">
+          Rugged proximity sensors for position feedback, end-of-stroke detection, and metal part counting.
+          Available in cylindrical and rectangular bodies with flush and non-flush options.
         </p>
-
-        <div class="brands-row">
-          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+        <div class="sensor-block-brands">
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
         </div>
-
-        <div class="product-actions">
+        <div class="sensor-block-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
+          <button class="btn-secondary">Ask for application study</button>
         </div>
       </div>
     </section>
 
-    <!-- Through-Beam Sensors -->
-    <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Through been sensors.jpg" alt="Through-Beam Sensors" class="product-image">
+    <!-- Through-beam Sensors -->
+    <section class="sensor-block">
+      <div>
+        <img src="Through been sensors.jpg" alt="Through-Beam Sensors">
       </div>
-      <div class="product-content">
-        <h2>Through-Beam Sensors</h2>
-        <div class="product-tagline">High reliability for long-distance detection</div>
-        <p class="product-text">
-          Separate emitter and receiver design for robust object detection in dusty,
-          humid, or high-speed conveyor applications. Ideal for counting, presence
-          detection, and safety-related triggering.
+      <div>
+        <h3>Through-Beam Sensors</h3>
+        <div class="sensor-block-tagline">Long-distance, high-reliability detection</div>
+        <p class="sensor-block-text">
+          Separate emitter–receiver pairs for high sensing distances and reliable detection
+          in dusty or contaminated environments – ideal for packaging and pallet lines.
         </p>
-
-        <div class="brands-row">
-          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+        <div class="sensor-block-brands">
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
         </div>
-
-        <div class="product-actions">
+        <div class="sensor-block-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
+          <button class="btn-secondary">Ask for application study</button>
         </div>
       </div>
     </section>
 
     <!-- Reflective Sensors -->
-    <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Reflective sensors .jpg" alt="Reflective Sensors" class="product-image">
+    <section class="sensor-block">
+      <div>
+        <img src="Reflective sensors .jpg" alt="Reflective Sensors">
       </div>
-      <div class="product-content">
-        <h2>Reflective Sensors</h2>
-        <div class="product-tagline">Compact detection with reflector-based setup</div>
-        <p class="product-text">
-          Retro-reflective sensors with mirror/reflector for easy installation and
-          alignment. Suitable for object detection on conveyors, packaging,
-          and warehouse automation.
+      <div>
+        <h3>Reflective Sensors</h3>
+        <div class="sensor-block-tagline">Reliable label, mark, and object detection</div>
+        <p class="sensor-block-text">
+          Retro-reflective and background-suppression types for cartons, labels, and small parts.
+          Excellent for conveyor applications where space is limited.
         </p>
-
-        <div class="brands-row">
-          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+        <div class="sensor-block-brands">
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
         </div>
-
-        <div class="product-actions">
+        <div class="sensor-block-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
+          <button class="btn-secondary">Ask for application study</button>
         </div>
       </div>
     </section>
 
     <!-- Fiber Optic Sensors -->
-    <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Fiber optic sensors .jpg" alt="Fiber Optic Sensors" class="product-image">
+    <section class="sensor-block">
+      <div>
+        <img src="Fiber optic sensors .jpg" alt="Fiber Optic Sensors">
       </div>
-      <div class="product-content">
-        <h2>Fiber Optic Sensors</h2>
-        <div class="product-tagline">Flexible sensing for tight and high-temperature spaces</div>
-        <p class="product-text">
-          Fiber-based sensing heads for miniature detection points, curved paths,
-          and high-temperature zones. Ideal for electronics, packaging, and
-          small-part detection tasks.
+      <div>
+        <h3>Fiber Optic Sensors</h3>
+        <div class="sensor-block-tagline">Flexible sensing for tight or hot areas</div>
+        <p class="sensor-block-text">
+          Compact fiber heads with remote amplifiers for high-temperature zones,
+          cramped machines, and applications where standard housings cannot fit.
         </p>
-
-        <div class="brands-row">
-          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+        <div class="sensor-block-brands">
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
         </div>
-
-        <div class="product-actions">
+        <div class="sensor-block-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
+          <button class="btn-secondary">Ask for application study</button>
         </div>
       </div>
     </section>
 
     <!-- Background Suppression Sensors -->
-    <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Background suppression sensors .webp" alt="Background Suppression Sensors" class="product-image">
+    <section class="sensor-block">
+      <div>
+        <img src="Background suppression sensors .webp" alt="Background Suppression Sensors">
       </div>
-      <div class="product-content">
-        <h2>Background Suppression Sensors</h2>
-        <div class="product-tagline">Stable detection independent of background</div>
-        <p class="product-text">
-          Sensors designed to detect the object while ignoring background surfaces,
-          ideal for presence detection on variable or shiny conveyors and fixtures.
+      <div>
+        <h3>Background Suppression Sensors</h3>
+        <div class="sensor-block-tagline">Stable detection independent of background</div>
+        <p class="sensor-block-text">
+          Detect objects reliably even when the conveyor, machinery, or background colour changes.
+          Useful for mixed-product lines and packaging machines.
         </p>
-
-        <div class="brands-row">
-          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+        <div class="sensor-block-brands">
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
         </div>
-
-        <div class="product-actions">
+        <div class="sensor-block-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
+          <button class="btn-secondary">Ask for application study</button>
         </div>
       </div>
     </section>
 
     <!-- Color Sensors -->
-    <section class="product-block">
-      <div class="product-image-wrap">
-        <img src="Color sensors .png" alt="Color Sensors" class="product-image">
+    <section class="sensor-block">
+      <div>
+        <img src="Color sensors .png" alt="Color Sensors">
       </div>
-      <div class="product-content">
-        <h2>Color Sensors</h2>
-        <div class="product-tagline">Color-based detection and sorting</div>
-        <p class="product-text">
-          Sensors that detect color differences for label checking, print mark
-          detection, product sorting, and quality control applications.
+      <div>
+        <h3>Color Sensors</h3>
+        <div class="sensor-block-tagline">Precise colour and mark detection</div>
+        <p class="sensor-block-text">
+          Dedicated sensors for print marks, packaging artwork, and colour-based sorting.
+          Ideal for FMCG, labelling, and high-speed packaging lines.
         </p>
-
-        <div class="brands-row">
-          <img src="logo2.svg.png" class="brand-logo" alt="Brand 2">
-          <img src="logo6.svg.png" class="brand-logo" alt="Brand 6">
-          <img src="logo7.jpg"     class="brand-logo" alt="Brand 7">
-          <img src="logo8.svg"     class="brand-logo" alt="Brand 8">
-          <img src="logo10.png"    class="brand-logo" alt="Brand 10">
-          <img src="logo11.png"    class="brand-logo" alt="Brand 11">
-          <img src="logo14.png"    class="brand-logo" alt="Brand 14">
-          <img src="logo15.svg.png" class="brand-logo" alt="Brand 15">
+        <div class="sensor-block-brands">
+          <div class="brand-pill"><img src="logo2.svg.png" alt="Brand 2"></div>
+          <div class="brand-pill"><img src="logo6.svg.png" alt="Brand 6"></div>
+          <div class="brand-pill"><img src="logo7.jpg" alt="Brand 7"></div>
+          <div class="brand-pill"><img src="logo8.svg" alt="Brand 8"></div>
+          <div class="brand-pill"><img src="logo10.png" alt="Brand 10"></div>
+          <div class="brand-pill"><img src="logo11.png" alt="Brand 11"></div>
+          <div class="brand-pill"><img src="logo14.png" alt="Brand 14"></div>
+          <div class="brand-pill"><img src="logo15.svg.png" alt="Brand 15"></div>
         </div>
-
-        <div class="product-actions">
+        <div class="sensor-block-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-outline">Ask for application study</button>
+          <button class="btn-secondary">Ask for application study</button>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
     <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
   </footer>
 
   <script>
-    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Header + scroll bar behaviour
     const headerEl = document.querySelector("header");
     const scrollBar = document.getElementById("scroll-bar");
 
