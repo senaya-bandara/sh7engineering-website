@@ -400,6 +400,38 @@
   cursor: pointer;
 }
 
+    /* 1. Keep content and buttons separated (no overlap) */
+.product-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.product-brand-box {
+  margin: 10px 0 4px;
+}
+
+.product-buttons {
+  margin-top: 10px;
+}
+
+/* 2. Make the main button red to match theme */
+.product-hero .btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+  box-shadow: 0 12px 30px rgba(208,6,7,0.35);
+}
+
+/* 3. Give the whole sensor block curved edges like a tile */
+.product-hero-inner {
+  background: rgba(255,255,255,0.96);
+  border-radius: 24px;
+  padding: 32px 32px;
+  box-shadow: 0 18px 40px rgba(15,23,42,0.12);
+  border: 1px solid rgba(148,163,184,0.25);
+}
+
+
 /* RESPONSIVE – stack only on small screens */
 @media (max-width: 700px) {
   .product-hero-inner {
@@ -466,7 +498,7 @@
 
     <!-- LEFT: IMAGE -->
     <div class="product-hero-image">
-      <img src="robot arm.webp" alt="Photoelectric Sensors" class="product-image">
+      <img src="photoelectric sensors.webp" alt="Photoelectric Sensors" class="product-image">
     </div>
 
     <!-- RIGHT: INFO (same content as you gave) -->
