@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/jpeg" href="sh7-logo.jpg" />
 
-  <title>SH7 Engineering Solutions – Product</title>
+  <title>SH7 Engineering Solutions – Products</title>
 
   <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -60,6 +60,7 @@
       color: inherit;
     }
 
+    /* HEADER (same as home) */
     header {
       position: fixed;
       top: 0;
@@ -153,11 +154,143 @@
       width: 100%;
     }
 
+    /* MAIN */
     main {
-      min-height: 60vh;
-      padding-top: 100px; /* space for fixed header */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 110px 5vw 40px; /* space for header */
     }
 
+    .page-title {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    /* PRODUCT LAYOUT (image left, text + specs box right) */
+    .product-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      padding: 32px 26px;
+      margin-bottom: 32px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.12);
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+
+    .product-image-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-image {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 40px rgba(15,23,42,0.3));
+    }
+
+    .product-content h2 {
+      font-size: 24px;
+      margin: 0 0 6px;
+      color: var(--black);
+    }
+
+    .product-tagline {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .product-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .product-specs {
+      background: #f9fafb;
+      border-radius: 18px;
+      padding: 18px 18px 14px;
+      border: 1px solid rgba(148,163,184,0.4);
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 10px 18px;
+      font-size: 13px;
+    }
+
+    .spec-item-label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .spec-item-value {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .product-actions {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(208,6,7,0.35);
+    }
+
+    .btn-outline {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.8);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: #ffffff;
+      color: #111827;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 90px 20px 30px;
+      }
+      .product-block {
+        grid-template-columns: minmax(0,1fr);
+        padding: 22px 18px;
+      }
+    }
+
+    /* FOOTER (same as home) */
     footer {
       max-width: 1200px;
       margin: 0 auto;
@@ -185,7 +318,7 @@
 <body>
   <div id="scroll-bar"></div>
 
-  <!-- HEADER (same as home) -->
+  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="Untitled design (2).png" alt="SH7 Engineering Solutions" class="logo-img" />
@@ -199,12 +332,89 @@
     </nav>
   </header>
 
-  <!-- BLANK CONTENT AREA -->
+  <!-- CONTENT: multiple products with image left + spec box right -->
   <main>
-    <!-- leave empty for now -->
+    <h1 class="page-title">Collaborative Robot Arms</h1>
+    <p class="page-subtitle">Selected cobot models available through SH7 Engineering Solutions. Details and models can be customized based on your application.</p>
+
+    <!-- PRODUCT 1 -->
+    <section class="product-block">
+      <div class="product-image-wrap">
+        <img src="ur5e.png" alt="UR5e Cobot" class="product-image">
+      </div>
+      <div class="product-content">
+        <h2>UR5e</h2>
+        <div class="product-tagline">Lightweight, versatile collaborative robot</div>
+        <p class="product-text">
+          Compact cobot ideal for pick-and-place, testing, machine tending, and light assembly work.
+          Designed for precise, repetitive tasks with quick deployment and simple programming.
+        </p>
+        <div class="product-specs">
+          <div>
+            <span class="spec-item-label">Reach</span>
+            <span class="spec-item-value">850 mm · 33.5 in</span>
+          </div>
+          <div>
+            <span class="spec-item-label">Payload</span>
+            <span class="spec-item-value">5 kg · 11 lb</span>
+          </div>
+          <div>
+            <span class="spec-item-label">Footprint</span>
+            <span class="spec-item-value">Ø149 mm</span>
+          </div>
+          <div>
+            <span class="spec-item-label">Weight</span>
+            <span class="spec-item-value">20.6 kg · 45.4 lb</span>
+          </div>
+        </div>
+        <div class="product-actions">
+          <button class="btn-primary">Request a quote</button>
+          <button class="btn-outline">Ask for application study</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT 2 (duplicate and change data as needed) -->
+    <section class="product-block">
+      <div class="product-image-wrap">
+        <img src="ur10e.png" alt="UR10e Cobot" class="product-image">
+      </div>
+      <div class="product-content">
+        <h2>UR10e</h2>
+        <div class="product-tagline">High reach for larger workspaces</div>
+        <p class="product-text">
+          Medium-to-heavy payload cobot suited for palletizing, packaging, and material handling
+          where extended reach and stability are critical.
+        </p>
+        <div class="product-specs">
+          <div>
+            <span class="spec-item-label">Reach</span>
+            <span class="spec-item-value">1300 mm</span>
+          </div>
+          <div>
+            <span class="spec-item-label">Payload</span>
+            <span class="spec-item-value">12.5 kg</span>
+          </div>
+          <div>
+            <span class="spec-item-label">Footprint</span>
+            <span class="spec-item-value">Ø190 mm</span>
+          </div>
+          <div>
+            <span class="spec-item-label">Weight</span>
+            <span class="spec-item-value">33.5 kg</span>
+          </div>
+        </div>
+        <div class="product-actions">
+          <button class="btn-primary">Request a quote</button>
+          <button class="btn-outline">Share your layout</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- add more <section class="product-block">…</section> for more products -->
   </main>
 
-  <!-- FOOTER (same as home) -->
+  <!-- FOOTER -->
   <footer>
     <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
     <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
