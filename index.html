@@ -614,23 +614,23 @@ padding-top: 40px;
     }
 
 
-    /* Add this to your existing <style> block */
-.tile:hover .tile-image-wrap::before {
-  opacity: 1;
-}
-
-.tile-image-wrap::before {
+    /* Gradient Overlay */
+.tile-image-wrap::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.35),
-    rgba(255,255,255,0.05)
+    to top,
+    rgba(208,6,7,0.55),
+    rgba(208,6,7,0.15),
+    transparent 60%
   );
-  opacity: 0;
+  opacity: 0.5; /* visible even without hover */
   transition: opacity 0.35s ease;
-  pointer-events: none;
+}
+
+.tile:hover .tile-image-wrap::after {
+  opacity: 0.85;
 }
 
 
