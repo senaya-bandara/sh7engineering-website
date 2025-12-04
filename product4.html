@@ -137,6 +137,23 @@
     }
 
     /* HERO – UNIVERSAL ROBOTS STYLE */
+    .sensor-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* creates space between text, brands, and buttons */
+}
+
+.sensor-hero-content .brands-grid,
+.sensor-hero-content .sensor-brands-row {
+  margin-bottom: 12px; /* space so buttons never overlap */
+}
+
+.hero-buttons {
+  margin-top: 8px;
+  position: relative;
+  z-index: 2;
+}
+
     .sensor-hero {
       padding: 110px 5vw 70px;
       background: radial-gradient(circle at top left, #ffffff 0, #f5f7fb 55%, #edf2f7 100%);
@@ -224,7 +241,7 @@
 }
 
 .brand-card {
-  width: 100%;
+  width: 120px;
   height: 60px;
   background: #ffffff;
   border-radius: 12px;
