@@ -1187,6 +1187,27 @@ box-shadow: 0 30px 80px rgba(15,23,42,0.45);
 }
 
 
+    /* 1. Avoid the "two tiles inside each other" look – keep only one main tile */
+.product-hero {
+  background: transparent;      /* no extra outer tile */
+  padding: 40px 0;              /* a bit tighter top/bottom space */
+}
+
+/* 2. Make the brands appear in a grid (not one long vertical list) */
+.product-brand-box .brands-grid {
+  grid-template-columns: repeat(2, minmax(130px, 1fr)); /* 2 columns */
+  column-gap: 16px;
+  row-gap: 10px;
+  justify-content: flex-start;
+}
+
+/* Optional: make brand pills slimmer like badges */
+.product-brand-box .brand-card {
+  height: 44px;
+  border-radius: 999px;   /* pill shape */
+  box-shadow: none;       /* lighter, not like a second big tile */
+}
+
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       * {
