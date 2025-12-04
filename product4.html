@@ -215,7 +215,22 @@
       align-items: center;
       margin-bottom: 24px;
     }
+.brand-pill,
+.brand-card {
+    width: 120px;      /* fixed width */
+    height: 50px;      /* fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;     /* same corner shape */
+}
 
+.brand-pill img,
+.brand-card img {
+    max-width: 80%;
+    max-height: 70%;
+    object-fit: contain;
+}
     .brand-pill {
       height: 40px;
       padding: 6px 16px;
