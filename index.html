@@ -755,14 +755,19 @@ padding-top: 40px;
     .tile:hover .tile-image-wrap::after {
       opacity: 0.4;
     }
-
-    .tile-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.03);
-      transition: transform 0.4s ease;
-    }
+    
+.tile-image-wrap img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;     /* keeps full image visible */
+  padding: 15px;           /* adds white space */
+  background: #ffffff;      /* white background box */
+  border-radius: 14px;     /* smooth edges */
+  margin: auto;
+  display: block;
+  transform: scale(1);     /* remove zoom-in */
+  transition: transform 0.4s ease;
+}
 
     .tile:hover .tile-image-wrap img {
       transform: scale(1.08);
