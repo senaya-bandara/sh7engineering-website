@@ -755,6 +755,19 @@ padding-top: 40px;
   transition: transform 0.4s ease;
 }
 
+        .camera-tile .tile-image-wrap img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 14px;
+  margin: auto;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+
     .tile-image-wrap::after {
       content: "";
       position: absolute;
@@ -1438,7 +1451,7 @@ box-shadow: 0 30px 80px rgba(15,23,42,0.45);
 </a>
 
                 <a href="product8.html" class="tile-link">
-  <div class="tile tilt uniform-tile"> 
+  <div class="tile tilt camera-tile"> 
     <div class="tile-image-wrap">
       <img src="cameras.png" alt="Machine Vision Smart Cameras" />
     </div>
