@@ -1,20 +1,238 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Product Details</title>
-  <link rel="stylesheet" href="styles.css" /> <!-- Optional -->
-</head>
+  <link rel="icon" type="image/jpeg" href="sh7-logo.jpg" />
 
+  <title>SH7 Engineering Solutions – Product</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #D00607;
+      --primary-soft: #D00607;
+      --black: #0b1120;
+      --white: #ffffff;
+      --bg-page: #f4f5f7;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-soft: rgba(17,24,39,0.06);
+      --shadow-soft: 0 18px 40px rgba(15,23,42,0.08);
+      --shadow-strong: 0 26px 60px rgba(15,23,42,0.18);
+    }
+
+    #scroll-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      transform-origin: left;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, #d00607, #ff7a7a);
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #fff5f5 25%,
+        #ffeaea 60%,
+        #ffffff 100%
+      );
+      background-attachment: fixed;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5vw;
+      z-index: 200;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148,163,184,0.35);
+      transition: box-shadow 0.25s ease, background 0.25s ease, transform 0.2s ease;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: auto 40px 0 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(208,6,7,0.5), transparent);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    header.scrolled {
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+      transform: translateY(-1px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--black);
+    }
+
+    .logo-img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav a {
+      position: relative;
+      margin-left: 18px;
+      padding: 6px 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-soft));
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--black);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    main {
+      min-height: 60vh;
+      padding-top: 100px; /* space for fixed header */
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 5vw 40px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(148,163,184,0.45);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 10px 20px;
+      }
+      footer {
+        padding: 16px 20px 34px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
 <body>
-  <header> 
-    <a href="index.html">← Back to Home</a>
+  <div id="scroll-bar"></div>
+
+  <!-- HEADER (same as home) -->
+  <header>
+    <div class="logo">
+      <img src="Untitled design (2).png" alt="SH7 Engineering Solutions" class="logo-img" />
+    </div>
+    <nav>
+      <a href="index.html#home" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#products" class="nav-link">Products</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
   </header>
 
-  <section style="padding:40px;">
-    <h1>Product Name Here</h1>
-    <p>Full details about this product category...</p>
-  </section>
+  <!-- BLANK CONTENT AREA -->
+  <main>
+    <!-- leave empty for now -->
+  </main>
+
+  <!-- FOOTER (same as home) -->
+  <footer>
+    <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
+    <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Header + scroll bar behaviour
+    const headerEl = document.querySelector("header");
+    const scrollBar = document.getElementById("scroll-bar");
+
+    function onScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollY / docHeight) : 0;
+      scrollBar.style.transform = `scaleX(${progress})`;
+
+      if (scrollY > 10) {
+        headerEl.classList.add("scrolled");
+      } else {
+        headerEl.classList.remove("scrolled");
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+  </script>
 </body>
 </html>
