@@ -613,6 +613,55 @@ padding-top: 40px;
       50% { transform: translateY(-4px); }
     }
 
+
+    /* Add this to your existing <style> block */
+
+/* Product tile meta + CTA */
+.tile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 11px;
+  align-items: center;
+}
+
+.tile-pill {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(208,6,7,0.06);
+  color: var(--primary);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.tile-meta-text {
+  color: var(--text-muted);
+}
+
+.tile-cta {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tile-cta-arrow {
+  font-size: 14px;
+}
+
+.tile:hover .tile-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     /* SECTIONS */
     section {
       padding: 70px 40px;
@@ -1238,7 +1287,7 @@ padding-top: 40px;
     <a href="product1.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image1.webp" alt="PLC and HMI">
+      <img src="HMI.webp" alt="PLC and HMI">
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1251,27 +1300,12 @@ padding-top: 40px;
 </a>
 
 
-    <!-- Card 2 -->
-    <a href="product2.html" class="tile-link">
-  <div class="tile tilt">
-    <div class="tile-image-wrap">
-      <img src="image2.jpg" alt="Industrial sensors">
-    </div>
-    <div class="tile-body">
-      <div class="tile-title-row">
-        <h3 class="tile-title">Industrial sensors, switches & instruments</h3>
-        <span class="tile-arrow">›</span>
-      </div>
-    
-    </div>
-  </div>
-</a>
-    
+
  
     <a href="product3.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image7.png.avif" alt="Servo Motors and Servo drivers" />
+      <img src="Servo meter & Driver.jpg" alt="Servo Motors and Servo drivers" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1286,7 +1320,7 @@ padding-top: 40px;
     <a href="product4.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="Sensors" />
+      <img src="Background suppression sensors .webp" alt="Sensors" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1301,7 +1335,7 @@ padding-top: 40px;
         <a href="product5.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="Switches" />
+      <img src="Safety Switches.webp" alt="Switches" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1316,7 +1350,7 @@ padding-top: 40px;
         <a href="product6.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="Pneumatics" />
+      <img src="pneumatic.webp" alt="Pneumatics" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1332,7 +1366,7 @@ padding-top: 40px;
             <a href="product7.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="VFD & Motor Control Systems" />
+      <img src="VFD - Mistsubishi.jpg" alt="VFD & Motor Control Systems" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1347,7 +1381,7 @@ padding-top: 40px;
                 <a href="product8.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="Machine Vision Smart Cameras" />
+      <img src="Machine Vision smart Camera.png" alt="Machine Vision Smart Cameras" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1359,7 +1393,7 @@ padding-top: 40px;
   </div>
 </a>
 
-    <a href="product9.html" class="tile-link">
+    <a href="cables.jpg" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
       <img src="image4.jpg" alt="Cables" />
@@ -1378,7 +1412,7 @@ padding-top: 40px;
     <a href="product10.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="Machines & Power Tools" />
+      <img src="machines.png" alt="Machines & Power Tools" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
@@ -1395,7 +1429,7 @@ padding-top: 40px;
         <a href="product11.html" class="tile-link">
   <div class="tile tilt">
     <div class="tile-image-wrap">
-      <img src="image4.jpg" alt="Robotic Arms" />
+      <img src="Robotics arms.jpg" alt="Robotic Arms" />
     </div>
     <div class="tile-body">
       <div class="tile-title-row">
