@@ -315,6 +315,7 @@
   object-fit: contain;
 }
 
+    
 
     @media (max-width: 900px) {
       main {
@@ -325,6 +326,124 @@
         padding: 22px 18px;
       }
     }
+/* PRODUCT HERO LAYOUT LIKE UNIVERSAL ROBOTS */
+.product-hero {
+  width: 100%;
+  background: #ffffff;
+  padding: 60px 5vw;
+}
+
+.product-hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.product-hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* RIGHT SIDE TEXT */
+.product-hero-title {
+  font-size: 54px;
+  font-weight: 700;
+  color: #143044;
+  margin: 0 0 10px;
+}
+
+.product-hero-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: #456b85;
+  margin-bottom: 12px;
+}
+
+.product-hero-description {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 26px;
+  max-width: 520px;
+}
+
+/* SPECS BOX LIKE THE UR WEBSITE */
+.product-spec-box {
+  background: #f4f5f7;
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+  margin-bottom: 24px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spec-icon {
+  font-size: 24px;
+}
+
+.spec-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+}
+
+.spec-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* BUTTONS */
+.product-buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.btn-primary {
+  background: #1a73e8;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #cbd5e0;
+  color: #1f2937;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .product-hero-inner {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .product-hero-title {
+    font-size: 38px;
+  }
+}
 
     /* FOOTER (same as home) */
     footer {
