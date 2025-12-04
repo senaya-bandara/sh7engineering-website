@@ -864,6 +864,62 @@ padding-top: 40px;
  
   }
 
+/* PRODUCTS BLOCK LIKE JKOA */
+
+.products-section {
+  max-width: 1100px;
+  margin: 90px auto 0;
+  padding: 40px 40px 50px;
+  border-radius: 28px;
+  background: radial-gradient(circle at top left, #22c55e 0, #0ea5e9 45%, #0369a1 100%);
+  box-shadow: 0 30px 80px rgba(15,23,42,0.45);
+  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+/* remove the thin separator line for this section */
+.products-section::before {
+  display: none;
+}
+
+/* headings & text in this block */
+.products-section .section-pill {
+  color: #bbf7d0;
+}
+
+.products-section .section-title {
+  color: #ffffff;
+}
+
+.products-section .section-title::after {
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), transparent);
+}
+
+.products-section .section-subtitle {
+  color: rgba(241,245,249,0.9);
+}
+
+/* give some extra room between header and cards */
+.products-section .grid {
+  margin-top: 24px;
+}
+
+/* card look inside coloured block */
+.products-section .tile {
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(15,23,42,0.25);
+}
+
+.products-section .tile-body {
+  color: #0f172a;
+}
+
+.products-section .tile-text,
+.products-section .tile-list {
+  color: #6b7280;
+}
 
 
 .tile-link,
@@ -1244,7 +1300,8 @@ padding-top: 40px;
 
 
 <!-- PRODUCTS -->
-<section id="products" class="fade-in">
+<section id="products" class="fade-in products-section">
+
   <div class="section-header">
     <div>
       <div class="section-pill">Products</div>
