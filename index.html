@@ -1155,21 +1155,22 @@ padding-top: 40px;
 .contact-details p {
   margin: 4px 0;
 }
-.contact-visual {
-  position: relative;
+.contact-side-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40vw;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
-  border-radius: 32px 0 0 32px;
-  background: linear-gradient(90deg, #e5e7eb 0%, #e5edf5 45%, #dbeafe 100%);
-  box-shadow: 0 24px 60px rgba(15,23,42,0.20);
 }
 
-.contact-visual img {
-  width: 140%;
-  max-width: none;
-  display: block;
+.contact-side-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: right center;
-  transform: translateX(12%);   /* pushes image out to the right side */
+  opacity: 0.95;
 }
 
 
@@ -1935,11 +1936,12 @@ padding-top: 40px;
         </div>
       </div>
 
-      <div class="contact-visual">
-        <!-- change image file name if needed -->
-        <img src="SH7.png" alt="SH7 Engineering – Industrial automation" />
-      </div>
+     
     </div>
+    <div class="contact-side-image">
+  <img src="SH7.png" alt="Contact Image">
+</div>
+
 
     <div class="contact-footer">
       <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
