@@ -234,10 +234,55 @@
     }
 
 
-    /* PLC section – stack text first, then a row of images */
+/* PLC section – stack text first, then tiles */
 .sensor-hero-inner.plc-layout {
   grid-template-columns: minmax(0,1fr);
 }
+
+/* Row of PLC tiles */
+.plc-tiles-row {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Single PLC tile */
+.plc-tile {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px 12px;
+  width: min(220px, 100%);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+}
+
+/* PLC image inside tile */
+.plc-tile-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Brand logo below image */
+.plc-tile-brand {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plc-tile-brand img {
+  max-height: 22px;
+  max-width: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
 
 .plc-image-row {
   margin-top: 12px;
@@ -511,28 +556,60 @@
         <strong>Brands: </strong> Delta / Xinje / Siemens / Omron / Allen-Bradley / Mitsubishi
       </p>
 
-      <div class="brands-grid">
-        <div class="brand-card">
-          <img src="logo9.avif" class="brand-logo" alt="Delta">
-        </div>
-        <div class="brand-card">
-          <img src="logo12.svg.png" class="brand-logo" alt="Siemens">
-        </div>
-        <div class="brand-card">
-          <img src="logo3.png" class="brand-logo" alt="Omron">
-        </div>
-      </div>
+   <!-- PLC IMAGE TILES -->
+<div class="plc-tiles-row">
 
-      <!-- ROW OF PLC IMAGES -->
-      <div class="plc-image-row">
-        <img src="PLC - Alen bradley.svg" alt="PLC close-up">
-        <img src="PLC - Delta.svg" alt="PLC control panel">
-        <img src="PLC - mitsubishi.svg" alt="PLC in machine cabinet">
-        <img src="PLC - Omron.svg" alt="PLC close-up">
-        <img src="PLC - Simene.svg" alt="PLC control panel">
-        <img src="PLC - Xinje.svg" alt="PLC in machine cabinet">
-        <img src="PLC-Panasonic.svg" alt="PLC in machine cabinet">
-      </div>
+  <div class="plc-tile">
+    <img src="PLC - Alen bradley.svg" alt="Allen Bradley PLC">
+    <div class="plc-brand">
+      <img src="logo21.png" alt="Allen Bradley">
+    </div>
+  </div>
+
+  <div class="plc-tile">
+    <img src="PLC - Delta.svg" alt="Delta PLC">
+    <div class="plc-brand">
+      <img src="logo11.png" alt="Delta">
+    </div>
+  </div>
+
+  <div class="plc-tile">
+    <img src="PLC - mitsubishi.svg" alt="Mitsubishi PLC">
+    <div class="plc-brand">
+      <img src="logo5.png" alt="Mitsubishi">
+    </div>
+  </div>
+
+  <div class="plc-tile">
+    <img src="PLC - Omron.svg" alt="Omron PLC">
+    <div class="plc-brand">
+      <img src="logo6.svg.png" alt="Omron">
+    </div>
+  </div>
+
+  <div class="plc-tile">
+    <img src="PLC - Simene.svg" alt="Siemens PLC">
+    <div class="plc-brand">
+      <img src="logo4.png" alt="Siemens">
+    </div>
+  </div>
+
+  <div class="plc-tile">
+    <img src="PLC - Xinje.svg" alt="Xinje PLC">
+    <div class="plc-brand">
+      <img src="logo1.png" alt="Xinje">
+    </div>
+  </div>
+
+  <div class="plc-tile">
+    <img src="PLC-Panasonic.svg" alt="Panasonic PLC">
+    <div class="plc-brand">
+      <img src="panasonic.png" alt="Panasonic">
+    </div>
+  </div>
+
+</div>
+
 
       <div class="hero-buttons">
         <button class="btn-primary">Request a quote</button>
@@ -545,50 +622,85 @@
 
    <!-- though beam sensor--> 
   
-    <!-- PLC SECTION – TEXT FIRST, IMAGES ROW BELOW -->
+   <!-- HMI SECTION – TEXT FIRST, IMAGE TILES BELOW -->
 <section class="sensor-hero">
   <div class="sensor-hero-inner plc-layout">
     <div class="sensor-hero-content">
-      <h1>HMI (Human Machine Interface)
-</h1>
+
+      <h1>HMI (Human Machine Interface)</h1>
 
       <div class="sensor-hero-subtitle">
-User-friendly HMIs built for clear machine visualization, intuitive control, and improved operator efficiency.      </div>
-
-      <p class="sensor-hero-text">
-        HMIs enable operators to monitor, control, and interact with machinery through touch screens, graphical interfaces, and real-time status visualizations. They simplify complex automation tasks by providing instant access to machine parameters, alarms, diagnostics, and workflow adjustments. Our HMIs support multiple communication protocols, seamless PLC integration, data logging, and modern interface designs — making them ideal for any industrial automation environment.
-
-        <br><br>
-        <strong>Brands: </strong> Delta / Xinje / Siemens / Omron / Allen-Bradley / Mitsubishi
-      </p>
-
-      <div class="brands-grid">
-        <div class="brand-card">
-          <img src="logo9.avif" class="brand-logo" alt="Delta">
-        </div>
-        <div class="brand-card">
-          <img src="logo12.svg.png" class="brand-logo" alt="Siemens">
-        </div>
-        <div class="brand-card">
-          <img src="logo3.png" class="brand-logo" alt="Omron">
-        </div>
+        User-friendly HMIs built for clear machine visualization, intuitive control, and improved operator efficiency.
       </div>
 
-      <!-- ROW OF PLC IMAGES -->
-      <div class="plc-image-row">
-        <img src="HMI - Alenbradley.svg" alt="PLC close-up">
-        <img src="HMI - Delta.svg" alt="PLC control panel">
-        <img src="HMI - Mitsubishi.svg" alt="PLC in machine cabinet">
-        <img src="HMI - Omron.svg" alt="PLC close-up">
-        <img src="HMI - Panasonic.svg" alt="PLC control panel">
-        <img src="HMI - HMI - Simenes.svg" alt="PLC in machine cabinet">
-        <img src="HMI - Xinje.svg" alt="PLC in machine cabinet">
+      <p class="sensor-hero-text">
+        HMIs enable operators to monitor, control, and interact with machinery through touch screens, graphical interfaces, and real-time status visualizations. 
+        They simplify complex automation tasks by providing instant access to machine parameters, alarms, diagnostics, and workflow adjustments. 
+        Our HMIs support multiple communication protocols, seamless PLC integration, data logging, and modern interface designs — making them ideal for any 
+        industrial automation environment.
+        <br><br>
+        <strong>Brands:</strong> Delta / Xinje / Siemens / Omron / Allen-Bradley / Mitsubishi
+      </p>
+
+      <!-- HMI IMAGE TILES -->
+      <div class="plc-tiles-row">
+
+        <div class="plc-tile">
+          <img src="HMI - Alenbradley.svg" alt="Allen Bradley HMI">
+          <div class="plc-brand">
+            <img src="logo21.png" alt="Allen Bradley">
+          </div>
+        </div>
+
+        <div class="plc-tile">
+          <img src="HMI - Delta.svg" alt="Delta HMI">
+          <div class="plc-brand">
+            <img src="logo11.png" alt="Delta">
+          </div>
+        </div>
+
+        <div class="plc-tile">
+          <img src="HMI - Mitsubishi.svg" alt="Mitsubishi HMI">
+          <div class="plc-brand">
+            <img src="logo5.png" alt="Mitsubishi">
+          </div>
+        </div>
+
+        <div class="plc-tile">
+          <img src="HMI - Omron.svg" alt="Omron HMI">
+          <div class="plc-brand">
+            <img src="logo6.svg.png" alt="Omron">
+          </div>
+        </div>
+
+        <div class="plc-tile">
+          <img src="HMI - Panasonic.svg" alt="Panasonic HMI">
+          <div class="plc-brand">
+            <img src="panasonic.png" alt="Panasonic">
+          </div>
+        </div>
+
+        <div class="plc-tile">
+          <img src="HMI - HMI - Simenes.svg" alt="Siemens HMI">
+          <div class="plc-brand">
+            <img src="logo4.png" alt="Siemens">
+          </div>
+        </div>
+
+        <div class="plc-tile">
+          <img src="HMI - Xinje.svg" alt="Xinje HMI">
+          <div class="plc-brand">
+            <img src="logo1.png" alt="Xinje">
+          </div>
+        </div>
+
       </div>
 
       <div class="hero-buttons">
         <button class="btn-primary">Request a quote</button>
         <button class="btn-secondary">Share your layout</button>
       </div>
+
     </div>
   </div>
 </section>
