@@ -1120,8 +1120,10 @@ padding-top: 40px;
 
 .contact-band {
   margin-top: 40px;
-  background: #f3f4f6;
+  background: #ffffff;              /* full white band */
   border-top: 1px solid #e5e7eb;
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-inner {
@@ -1132,6 +1134,8 @@ padding-top: 40px;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 40px;
   align-items: center;
+  position: relative;
+  z-index: 1;                        /* ensure text is above image */
 }
 
 .contact-left-title {
@@ -1156,24 +1160,25 @@ padding-top: 40px;
 .contact-details p {
   margin: 4px 0;
 }
+
+/* IMAGE ON THE RIGHT, SMALLER HEIGHT */
 .contact-side-image {
   position: absolute;
   right: 0;
-  top: 0;
-  width: 40vw;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32vw;              /* narrower to reduce height */
+  max-width: 420px;
+  pointer-events: none;
+  opacity: 0.95;
 }
 
 .contact-side-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: right center;
-  opacity: 0.95;
 }
-
 
 /* bottom bar like UR */
 .contact-footer {
@@ -1187,6 +1192,29 @@ padding-top: 40px;
   font-size: 11px;
   color: #9ca3af;
 }
+
+@media (max-width: 900px) {
+  .contact-inner {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 40px;
+  }
+
+  .contact-side-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 360px;
+    margin: 20px auto 0;
+    opacity: 0.95;
+    pointer-events: auto;
+  }
+
+  .contact-footer {
+    flex-direction: column;
+    padding: 12px 20px 22px;
+  }
+}
+
 
 @media (max-width: 900px) {
   .contact-inner {
@@ -1435,13 +1463,13 @@ padding-top: 40px;
           </li>
         </ul>
 
-        <div class="panel-footer">
+        <!--<div class="panel-footer">
           <span>Need a quote? <strong>Share your part list.</strong></span>
           <span style="font-size:11px;">📞 +94 77 932 3391</span>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 
@@ -1917,8 +1945,6 @@ padding-top: 40px;
 </section>
 
 
-<!-- CONTACT -->
-<!-- CONTACT – UNIVERSAL ROBOTS STYLE BAND -->
 <section id="contact" class="fade-in">
   <div class="contact-band">
     <div class="contact-inner">
@@ -1928,7 +1954,6 @@ padding-top: 40px;
           Share your part numbers, photos, or a brief description of your requirement.
         </p>
 
-        <!-- SAME CONTACT TEXT, CONTENT NOT CHANGED -->
         <div class="contact-details">
           <p>SH7 Engineering Solutions</p>
           <p>Mount Lavinia, Sri Lanka</p>
@@ -1936,13 +1961,14 @@ padding-top: 40px;
           <p>Phone: +94 77 932 3391</p>
         </div>
       </div>
-
-     
     </div>
-    <div class="contact-side-image">
-  <img src="SH7.png" alt="Contact Image">
-</div>
 
+    <!-- SIDE IMAGE NOW INSIDE THE BAND -->
+    <div class="contact-side-image">
+      <img src="SH7.png" alt="Contact Image">
+    </div>
+  </div>
+</section>
 
 <!-- FLOATING WHATSAPP BUTTON -->
 <div id="contact-btn">
@@ -1963,10 +1989,12 @@ padding-top: 40px;
   <small>We reply as soon as possible on working days.</small>
 </div>
 
+<!-- SEPARATE FOOTER -->
 <footer>
   <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
   <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
 </footer>
+
 
 <!-- JS -->
 <script>
