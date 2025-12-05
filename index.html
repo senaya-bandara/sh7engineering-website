@@ -1106,51 +1106,97 @@ padding-top: 40px;
 
 
     /* CONTACT SECTION */
-.contact-wrapper {
+/* CONTACT BAND – UNIVERSAL ROBOTS STYLE */
+#contact {
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+}
+
+#contact::before {
+  display: none;
+}
+
+.contact-band {
+  margin-top: 40px;
+  background: #f3f4f6;
+  border-top: 1px solid #e5e7eb;
+}
+
+.contact-inner {
   max-width: 1200px;
-  margin: 60px auto 40px;
-  padding: 40px 5vw;
+  margin: 0 auto;
+  padding: 40px 5vw 50px;
   display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 40px;
   align-items: center;
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.08);
 }
 
-.contact-wrapper h2 {
-  font-size: 28px;
+.contact-left-title {
+  font-size: 26px;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 12px;
+  margin: 0 0 6px;
 }
 
-.contact-wrapper p {
+.contact-left-sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 18px;
+}
+
+.contact-details {
   font-size: 14px;
   line-height: 1.7;
-  color: #4b5563;
-  margin-bottom: 18px;
+  color: #374151;
 }
 
-.contact-wrapper img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.20);
+.contact-details p {
+  margin: 4px 0;
 }
 
-.contact-divider {
+.contact-visual {
+  position: relative;
+  border-radius: 32px 0 0 32px;
+  overflow: hidden;
+  background: radial-gradient(circle at top left, #ffffff, #e5edf5);
+  box-shadow: 0 24px 60px rgba(15,23,42,0.20);
+}
+
+.contact-visual img {
+  width: 120%;
+  max-width: none;
+  display: block;
+  transform: translateX(-8%);
+}
+
+/* bottom bar like UR */
+.contact-footer {
   max-width: 1200px;
-  height: 1px;
-  margin: 30px auto;
-  background: linear-gradient(90deg, transparent, rgba(148,163,184,0.5), transparent);
+  margin: 0 auto;
+  padding: 14px 5vw 26px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  color: #9ca3af;
 }
 
 @media (max-width: 900px) {
-  .contact-wrapper {
+  .contact-inner {
     grid-template-columns: 1fr;
-    padding: 30px 20px;
+    padding: 32px 20px 40px;
+  }
+
+  .contact-visual {
+    border-radius: 24px;
+  }
+
+  .contact-footer {
+    flex-direction: column;
+    padding: 12px 20px 22px;
   }
 }
 
@@ -1868,27 +1914,38 @@ padding-top: 40px;
 
 
 <!-- CONTACT -->
+<!-- CONTACT – UNIVERSAL ROBOTS STYLE BAND -->
 <section id="contact" class="fade-in">
-  <div class="section-header">
-<div class="contact-wrapper">
-  <div class="contact-text">
-    <!-- KEEP YOUR CURRENT CONTACT TEXT HERE EXACTLY AS IT IS -->
-    <h2>Contact Us</h2>
-    <p>SH7 Engineering Solutions<br>
-    Mount Lavinia, Sri Lanka<br>
-    Email: sh7engineering@gmail.com<br>
-    Phone: +94 77 932 3391</p>
-  </div>
+  <div class="contact-band">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2 class="contact-left-title">Contact Us</h2>
+        <p class="contact-left-sub">
+          Share your part numbers, photos, or a brief description of your requirement.
+        </p>
 
-  <div class="contact-image">
-    <img src="SH7.png" alt="Contact Image">
-  </div>
-</div>
+        <!-- SAME CONTACT TEXT, CONTENT NOT CHANGED -->
+        <div class="contact-details">
+          <p>SH7 Engineering Solutions</p>
+          <p>Mount Lavinia, Sri Lanka</p>
+          <p>Email: sh7engineering@gmail.com</p>
+          <p>Phone: +94 77 932 3391</p>
+        </div>
+      </div>
 
-<div class="contact-divider"></div>
+      <div class="contact-visual">
+        <!-- change image file name if needed -->
+        <img src="SH7.png" alt="SH7 Engineering – Industrial automation" />
+      </div>
+    </div>
 
+    <div class="contact-footer">
+      <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
+      <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
+    </div>
   </div>
 </section>
+
 
 <!-- FLOATING WHATSAPP BUTTON -->
 <div id="contact-btn">
