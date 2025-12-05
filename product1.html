@@ -232,6 +232,30 @@
       align-items: center;
       margin-bottom: 24px;
     }
+
+
+    /* PLC section – stack text first, then a row of images */
+.sensor-hero-inner.plc-layout {
+  grid-template-columns: minmax(0,1fr);
+}
+
+.plc-image-row {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.plc-image-row img {
+  flex: 1 1 160px;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+  filter: drop-shadow(0 16px 36px rgba(15,23,42,0.25));
+}
+
 /* BRAND TILES – SAME AS HOME PAGE */
 .brands-grid {
   display: grid;
@@ -468,93 +492,107 @@
   </nav>
 </header>
 
+<!-- PLC SECTION – TEXT FIRST, IMAGES ROW BELOW -->
+<section class="sensor-hero">
+  <div class="sensor-hero-inner plc-layout">
+    <div class="sensor-hero-content">
+      <h1>PLC (Programmable Logic Controller)</h1>
 
-<!-- Inductive sensor--> 
-  
-    <section class="sensor-hero">
-    <div class="sensor-hero-inner">
-      <div class="sensor-hero-image">
-        <img src="Cylinders .png" alt="Photoelectric Sensors">
+      <div class="sensor-hero-subtitle">
+        Reliable PLC systems designed for precise machine control, seamless automation, and long-term industrial performance.
       </div>
-      <div class="sensor-hero-content">
-        <h1> PLC (Programmable Logic Controller) </h1>
-        <div class="sensor-hero-subtitle">
-        Reliable PLC systems designed for precise machine control, seamless automation, and long-term industrial performance.        </div>
-        <p class="sensor-hero-text">
-PLC units are the core of modern industrial automation, used to control machines, production lines, and complex processes with unbeatable accuracy and stability. These controllers offer high-speed processing, flexible I/O options, advanced communication protocols, and exceptional reliability even in harsh environments. Whether you need PLCs for packaging machines, conveyors, robotics, or plant automation, we provide powerful solutions suitable for any industrial application.
-        <br>
-        <strong>Brands: </strong> Delta/ Xinje/ Siemens/ omron/ alen-bradly/ Mitsubishi
 
-        </p>
+      <p class="sensor-hero-text">
+        PLC units are the core of modern industrial automation, used to control machines, production lines, and complex processes with unbeatable
+        accuracy and stability. These controllers offer high-speed processing, flexible I/O options, advanced communication protocols, and
+        exceptional reliability even in harsh environments. Whether you need PLCs for packaging machines, conveyors, robotics, or plant automation,
+        we provide powerful solutions suitable for any industrial application.
+        <br><br>
+        <strong>Brands: </strong> Delta / Xinje / Siemens / Omron / Allen-Bradley / Mitsubishi
+      </p>
 
-        
-<div class="brands-grid">
-  <div class="brand-card">
-    <img src="logo9.avif" class="brand-logo" alt="Brand 2">
-  </div>
-  <div class="brand-card">
-    <img src="logo12.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo3.png" class="brand-logo" alt="Brand 8">
-  </div>
-
-</div>
-
-        <div class="hero-buttons">
-          <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+      <div class="brands-grid">
+        <div class="brand-card">
+          <img src="logo9.avif" class="brand-logo" alt="Delta">
+        </div>
+        <div class="brand-card">
+          <img src="logo12.svg.png" class="brand-logo" alt="Siemens">
+        </div>
+        <div class="brand-card">
+          <img src="logo3.png" class="brand-logo" alt="Omron">
         </div>
       </div>
+
+      <!-- ROW OF PLC IMAGES -->
+      <div class="plc-image-row">
+        <img src="PLC - Alen bradley.svg" alt="PLC close-up">
+        <img src="PLC - Delta.svg" alt="PLC control panel">
+        <img src="PLC - mitsubishi.svg" alt="PLC in machine cabinet">
+        <img src="PLC - Omron.svg" alt="PLC close-up">
+        <img src="PLC - Simene.svg" alt="PLC control panel">
+        <img src="PLC - Xinje.svg" alt="PLC in machine cabinet">
+        <img src="PLC-Panasonic.svg" alt="PLC in machine cabinet">
+      </div>
+
+      <div class="hero-buttons">
+        <button class="btn-primary">Request a quote</button>
+        <button class="btn-secondary">Share your layout</button>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
    <!-- though beam sensor--> 
   
-    <section class="sensor-hero">
-    <div class="sensor-hero-inner">
-      <div class="sensor-hero-image">
-        <img src="FRL.svg" alt="Photoelectric Sensors">
-      </div>
-      <div class="sensor-hero-content">
-        <h1>Human Machine Interface (HMI)
+    <!-- PLC SECTION – TEXT FIRST, IMAGES ROW BELOW -->
+<section class="sensor-hero">
+  <div class="sensor-hero-inner plc-layout">
+    <div class="sensor-hero-content">
+      <h1>HMI (Human Machine Interface)
 </h1>
-        <div class="sensor-hero-subtitle">
-User-friendly HMIs built for clear machine visualization, intuitive control, and improved operator efficiency.
 
+      <div class="sensor-hero-subtitle">
+User-friendly HMIs built for clear machine visualization, intuitive control, and improved operator efficiency.      </div>
 
-</div>
-        <p class="sensor-hero-text">
-HMIs enable operators to monitor, control, and interact with machinery through touch screens, graphical interfaces, and real-time status visualizations. They simplify complex automation tasks by providing instant access to machine parameters, alarms, diagnostics, and workflow adjustments. Our HMIs support multiple communication protocols, seamless PLC integration, data logging, and modern interface designs — making them ideal for any industrial automation environment.
-<br>
-        <strong>Brands:</strong> Delta/ Xinje/ Siemens/ omron/ alen-bradly/ Mitsubishi
+      <p class="sensor-hero-text">
+        HMIs enable operators to monitor, control, and interact with machinery through touch screens, graphical interfaces, and real-time status visualizations. They simplify complex automation tasks by providing instant access to machine parameters, alarms, diagnostics, and workflow adjustments. Our HMIs support multiple communication protocols, seamless PLC integration, data logging, and modern interface designs — making them ideal for any industrial automation environment.
 
+        <br><br>
+        <strong>Brands: </strong> Delta / Xinje / Siemens / Omron / Allen-Bradley / Mitsubishi
+      </p>
 
-        </p>
-<div class="brands-grid">
-  <div class="brand-card">
-    <img src="logo9.avif" class="brand-logo" alt="Brand 2">
-  </div>
-  <div class="brand-card">
-    <img src="logo12.svg.png" class="brand-logo" alt="Brand 6">
-  </div>
-  <div class="brand-card">
-    <img src="logo3.png" class="brand-logo" alt="Brand 8">
-  </div>
-
-
-</div>
-
-
-
-        <div class="hero-buttons">
-          <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+      <div class="brands-grid">
+        <div class="brand-card">
+          <img src="logo9.avif" class="brand-logo" alt="Delta">
+        </div>
+        <div class="brand-card">
+          <img src="logo12.svg.png" class="brand-logo" alt="Siemens">
+        </div>
+        <div class="brand-card">
+          <img src="logo3.png" class="brand-logo" alt="Omron">
         </div>
       </div>
+
+      <!-- ROW OF PLC IMAGES -->
+      <div class="plc-image-row">
+        <img src="HMI - Alenbradley.svg" alt="PLC close-up">
+        <img src="HMI - Delta.svg" alt="PLC control panel">
+        <img src="HMI - Mitsubishi.svg" alt="PLC in machine cabinet">
+        <img src="HMI - Omron.svg" alt="PLC close-up">
+        <img src="HMI - Panasonic.svg" alt="PLC control panel">
+        <img src="HMI - HMI - Simenes.svg" alt="PLC in machine cabinet">
+        <img src="HMI - Xinje.svg" alt="PLC in machine cabinet">
+      </div>
+
+      <div class="hero-buttons">
+        <button class="btn-primary">Request a quote</button>
+        <button class="btn-secondary">Share your layout</button>
+      </div>
     </div>
-  </section>
-  
+  </div>
+</section>
+
 
   </main>
 
