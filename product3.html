@@ -478,6 +478,35 @@
   cursor: pointer;
 }
 
+    /* FORCE ALL PLC TILES TO ALIGN LOGOS PROPERLY */
+.plc-tile {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px 12px;
+  width: min(220px, 100%);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px; /* ensures equal height tiles */
+}
+
+.plc-tile-brand {
+  margin-top: auto;       
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.plc-tile-brand img {
+  max-height: 24px;
+  max-width: 90px;
+  object-fit: contain;
+}
+
+
 /* Center text + layout for PLC and HMI sections */
 .plc-layout {
   text-align: center;
@@ -578,7 +607,7 @@ High-precision servo motors and servo drivers engineered for smooth motion contr
             <img src="Servo - Schneider.svg" alt="Allen Bradley PLC">
           </div>
           <div class="plc-tile-brand">
-            <img src="logo7.png" alt="Allen Bradley">
+            <img src="logo7.jpg" alt="Allen Bradley">
           </div>
         </div>
 
