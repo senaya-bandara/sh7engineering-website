@@ -1160,17 +1160,18 @@ padding-top: 40px;
 .contact-details p {
   margin: 4px 0;
 }
-
-/* IMAGE ON THE RIGHT, SMALLER HEIGHT */
+/* RIGHT-SIDE LOGO CONTAINER */
 .contact-side-image {
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32vw;              /* narrower to reduce height */
+  bottom: 0;               /* anchor to bottom instead of center */
+  transform: none;
+  width: 32vw;
   max-width: 420px;
+  display: flex;
+  align-items: flex-end;   /* makes S H 7 sit on the bottom baseline */
+  justify-content: flex-end;
   pointer-events: none;
-  opacity: 0.95;
 }
 
 .contact-side-image img {
@@ -1337,16 +1338,17 @@ padding-top: 40px;
   box-shadow: none;       /* lighter, not like a second big tile */
 }
 /* Container that holds S, H, 7 inside the contact section */
+/* LOGO GROUP */
 .contact-logo-animated {
   display: flex;
   align-items: flex-end;
   gap: 6px;
   cursor: pointer;
-  padding-right: 20px;
 }
 
 .cl-part {
-  height: 85px; /* Adjust to match your current image height */
+  height: 95px;            /* slightly bigger */
+  width: auto;
   transition: transform 0.35s ease;
 }
 
