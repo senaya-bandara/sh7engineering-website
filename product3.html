@@ -242,7 +242,7 @@
 }
 
 /* FORCE ALL PLC TILES TO ALIGN LOGOS PROPERLY */
-.plc-tile {
+. {
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #e2e8f0;
@@ -257,7 +257,7 @@
 }
 
 /* image wrapper inside tile */
-.plc-tile-image {
+.-image {
   flex: 1;
   display: flex;
   align-items: center;
@@ -265,7 +265,7 @@
 }
 
 /* make the servo image fit inside the tile */
-.plc-tile-image img {
+.-image img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -275,7 +275,7 @@
 }
 
 /* brand logo at bottom */
-.plc-tile-brand {
+.-brand {
   margin-top: 8px;
   display: flex;
   justify-content: center;
@@ -283,7 +283,7 @@
   padding-top: 4px;
 }
 
-.plc-tile-brand img {
+.-brand img {
   max-height: 24px;
   max-width: 90px;
   object-fit: contain;
@@ -304,7 +304,9 @@
   display: flex;
   gap: 16px;
   justify-content: center;
-  flex-wrap: wrap; /* allow wrap on smaller screens */
+    flex-wrap: nowrap;   /* force single row */
+  white-space: nowrap; /* prevents items from wrapping */
+  overflow-x: auto; 
   margin-top: 16px;
 }
 
