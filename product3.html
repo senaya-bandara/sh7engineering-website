@@ -299,16 +299,16 @@
   align-items: center;
 }
 
-/* row of tiles */
 .plc-tiles-row {
   display: flex;
   gap: 16px;
   justify-content: center;
-    flex-wrap: nowrap;   /* force single row */
+  flex-wrap: nowrap;   /* force single row */
   white-space: nowrap; /* prevents items from wrapping */
-  overflow-x: auto; 
-  margin-top: 16px;
+  overflow-x: auto;    /* allows scroll if screen is too small */
+  padding-bottom: 10px;
 }
+
 
 
 
