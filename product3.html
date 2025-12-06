@@ -242,7 +242,7 @@
 }
 
 /* Row of PLC tiles */
-.plc-tiles-row {
+.s-row {
   display: flex;
   gap: 16px;
   justify-content: center; 
@@ -268,9 +268,14 @@
 }
 
 .plc-tile-image img {
-  max-height: 100%;
+
   width: auto;
   object-fit: contain;
+  .plc-tiles-row .plc-tile:nth-child(1) .plc-tile-image img,
+.plc-tiles-row .plc-tile:nth-child(3) .plc-tile-image img,
+.plc-tiles-row .plc-tile:nth-child(4) .plc-tile-image img {
+  max-height: 140px;   /* increase image size */
+  width: auto;
 }
 
 /* Brand logo below image */
