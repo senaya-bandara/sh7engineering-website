@@ -234,6 +234,60 @@
       align-items: center;
       margin-bottom: 24px;
     }
+/* TILE ROW – single row, scroll if not enough space */
+.plc-tiles-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: nowrap;      /* keep all tiles in one row */
+  overflow-x: auto;       /* allow horizontal scroll on small screens */
+  padding-bottom: 8px;
+}
+
+/* SINGLE TILE */
+.plc-tile {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px 12px;
+  width: 220px;           /* fixed width so 4 tiles line up nicely */
+  flex: 0 0 220px;        /* prevent shrinking/wrapping */
+  box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE AREA INSIDE TILE */
+.plc-tile-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plc-tile-image img {
+  max-width: 100%;
+  max-height: 140px;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* BRAND LOGO AT BOTTOM */
+.plc-tile-brand {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plc-tile-brand img {
+  max-height: 24px;
+  max-width: 90px;
+  object-fit: contain;
+}
 
 
 /* PLC section – stack text first, then tiles */
@@ -297,16 +351,6 @@
 .plc-layout .sensor-hero-content {
   text-align: center;
   align-items: center;
-}
-
-.plc-tiles-row {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: nowrap;   /* force single row */
-  white-space: nowrap; /* prevents items from wrapping */
-  overflow-x: auto;    /* allows scroll if screen is too small */
-  padding-bottom: 10px;
 }
 
 
