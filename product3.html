@@ -241,13 +241,7 @@
   grid-template-columns: minmax(0,1fr);
 }
 
-/* Row of PLC tiles */
-.s-row {
-  display: flex;
-  gap: 16px;
-  justify-content: center; 
-  flex-wrap: nowrap; /* forces one row */
-}
+
 
 /* Single PLC tile */
 .plc-tile {
@@ -532,10 +526,11 @@
 }
 
 .plc-tiles-row {
-  justify-content: center; /* centers all tiles */
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: nowrap; /* one row, no wrapping */
 }
-
-
 
 
     /* FOOTER */
@@ -674,7 +669,6 @@ High-precision servo motors and servo drivers engineered for smooth motion contr
 
     const headerEl = document.querySelector("header");
     const scrollBar = document.getElementById("scroll-bar");
-
     function onScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
