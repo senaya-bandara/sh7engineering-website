@@ -1336,6 +1336,27 @@ padding-top: 40px;
   border-radius: 999px;   /* pill shape */
   box-shadow: none;       /* lighter, not like a second big tile */
 }
+/* Footer logo animation */
+.footer-logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.logo-part {
+  height: 28px;        /* adjust size as needed */
+  transition: transform 0.35s ease;
+}
+
+.footer-logo:hover .seven {
+  transform: translateY(-12px); /* pop up effect */
+}
+
+.footer-logo .seven {
+  transform: translateY(0);
+}
 
 
     .page-separator {
@@ -2018,9 +2039,16 @@ padding-top: 40px;
 
 <!-- SEPARATE FOOTER -->
 <footer>
+  <div class="footer-logo">
+    <img src="S.png" class="logo-part s">
+    <img src="H.png" class="logo-part h">
+    <img src="7.png" class="logo-part seven">
+  </div>
+
   <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
   <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
 </footer>
+
 
 
 <!-- JS -->
