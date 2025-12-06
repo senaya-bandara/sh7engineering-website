@@ -241,42 +241,74 @@
   grid-template-columns: minmax(0,1fr);
 }
 
+/* FORCE ALL PLC TILES TO ALIGN LOGOS PROPERLY */
+.plc-tile {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px 12px;
+  width: min(220px, 100%);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.12);
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px; /* equal height tiles */
+}
 
-/* Brand logo below image */
+/* image wrapper inside tile */
+.plc-tile-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* make the servo image fit inside the tile */
+.plc-tile-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* brand logo at bottom */
 .plc-tile-brand {
   margin-top: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 4px;
 }
 
 .plc-tile-brand img {
-  max-height: 22px;
+  max-height: 24px;
   max-width: 90px;
-  width: auto;
-  height: auto;
   object-fit: contain;
-  opacity: 0.9;
 }
 
+/* Center text + layout for PLC section */
+.plc-layout {
+  text-align: center;
+}
 
-.plc-image-row {
-  margin-top: 12px;
+.plc-layout .sensor-hero-content {
+  text-align: center;
+  align-items: center;
+}
+
+/* row of tiles */
+.plc-tiles-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap; /* allow wrap on smaller screens */
+  margin-top: 16px;
 }
 
-.plc-image-row img {
-  flex: 1 1 160px;
-  max-width: 220px;
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  object-fit: cover;
-  filter: drop-shadow(0 16px 36px rgba(15,23,42,0.25));
-}
+
 
 /* BRAND TILES – SAME AS HOME PAGE */
 .brands-grid {
@@ -456,51 +488,7 @@
   cursor: pointer;
 }
 
-    /* FORCE ALL PLC TILES TO ALIGN LOGOS PROPERLY */
-.plc-tile {
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #e2e8f0;
-  padding: 10px 12px 12px;
-  width: min(220px, 100%);
-  box-shadow: 0 14px 30px rgba(15,23,42,0.12);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 260px; /* ensures equal height tiles */
-}
-
-.plc-tile-brand {
-  margin-top: auto;       
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-}
-
-.plc-tile-brand img {
-  max-height: 24px;
-  max-width: 90px;
-  object-fit: contain;
-}
-
-
-/* Center text + layout for PLC and HMI sections */
-.plc-layout {
-  text-align: center;
-}
-
-.plc-layout .sensor-hero-content {
-  text-align: center;
-  align-items: center;  /* centers content horizontally */
-}
-
-.plc-tiles-row {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: nowrap; /* one row, no wrapping */
-}
 
 
     /* FOOTER */
