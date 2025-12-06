@@ -532,7 +532,7 @@
 
         <div class="hero-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+       
         </div>
       </div>
     </div>
@@ -568,7 +568,7 @@ Push buttons are essential control devices used to start, stop, or adjust machin
 
         <div class="hero-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+
         </div>
       </div>
     </div>
@@ -605,7 +605,7 @@ Emergency stop (E-Stop) buttons are vital safety components that allow operators
 
         <div class="hero-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+
         </div>
       </div>
     </div>
@@ -644,7 +644,7 @@ Emergency stop (E-Stop) buttons are vital safety components that allow operators
 
       <div class="hero-buttons">
         <button class="btn-primary">Request a quote</button>
-        <button class="btn-secondary">Share your layout</button>
+
       </div>
     </div>
   </div>
@@ -681,5 +681,120 @@ Emergency stop (E-Stop) buttons are vital safety components that allow operators
     window.addEventListener("scroll", onScroll);
     onScroll();
   </script>
+  <!-- Supabase client (use same on all pages) -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+  // 🔧 1. Supabase config – use the SAME values on all pages
+  const SUPABASE_URL = "https://mvjildsobocwgojqynpl.supabase.co";   // <-- replace
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12amlsZHNvYm9jd2dvanF5bnBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwMDEyNjMsImV4cCI6MjA4MDU3NzI2M30.6izM7WGXtbyRsfx1HxiUDCqbnIjjaesFVMGIb7WdAug";              // <-- replace
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function initQuoteModal() {
+    const overlay     = document.getElementById("quote-modal-overlay");
+    const modal       = document.getElementById("quote-modal");
+    const closeBtn    = document.getElementById("quote-modal-close");
+    const form        = document.getElementById("quote-form");
+    const msg         = document.getElementById("quote-form-message");
+    const submitBtn   = document.getElementById("quote-submit-btn");
+    const sourceInput = document.getElementById("q-source");
+
+    // If this page doesn't have the modal, do nothing
+    if (!overlay || !modal || !form) return;
+
+    // All "Request a quote" buttons on that page
+    const quoteButtons = document.querySelectorAll(".btn-primary");
+
+    quoteButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sectionTitle =
+          btn.closest(".sensor-hero")?.querySelector("h1")?.textContent?.trim() || "";
+        if (sourceInput) sourceInput.value = sectionTitle;
+
+        msg.textContent = "";
+        msg.className = "";
+
+        modal.classList.add("open");
+        overlay.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("open");
+      overlay.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+    overlay.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Submit handler – same for all pages
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!submitBtn) return;
+
+      msg.textContent = "";
+      msg.className = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      const full_name      = document.getElementById("q-name")?.value.trim() || "";
+      const company_name   = document.getElementById("q-company")?.value.trim() || "";
+      const email          = document.getElementById("q-email")?.value.trim() || "";
+      const contact_number = document.getElementById("q-phone")?.value.trim() || "";
+      const item_model     = document.getElementById("q-item")?.value.trim() || "";
+      const quantityValue  = document.getElementById("q-qty")?.value;
+      const source_section = sourceInput?.value.trim() || "";
+
+      const quantity = quantityValue ? parseInt(quantityValue, 10) : null;
+
+      try {
+        const { error } = await supabase
+          .from("quote_requests")
+          .insert([
+            {
+              full_name,
+              company_name,
+              email,
+              contact_number,
+              item_model,
+              quantity,
+              source_section,
+            },
+          ]);
+
+        if (error) {
+          console.error(error);
+          msg.textContent = "Something went wrong. Please try again.";
+          msg.className = "error";
+        } else {
+          msg.textContent = "Request submitted successfully.";
+          msg.className = "success";
+          form.reset();
+          setTimeout(() => {
+            closeModal();
+          }, 800);
+        }
+      } catch (err) {
+        console.error(err);
+        msg.textContent = "Unable to submit right now.";
+        msg.className = "error";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit request";
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initQuoteModal);
+</script>
+
 </body>
 </html>
