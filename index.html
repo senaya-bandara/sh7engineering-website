@@ -1336,26 +1336,33 @@ padding-top: 40px;
   border-radius: 999px;   /* pill shape */
   box-shadow: none;       /* lighter, not like a second big tile */
 }
-/* Footer logo animation */
-.footer-logo {
+/* Container that holds S, H, 7 inside the contact section */
+.contact-logo-animated {
   display: flex;
   align-items: flex-end;
-  gap: 4px;
+  gap: 6px;
   cursor: pointer;
-  margin-bottom: 8px;
+  padding-right: 20px;
 }
 
-.logo-part {
-  height: 28px;        /* adjust size as needed */
+.cl-part {
+  height: 85px; /* Adjust to match your current image height */
   transition: transform 0.35s ease;
 }
 
-.footer-logo:hover .seven {
-  transform: translateY(-12px); /* pop up effect */
+/* Only the 7 pops up on hover */
+.contact-logo-animated:hover .seven {
+  transform: translateY(-18px);
 }
 
-.footer-logo .seven {
-  transform: translateY(0);
+.contact-side-image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contact-side-image img {
+  display: block;
 }
 
 
@@ -2012,10 +2019,13 @@ padding-top: 40px;
     </div>
 
     <!-- SIDE IMAGE NOW INSIDE THE BAND -->
-    <div class="contact-side-image">
-      <img src="SH7.png" alt="Contact Image">
-    </div>
+  <div class="contact-side-image">
+  <div class="contact-logo-animated">
+    <img src="S.png" class="cl-part s">
+    <img src="H.png" class="cl-part h">
+    <img src="7.png" class="cl-part seven">
   </div>
+</div>
 </section>
 
 <!-- FLOATING WHATSAPP BUTTON -->
@@ -2039,11 +2049,6 @@ padding-top: 40px;
 
 <!-- SEPARATE FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <img src="S.png" class="logo-part s">
-    <img src="H.png" class="logo-part h">
-    <img src="7.png" class="logo-part seven">
-  </div>
 
   <span>© <span id="year"></span> SH7 Engineering Solutions. All rights reserved.</span>
   <span>Based in Mount Lavinia · Serving Sri Lankan industry.</span>
