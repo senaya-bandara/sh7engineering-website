@@ -1164,13 +1164,13 @@ padding-top: 40px;
 .contact-side-image {
   position: absolute;
   right: 0;
-  bottom: 0;               /* anchor to bottom instead of center */
-  transform: none;
-  width: 32vw;
-  max-width: 420px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  max-width: 280px;
   display: flex;
-  align-items: flex-end;   /* makes S H 7 sit on the bottom baseline */
   justify-content: flex-end;
+  align-items: flex-end;
   pointer-events: none;
 }
 
@@ -1343,8 +1343,16 @@ padding-top: 40px;
   display: flex;
   align-items: flex-end;
   gap: 6px;
+  padding-right: 20px;
   cursor: pointer;
 }
+.contact-logo-animated .cl-part {
+  height: 80px;
+  width: auto;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
 
 .cl-part {
   height: 95px;            /* slightly bigger */
@@ -2018,17 +2026,19 @@ padding-top: 40px;
           <p>Phone: +94 77 932 3391</p>
         </div>
       </div>
-    </div>
 
-    <!-- SIDE IMAGE NOW INSIDE THE BAND -->
-  <div class="contact-side-image">
-  <div class="contact-logo-animated">
-    <img src="S.png" class="cl-part s">
-    <img src="H.png" class="cl-part h">
-    <img src="7.png" class="cl-part seven">
+      <!-- RIGHT SIDE: S H 7 LOGO -->
+      <div class="contact-side-image">
+        <div class="contact-logo-animated">
+          <img src="S.png" alt="S" class="cl-part s">
+          <img src="H.png" alt="H" class="cl-part h">
+          <img src="7.png" alt="7" class="cl-part seven">
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </section>
+
 
 <!-- FLOATING WHATSAPP BUTTON -->
 <div id="contact-btn">
