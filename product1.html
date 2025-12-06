@@ -245,18 +245,23 @@
 /* Row of PLC tiles */
 .plc-tiles-row {
   margin-top: 16px;
-  display: flex;
+ display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center; 
+  
 }
 
 /* Single PLC tile */
 .plc-tile {
+
+  width: calc(33.333% - 16px); /* 3 tiles per row */
+  max-width: 260px;            /* prevent tiles from getting too large */
+  min-width: 200px;            /* keeps layout responsive */
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #e2e8f0;
   padding: 10px 12px 12px;
-  width: min(220px, 100%);
   box-shadow: 0 14px 30px rgba(15,23,42,0.12);
 }
 
@@ -606,7 +611,7 @@ PLC units are the core of modern industrial automation, used to control machines
           </div>
         </div>
 
-        <br><br>
+  
 
           <div class="plc-tile">
           <div class="plc-tile-image">
@@ -693,7 +698,6 @@ HMIs enable operators to monitor, control, and interact with machinery through t
           </div>
         </div>
 
-          <br><br>
 
 
           <div class="plc-tile">
