@@ -257,11 +257,19 @@
   padding: 10px 12px 12px;
   width: min(220px, 100%);
   box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+  
+}
+.plc-tile-image {
+  height: 150px;         /* or whatever looks good */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* PLC image inside tile */
 .plc-tile-image img {
-  width: 100%;
+  width: auto;
+    max-height: 100%;
   height: auto;
   border-radius: 14px;
   object-fit: cover;
