@@ -410,6 +410,160 @@
   cursor: pointer;
 }
 
+    #quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 400;
+}
+
+#quote-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#quote-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  transform-origin: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 401;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(15,23,42,0.35);
+  width: 100%;
+  max-width: 480px;
+  padding: 22px 24px 20px;
+  border: 1px solid rgba(148,163,184,0.4);
+  font-size: 14px;
+}
+
+#quote-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#quote-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#quote-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+#quote-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+#quote-modal-close:hover {
+  color: #111827;
+}
+
+#quote-modal p {
+  margin: 0 0 12px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.quote-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.quote-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.quote-form-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.quote-form-group input,
+.quote-form-group textarea {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quote-form-group input:focus,
+.quote-form-group textarea:focus {
+  border-color: #d00607;
+  box-shadow: 0 0 0 1px rgba(208,6,7,0.28);
+}
+
+.quote-form-group textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+#quote-form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  gap: 8px;
+}
+
+#quote-form-message {
+  font-size: 12px;
+}
+
+#quote-form-message.error {
+  color: #b91c1c;
+}
+
+#quote-form-message.success {
+  color: #047857;
+}
+
+#quote-submit-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(208,6,7,0.4);
+  white-space: nowrap;
+}
+
+#quote-submit-btn[disabled] {
+  opacity: 0.7;
+  cursor: default;
+  box-shadow: none;
+}
+
 
     /* FOOTER */
     footer {
@@ -489,7 +643,7 @@ Our fiber optic cables deliver superior data transfer speeds and stable signal t
 
         <div class="hero-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+ 
         </div>
       </div>
     </div>
@@ -519,7 +673,7 @@ Our copper AC cables provide robust and stable electrical power transmission for
 </div>
         <div class="hero-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+
         </div>
       </div>
     </div>
@@ -550,13 +704,66 @@ Our copper DC cables ensure smooth and uninterrupted power delivery for PLCs, se
 
         <div class="hero-buttons">
           <button class="btn-primary">Request a quote</button>
-          <button class="btn-secondary">Share your layout</button>
+     
         </div>
       </div>
     </div>
   </section>
 
   
+ <!-- REQUEST A QUOTE MODAL -->
+  <div id="quote-modal-overlay"></div>
+
+  <div id="quote-modal" aria-hidden="true">
+    <div id="quote-modal-header">
+      <div id="quote-modal-title">Request a quote</div>
+      <button id="quote-modal-close" type="button" aria-label="Close">&times;</button>
+    </div>
+
+    <p>Please fill in your details and we will get back to you with a quotation.</p>
+
+    <form id="quote-form">
+      <div class="quote-form-grid">
+        <div class="quote-form-group">
+          <label for="q-name">Name</label>
+          <input id="q-name" name="name" type="text" required />
+        </div>
+
+        <div class="quote-form-group">
+          <label for="q-company">Company name (optional)</label>
+          <input id="q-company" name="company_name" type="text" />
+        </div>
+
+        <div class="quote-form-group">
+          <label for="q-email">Email address</label>
+          <input id="q-email" name="email" type="email" required />
+        </div>
+
+        <div class="quote-form-group">
+          <label for="q-phone">Contact number</label>
+          <input id="q-phone" name="contact_number" type="tel" required />
+        </div>
+
+        <div class="quote-form-group">
+          <label for="q-item">Item &amp; model number</label>
+          <textarea id="q-item" name="item_model" required></textarea>
+        </div>
+
+        <div class="quote-form-group">
+          <label for="q-qty">Quantity</label>
+          <input id="q-qty" name="quantity" type="number" min="1" required />
+        </div>
+
+        <!-- Optional: capture which button / section opened the form -->
+        <input type="hidden" id="q-source" name="source_section" />
+      </div>
+
+      <div id="quote-form-footer">
+        <div id="quote-form-message"></div>
+        <button id="quote-submit-btn" type="submit">Submit request</button>
+      </div>
+    </form>
+  </div>
 
   
   </main>
@@ -588,5 +795,122 @@ Our copper DC cables ensure smooth and uninterrupted power delivery for PLCs, se
     window.addEventListener("scroll", onScroll);
     onScroll();
   </script>
+
+   <!-- Supabase client (use same on all pages) -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+  // 🔧 1. Supabase config – use the SAME values on all pages
+  const SUPABASE_URL = "https://mvjildsobocwgojqynpl.supabase.co";   // <-- replace
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12amlsZHNvYm9jd2dvanF5bnBsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwMDEyNjMsImV4cCI6MjA4MDU3NzI2M30.6izM7WGXtbyRsfx1HxiUDCqbnIjjaesFVMGIb7WdAug";              // <-- replace
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function initQuoteModal() {
+    const overlay     = document.getElementById("quote-modal-overlay");
+    const modal       = document.getElementById("quote-modal");
+    const closeBtn    = document.getElementById("quote-modal-close");
+    const form        = document.getElementById("quote-form");
+    const msg         = document.getElementById("quote-form-message");
+    const submitBtn   = document.getElementById("quote-submit-btn");
+    const sourceInput = document.getElementById("q-source");
+
+    // If this page doesn't have the modal, do nothing
+    if (!overlay || !modal || !form) return;
+
+    // All "Request a quote" buttons on that page
+    const quoteButtons = document.querySelectorAll(".btn-primary");
+
+    quoteButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sectionTitle =
+          btn.closest(".sensor-hero")?.querySelector("h1")?.textContent?.trim() || "";
+        if (sourceInput) sourceInput.value = sectionTitle;
+
+        msg.textContent = "";
+        msg.className = "";
+
+        modal.classList.add("open");
+        overlay.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("open");
+      overlay.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+    overlay.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Submit handler – same for all pages
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!submitBtn) return;
+
+      msg.textContent = "";
+      msg.className = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      const full_name      = document.getElementById("q-name")?.value.trim() || "";
+      const company_name   = document.getElementById("q-company")?.value.trim() || "";
+      const email          = document.getElementById("q-email")?.value.trim() || "";
+      const contact_number = document.getElementById("q-phone")?.value.trim() || "";
+      const item_model     = document.getElementById("q-item")?.value.trim() || "";
+      const quantityValue  = document.getElementById("q-qty")?.value;
+      const source_section = sourceInput?.value.trim() || "";
+
+      const quantity = quantityValue ? parseInt(quantityValue, 10) : null;
+
+      try {
+        const { error } = await supabase
+          .from("quote_requests")
+          .insert([
+            {
+              full_name,
+              company_name,
+              email,
+              contact_number,
+              item_model,
+              quantity,
+              source_section,
+            },
+          ]);
+
+        if (error) {
+          console.error(error);
+          msg.textContent = "Something went wrong. Please try again.";
+          msg.className = "error";
+        } else {
+          msg.textContent = "Request submitted successfully.";
+          msg.className = "success";
+          form.reset();
+          setTimeout(() => {
+            closeModal();
+          }, 800);
+        }
+      } catch (err) {
+        console.error(err);
+        msg.textContent = "Unable to submit right now.";
+        msg.className = "error";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit request";
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initQuoteModal);
+</script>
+
+
 </body>
 </html>
