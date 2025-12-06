@@ -243,10 +243,10 @@
 
 /* Row of PLC tiles */
 .plc-tiles-row {
-  margin-top: 16px;
   display: flex;
-  flex-wrap: wrap;
   gap: 16px;
+  justify-content: center; 
+  flex-wrap: nowrap; /* forces one row */
 }
 
 /* Single PLC tile */
@@ -255,7 +255,8 @@
   border-radius: 18px;
   border: 1px solid #e2e8f0;
   padding: 10px 12px 12px;
-  width: min(220px, 100%);
+  width:220px;
+  flex: 0 0 220px;
   box-shadow: 0 14px 30px rgba(15,23,42,0.12);
   
 }
