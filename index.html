@@ -734,7 +734,45 @@ padding-top: 40px;
       letter-spacing: 0.14em;
       color: var(--primary);
     }
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: scrollLogos 40s linear infinite;
+}
 
+.logo-pill {
+  width: 140px;
+  height: 70px;
+  background: #fff;
+  border-radius: 999px;   /* oval shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.06),
+    0 1px 3px rgba(0,0,0,0.04);
+
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo-pill:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.10),
+    0 3px 8px rgba(0,0,0,0.06);
+}
+
+.logo-pill img {
+  max-width: 90px;
+  max-height: 36px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
     /* GRID / TILES */
     .grid {
       display: grid;
@@ -1722,6 +1760,113 @@ padding-top: 40px;
     
   </div>
 
+</section>
+
+
+        <section class="partner-slider-section">
+  <div class="section-header">
+    <div class="section-pill">Partners</div>
+    <h2 class="section-title">Brands We Work With</h2>
+  </div>
+
+  <div class="logo-slider">
+    <div class="logo-track">
+
+      <!-- First Set -->
+      <div class="logo-pill">
+  <img src="comp1.png" alt="">
+</div>
+      
+         <div class="logo-pill">
+  <img src="comp2.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp3.jpg" alt="">
+</div>
+            <div class="logo-pill">
+  <img src="comp4.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp5.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp6.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp7.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp8.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp9.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp10.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp11.jpg" alt="">
+</div>
+
+
+      
+      <!-- Duplicate Set for seamless loop -->
+            <!-- First Set -->
+      <div class="logo-pill">
+  <img src="comp1.png" alt="">
+</div>
+      
+         <div class="logo-pill">
+  <img src="comp2.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp3.jpg" alt="">
+</div>
+            <div class="logo-pill">
+  <img src="comp4.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp5.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp6.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp7.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp8.jpg" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp9.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp10.png" alt="">
+</div>
+
+            <div class="logo-pill">
+  <img src="comp11.jpg" alt="">
+</div>
+
+         
+
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
