@@ -734,44 +734,27 @@ padding-top: 40px;
       letter-spacing: 0.14em;
       color: var(--primary);
     }
+.logo-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
 .logo-track {
   display: flex;
-  align-items: center;
   gap: 24px;
   width: max-content;
-  animation: scrollLogos 40s linear infinite;
+  animation: scrollLogos 30s linear infinite;
 }
 
-.logo-pill {
-  width: 140px;
-  height: 70px;
-  background: #fff;
-  border-radius: 999px;   /* oval shape */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
 
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.06),
-    0 1px 3px rgba(0,0,0,0.04);
-
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.logo-pill:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.10),
-    0 3px 8px rgba(0,0,0,0.06);
-}
-
-.logo-pill img {
-  max-width: 90px;
-  max-height: 36px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  100% {
+    transform: translateX(-50%);
+  }
 }
     /* GRID / TILES */
     .grid {
