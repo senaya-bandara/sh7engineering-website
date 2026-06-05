@@ -745,10 +745,22 @@ padding-top: 40px;
   gap: 24px;
   width: max-content;
   animation: scrollLogos 30s linear infinite;
-} 
+}
+
+@keyframes scrollLogos {
+  from {
+    transform: translateX(0);
+  }
+}
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .logo-pill {
-  width: 150px;      /* was 120px */
-  height: 75px;      /* was 60px */
+  width: 150px;
+  height: 75px;
 
   background: #ffffff;
   border-radius: 999px;
@@ -770,19 +782,19 @@ padding-top: 40px;
 
 .logo-pill:hover {
   transform: translateY(-3px);
+
   box-shadow:
     0 8px 18px rgba(0,0,0,0.10),
     0 3px 8px rgba(0,0,0,0.06);
 }
 
 .logo-pill img {
-  max-width: 100px;   /* was 75px */
-  max-height: 40px;   /* was 28px */
+  max-width: 100px;
+  max-height: 40px;
 
   width: auto;
   height: auto;
   object-fit: contain;
-}
 }
     /* GRID / TILES */
     .grid {
