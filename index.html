@@ -747,8 +747,8 @@ padding-top: 40px;
   animation: scrollLogos 30s linear infinite;
 } 
 .logo-pill {
-  width: 120px;
-  height: 60px;
+  width: 150px;      /* was 120px */
+  height: 75px;      /* was 60px */
 
   background: #ffffff;
   border-radius: 999px;
@@ -776,22 +776,13 @@ padding-top: 40px;
 }
 
 .logo-pill img {
-  max-width: 75px;
-  max-height: 28px;
+  max-width: 100px;   /* was 75px */
+  max-height: 40px;   /* was 28px */
 
   width: auto;
   height: auto;
-
   object-fit: contain;
 }
-@keyframes scrollLogos {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
 }
     /* GRID / TILES */
     .grid {
