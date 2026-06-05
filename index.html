@@ -745,8 +745,45 @@ padding-top: 40px;
   gap: 24px;
   width: max-content;
   animation: scrollLogos 30s linear infinite;
+} 
+.logo-pill {
+  width: 120px;
+  height: 60px;
+
+  background: #ffffff;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.06),
+    0 1px 3px rgba(0,0,0,0.04);
+
+  transition: all 0.3s ease;
 }
 
+.logo-pill:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.10),
+    0 3px 8px rgba(0,0,0,0.06);
+}
+
+.logo-pill img {
+  max-width: 75px;
+  max-height: 28px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
 @keyframes scrollLogos {
   0% {
     transform: translateX(0);
@@ -1754,6 +1791,7 @@ padding-top: 40px;
 
   <div class="logo-slider">
     <div class="logo-track">
+      <div class="logo-pill">
 
       <!-- First Set -->
       <div class="logo-pill">
