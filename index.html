@@ -759,25 +759,22 @@ padding-top: 40px;
 }
 
 .logo-pill {
-  width: 150px;
-  height: 75px;
+  width: 130px;
+  height: 70px;
 
-  background: #ffffff;
-  border-radius: 999px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border: 1px solid rgba(0,0,0,0.05);
+  background: #fff;
+  border-radius: 20px;
 
   box-shadow:
-    0 2px 8px rgba(0,0,0,0.06),
-    0 1px 3px rgba(0,0,0,0.04);
+    0 4px 12px rgba(0,0,0,0.06);
 
-  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo-pill img {
+  max-width: 60px;
+  max-height: 40px;
+  object-fit: contain;
 }
 
 .logo-pill:hover {
@@ -788,14 +785,6 @@ padding-top: 40px;
     0 3px 8px rgba(0,0,0,0.06);
 }
 
-.logo-pill img {
-  max-width: 100px;
-  max-height: 40px;
-
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
     /* GRID / TILES */
     .grid {
       display: grid;
