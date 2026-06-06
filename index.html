@@ -638,7 +638,47 @@ padding-top: 40px;
       50% { transform: translateY(-4px); }
     }
 
+/*hamburger menu*/
+    .menu-toggle{
+  display:none;
+  font-size:32px;
+  cursor:pointer;
+  color:#111827;
+}
 
+@media screen and (max-width:900px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  header{
+    justify-content:space-between;
+  }
+
+  nav{
+    display:none !important;
+    position:absolute;
+    top:72px;
+    left:0;
+    width:100%;
+    background:#fff;
+    flex-direction:column;
+    padding:20px;
+    gap:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+  }
+
+  nav.active{
+    display:flex !important;
+  }
+
+  nav a{
+    margin-left:0;
+    width:100%;
+  }
+}
+    
     /* Gradient Overlay */
 .tile-image-wrap::after {
   content: "";
@@ -1478,6 +1518,10 @@ padding-top: 40px;
     <a href="index.html#contact">Contact</a>
     <a href="stock.html">Current Stock</a>
   </nav>
+
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
 </header>
 
 
