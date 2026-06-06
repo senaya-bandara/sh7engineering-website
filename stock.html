@@ -2318,25 +2318,32 @@ window.addEventListener("scroll", updateParallax);
 window.addEventListener("load", updateParallax);
 
 /* search*/
-  const searchBox = document.querySelector(".search-box");
 
-searchBox.addEventListener("keyup", function() {
+const searchBox = document.querySelector(".search-box");
 
-  const searchTerm = this.value.toLowerCase();
+if(searchBox){
 
-  const products = document.querySelectorAll(".product-card");
+  searchBox.addEventListener("keyup", function() {
 
-  products.forEach(product => {
+    const searchTerm = this.value.toLowerCase();
 
-    const text = product.textContent.toLowerCase();
+    const products = document.querySelectorAll(".product-card");
 
-    if(text.includes(searchTerm)){
-      product.style.display = "block";
-    } else {
-      product.style.display = "none";
-    }
+    products.forEach(product => {
+
+      const text = product.textContent.toLowerCase();
+
+      if(text.includes(searchTerm)){
+        product.style.display = "";
+      } else {
+        product.style.display = "none";
+      }
+
+    });
 
   });
+
+}
 
 /* --- ABOUT SECTION SLIDESHOW --- */
 /* --- ULTRA-SMOOTH ABOUT BACKGROUND CROSSFADE --- */
