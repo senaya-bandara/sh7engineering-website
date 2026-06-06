@@ -644,6 +644,7 @@ padding-top: 40px;
   font-size:32px;
   cursor:pointer;
   color:#111827;
+       touch-action:manipulation;
 }
 
 @media screen and (max-width:900px){
@@ -2507,6 +2508,18 @@ function crossfade() {
 setInterval(crossfade, 8000);
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  const menuToggle = document.getElementById("menuToggle");
+  const nav = document.querySelector("nav");
+
+  menuToggle.addEventListener("click", function(e) {
+    e.stopPropagation();
+    nav.classList.toggle("active");
+  });
+
+});
 
 
 /* SIMPLE TILT EFFECT */
