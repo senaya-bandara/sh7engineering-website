@@ -1565,6 +1565,45 @@ padding-top: 40px;
   font-weight:600;
 }
 
+    /*hamburger menu*/
+    .menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+  color:#111827;
+}
+
+@media (max-width: 900px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+    top:72px;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    display:none;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  nav a{
+    margin-left:0;
+  }
+}
+
 /* Optional: make brand pills slimmer like badges */
 .product-brand-box .brand-card {
   height: 44px;
@@ -1611,6 +1650,10 @@ padding-top: 40px;
 <body>
   <div id="scroll-bar"></div>
 
+  
+<div class="menu-toggle" id="menuToggle">
+  ☰
+</div>
 
 <!-- HEADER -->
 <header>
@@ -2305,7 +2348,12 @@ function crossfade() {
 setInterval(crossfade, 8000);
 
 
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.querySelector("nav");
 
+menuToggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
 
 /* SIMPLE TILT EFFECT */
 const tiltElements = document.querySelectorAll(".tilt");
