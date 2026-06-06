@@ -2317,6 +2317,26 @@ function updateParallax() {
 window.addEventListener("scroll", updateParallax);
 window.addEventListener("load", updateParallax);
 
+/* search*/
+  const searchBox = document.querySelector(".search-box");
+
+searchBox.addEventListener("keyup", function() {
+
+  const searchTerm = this.value.toLowerCase();
+
+  const products = document.querySelectorAll(".product-card");
+
+  products.forEach(product => {
+
+    const text = product.textContent.toLowerCase();
+
+    if(text.includes(searchTerm)){
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+
+  });
 
 /* --- ABOUT SECTION SLIDESHOW --- */
 /* --- ULTRA-SMOOTH ABOUT BACKGROUND CROSSFADE --- */
