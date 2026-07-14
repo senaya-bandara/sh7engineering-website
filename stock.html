@@ -1408,6 +1408,104 @@ padding-top: 40px;
       }
     }
 
+
+
+    .product-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:9999;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+
+    background:#fff;
+
+    width:90%;
+    max-width:650px;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    position:relative;
+
+    animation:popup .25s ease;
+}
+
+.close-modal{
+
+    position:absolute;
+
+    right:20px;
+
+    top:15px;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    color:#888;
+}
+
+.close-modal:hover{
+
+    color:#D00607;
+}
+
+.modal-brand{
+
+    color:#D00607;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+}
+
+.modal-content h2{
+
+    margin:0 0 20px;
+
+    font-size:32px;
+}
+
+.modal-content p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+@keyframes popup{
+
+from{
+
+opacity:0;
+
+transform:scale(.9);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
     /* SIMPLE SCROLL FADE-IN EFFECT */
     .fade-in {
       opacity: 0;
@@ -2728,5 +2826,24 @@ tiltElements.forEach(el => {
 });
 </script>
 
+
+
+  <!-- PRODUCT DETAILS MODAL -->
+
+<div id="productModal" class="product-modal">
+
+    <div class="modal-content">
+
+        <span class="close-modal" onclick="closeProduct()">&times;</span>
+
+        <div class="modal-brand" id="modalBrand"></div>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+    </div>
+
+</div>
 </body>
 </html>
