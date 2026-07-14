@@ -2651,6 +2651,24 @@ if(searchBox){
 
 }
 
+
+  /*View More Option*/
+
+
+function openProduct(title, brand, description){
+
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalBrand").innerText = brand;
+    document.getElementById("modalDescription").innerText = description;
+
+    document.getElementById("productModal").style.display = "flex";
+}
+
+function closeProduct(){
+    document.getElementById("productModal").style.display = "none";
+}
+
+
 /* --- ABOUT SECTION SLIDESHOW --- */
 /* --- ULTRA-SMOOTH ABOUT BACKGROUND CROSSFADE --- */
 const images = ["2.png", "4.png", "5.png", "6.png"];
