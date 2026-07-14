@@ -1058,7 +1058,41 @@ padding-top: 40px;
  
   }
 
-/* PRODUCTS BLOCK LIKE JKOA */
+/* PRODUCTS DESCRIPTION */
+    .product-description{
+    font-size:15px;
+    color:#6b7280;
+    line-height:1.7;
+    margin:18px 0 26px;
+}
+
+.short-text{
+    display:inline;
+}
+
+.full-text{
+    display:none;
+}
+
+.product-description.expanded .short-text{
+    display:none;
+}
+
+.product-description.expanded .full-text{
+    display:inline;
+}
+
+.view-more{
+    color:#D00607;
+    font-weight:600;
+    cursor:pointer;
+    margin-left:6px;
+    user-select:none;
+}
+
+.view-more:hover{
+    text-decoration:underline;
+}
 
 /* PRODUCTS BLOCK LIKE JKOA */
 
@@ -1740,15 +1774,38 @@ transform:scale(1);
 ========================================== */
 
 .product-description{
+    font-size:15px;
+    color:#6b7280;
+    line-height:1.7;
+    margin:18px 0 26px;
+}
 
-    color:#6B7280;
+.short-text{
+    display:inline;
+}
 
-    font-size:16px;
+.full-text{
+    display:none;
+}
 
-    line-height:1.6;
+.product-description.expanded .short-text{
+    display:none;
+}
 
-    margin-bottom:30px;
+.product-description.expanded .full-text{
+    display:inline;
+}
 
+.view-more{
+    color:#D00607;
+    font-weight:600;
+    cursor:pointer;
+    margin-left:6px;
+    user-select:none;
+}
+
+.view-more:hover{
+    text-decoration:underline;
 }
 
 /* ==========================================
@@ -2137,22 +2194,23 @@ transform:scale(1);
         </div>
 
         <!-- Description -->
-        <p class="product-description">
+  <p class="product-description">
 
-            High-speed RS485 PLC communication module...
+    <span class="short-text">
+        High-speed RS485 PLC communication module...
+    </span>
 
-            <span class="view-more"
-                  onclick="openProduct(
-                  'FX3U-485-BD',
-                  'Mitsubishi',
-                  'High-speed RS485 PLC communication module compatible with Mitsubishi FX3U PLC systems.High-speed RS485 PLC communication module compatible with Mitsubishi FX3U PLC systems.'
-                  )">
+    <span class="full-text">
+        High-speed RS485 PLC communication module compatible with Mitsubishi FX3U PLC systems.
+        Supports reliable serial communication, easy installation, and seamless integration
+        with industrial automation networks.
+    </span>
 
-                View More 
+    <span class="view-more" onclick="toggleDescription(this)">
+        View More
+    </span>
 
-            </span>
-
-        </p>
+</p>
 
         <a href="https://wa.me/94779323391?text=I'm interested in FX3U-485-BD"
            class="quote-btn"
@@ -2613,6 +2671,27 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 fadeEls.forEach(el => observer.observe(el));
+
+
+
+ function toggleDescription(button){
+
+    const description = button.parentElement;
+
+    description.classList.toggle("expanded");
+
+    if(description.classList.contains("expanded")){
+
+        button.innerHTML = "View Less";
+
+    }else{
+
+        button.innerHTML = "View More";
+
+    }
+
+}
+  
 // STATS COUNTER
 const counters = document.querySelectorAll(".counter");
 let countersStarted = false;
