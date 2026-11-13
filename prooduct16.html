@@ -236,6 +236,62 @@
     }
 
 
+    /* BRAND TILES – SAME AS HOME PAGE */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-card {
+  width: 120px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(15,23,42,0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.brand-card:hover {
+  box-shadow: 0 10px 20px rgba(15,23,42,0.12);
+  transform: translateY(-2px);
+}
+
+.brand-logo {
+  max-height: 32px;
+  max-width: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+    .brand-pill {
+      height: 40px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-pill img {
+      max-height: 24px;
+      max-width: 90px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+
 /* PLC section – stack text first, then tiles */
 .sensor-hero-inner.plc-layout {
   grid-template-columns: minmax(0,1fr);
@@ -588,21 +644,24 @@
 <section class="sensor-hero">
   <div class="sensor-hero-inner plc-layout">
     <div class="sensor-hero-content">
-      <h1>Industrial Belts</h1>
+      <h1>Industrial Bearings</h1>
 
       <div class="sensor-hero-subtitle">
-High-Durability Power Transmission & Conveyor Belt Solutions for Industrial Machinery
+High-Precision Rolling & Linear Bearing Solutions for Heavy-Duty Machinery & Motion Control
 
 
       </div>
 
       <p class="sensor-hero-text">
-Industrial belts enable factories to transfer mechanical power smoothly and transport materials reliably across continuous production lines. From high-torque V-belts, cogged belts, and synchronous timing belts to heavy-duty rubber, PVC, PU, and modular conveyor belts, these engineered drive and conveying components minimize slippage, absorb shock loads, and ensure precise synchronization. Industrial belts help facilities reduce unplanned downtime, improve drive efficiency, and maintain steady throughput across manufacturing, packaging, food processing,bottling, apparel, and material handling operations.
+Industrial bearings enable factories to reduce rotational friction, support heavy radial and axial loads,and maintain precise shaft alignment across high-speed and continuous-duty machinery. From deep groove ball bearings,cylindrical and spherical roller bearings, and tapered roller bearings to pillow block mounted units and linear motion guides, these precision mechanical components ensure smooth, quiet, and reliable equipment operation. Industrial bearings help facilities extend machine service life, minimize vibration and energy loss, and prevent costly unplanned breakdowns across manufacturing, packaging, conveyors, motors, pumps, and processing plants.
 
        
                <br> <br>
-Industrial Belts Supplier in Sri Lanka | SH7 Engineering Solutions
-        
+Industrial Bearings Supplier in Sri Lanka | SH7 Engineering Solutions
+
+        <br><br>
+
+        <strong> Brands:</strong> <p> SKF, NSK, NTN, THK</p>
       
 
       </p>
@@ -612,44 +671,63 @@ Industrial Belts Supplier in Sri Lanka | SH7 Engineering Solutions
 
         <div class="plc-tile">
           <div class="plc-tile-image">
-            <img src="Belt_EBS40-D2-scaled-e1687960330871-2000x1330" alt="Allen Bradley PLC">
+            <img src="Ball.jpg" alt="Allen Bradley PLC">
           </div>
           <div class="plc-tile-brand">
-            <p> Conveyor Belts</p>
+            <p> Ball Bearings</p>
           </div>
         </div>
 
         <div class="plc-tile">
           <div class="plc-tile-image">
-            <img src="Flat.jpeg" alt="Delta PLC">
+            <img src="Roller.png" alt="Delta PLC">
           </div>
           <div class="plc-tile-brand">
-             <p> Flat Belts</p>
+             <p> Roller Bearings</p>
           </div>
         </div>
 
           <div class="plc-tile">
           <div class="plc-tile-image">
-            <img src="V Belt.jpeg" alt="Delta PLC">
+            <img src="linear.jpeg" alt="Delta PLC">
           </div>
           <div class="plc-tile-brand">
-            <p> V Belts</p>
+            <p> Linear Bearings </p>
           </div>
         </div>
         
           <div class="plc-tile">
           <div class="plc-tile-image">
-            <img src="Timing Belt.webp" alt="Delta PLC">
+            <img src="Mounted.avif" alt="Delta PLC">
           </div>
           <div class="plc-tile-brand">
-            <p> Timer Belts</p>
+            <p> Mounted Bearings</p>
           </div>
         </div>
+
 
         
 
         
       </div>
+
+      <div class="brands-grid">
+  <div class="brand-card">
+    <img src="11-2.jpg" class="brand-logo" alt="Brand 2">
+  </div>
+  <div class="brand-card">
+    <img src="NSK-Logo.png" class="brand-logo" alt="Brand 6">
+  </div>
+  <div class="brand-card">
+    <img src="images-2 (1).png" class="brand-logo" alt="Brand 8">
+  </div>
+  <div class="brand-card">
+    <img src="images-3.png" class="brand-logo" alt="Brand 10">
+  </div>
+ 
+      </div>
+    </div>
+        
     </div>
   </div>
 </section>
