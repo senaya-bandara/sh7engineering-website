@@ -1480,6 +1480,42 @@ padding-top: 40px;
   width: 100%;
   height: 80px;   /* adjust to 60–120px if you want more or less space */
 }
+
+
+    /* MOBILE RESPONSIVE PRODUCT CATEGORY TILES */
+@media (max-width: 600px) {
+
+    .products-section {
+        padding: 50px 15px;
+        margin-top: 40px;
+    }
+
+    .products-section .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .products-section .tile {
+        border-radius: 14px;
+    }
+
+    .products-section .tile-image-wrap {
+        aspect-ratio: 1 / 1;
+    }
+
+    .products-section .tile-body {
+        padding: 12px;
+    }
+
+    .products-section .tile-title {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .products-section .tile-arrow {
+        font-size: 15px;
+    }
+}
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       * {
